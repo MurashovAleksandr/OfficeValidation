@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace OfficeValidationLib.Interfaces
 {
     public interface ISession
     {
         long ID { get; }
-        IEnumerable<IOfficeDocument> Documents { get; }
+        IList<IDocument> Documents { get; }
         IEnumerable<ICheck> Checks { get; }
-        ISessionLog Log { get; }
+        ISessionLog Log { get; set; }
         ICheckResult[] PerformAll();
     }
 }

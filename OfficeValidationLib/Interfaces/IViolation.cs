@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using OfficeValidationLib.Enums;
 
 namespace OfficeValidationLib.Interfaces
 {
-    public enum ViolationLevel
-    {
-        Information,
-        Warning,
-        Error
-    }
     public interface IViolation
     {
-        IOfficeDocument Document { get; }
+        IDocument Document { get; }
         Object Object { get; }
         ViolationLevel Level { get; }
         IDictionary<string, object> Data { get; }

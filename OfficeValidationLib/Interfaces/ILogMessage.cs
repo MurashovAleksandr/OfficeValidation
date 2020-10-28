@@ -1,11 +1,7 @@
-﻿namespace OfficeValidationLib.Interfaces
+﻿using OfficeValidationLib.Enums;
+
+namespace OfficeValidationLib.Interfaces
 {
-    public enum LogMessageSeverity
-    {
-        Information,
-        Warning,
-        Error
-    };
     public interface ILogMessage
     {
         LogMessageSeverity Severity { get; }

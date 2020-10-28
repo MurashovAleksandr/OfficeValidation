@@ -5,9 +5,9 @@ namespace OfficeValidationLib.Interfaces
     public interface ICheck
     {
         string Name { get; set; }
-        string DisplayName { get; }
-        string Description { get; }
-        IEnumerable<ICheckParameter> Parameters { get; }
+        string DisplayName { get; set; }
+        string Description { get; set; }
+        IDictionary<string, object> Parameters { get; }
         IList<string> Tags { get; }
 
         bool IsAvailable(ISession session);

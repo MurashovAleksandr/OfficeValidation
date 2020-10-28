@@ -1,0 +1,29 @@
+﻿using OfficeValidationLib.Interfaces;
+
+namespace OfficeValidationLib.Classes.Documents
+{
+    public class MarkdownDocumentFactory : DocumentFactoryBase
+    {
+        public override string ExtentionsName { get; protected set; } = "Markdown";
+        public override string[] SupportingExtention { get; protected set; } = new[]
+        {
+            ".tex"
+        };
+        public override IDocument CreateInternal(string path) =>
+            new MarkdownDocument(path);
+    }
+
+    public class MarkdownDocument : DocumentBase
+    {
+        public string Document { get; private set; }
+        public MarkdownDocument(string path) : base(path) { }
+        public override void Initialize()
+        {
+            Document = System.IO.File.ReadAllText(Path);
+        }
+        public override void Dispose()
+        {
+            Document = null;
+        }
+    }
+}
