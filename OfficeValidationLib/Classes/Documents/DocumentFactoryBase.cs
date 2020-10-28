@@ -6,7 +6,7 @@ namespace OfficeValidationLib.Classes.Documents
 {
     public abstract class DocumentFactoryBase : IDocumentFactory
     {
-        public abstract string ExtentionsName { get; protected set; }
+        public abstract string Name { get; protected set; }
         public abstract string[] SupportingExtention { get; protected set; }
         public virtual bool CanCreate(string path) =>
             SupportingExtention.Select(x => x.ToLower()).Contains(System.IO.Path.GetExtension(path).ToLower());
@@ -19,6 +19,8 @@ namespace OfficeValidationLib.Classes.Documents
             return CreateInternal(path);
         }
 
-        public abstract IDocument CreateInternal(string path);
+        protected abstract IDocument CreateInternal(string path);
+
+        public override string ToString() => Name;
     }
 }

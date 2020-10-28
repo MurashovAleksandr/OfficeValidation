@@ -5,7 +5,7 @@ namespace OfficeValidationLib.Classes.Documents
 {
     public class ExcelDocumentFactory : DocumentFactoryBase
     {
-        public override string ExtentionsName { get; protected set; } = "Excel";
+        public override string Name { get; protected set; } = "Excel";
         public override string[] SupportingExtention { get; protected set; } = new[]
         {
             ".csv", ".ods", ".prn",
@@ -14,7 +14,7 @@ namespace OfficeValidationLib.Classes.Documents
             ".xlsx", ".xlt", ".xltm",
             ".xltx", ".xlw", ".xps"
         };
-        public override IDocument CreateInternal(string path) => 
+        protected override IDocument CreateInternal(string path) => 
             new ExcelDocument(path);
     }
 

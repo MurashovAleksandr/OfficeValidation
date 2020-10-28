@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Text;
 using Newtonsoft.Json;
 using OfficeValidationLib.Enums;
 using OfficeValidationLib.Interfaces;
@@ -59,6 +58,7 @@ namespace OfficeValidationLib.Classes.Session
                                 check.Tags.Add(tag);
                             }
                         }
+                        session.Checks.Add(check);
                     }
                     else
                     {

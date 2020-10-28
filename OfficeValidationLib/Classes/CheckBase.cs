@@ -15,19 +15,24 @@ namespace OfficeValidationLib.Classes
         public string DisplayName { get; set; }
         public string Description { get; set; }
 
-
-        public abstract ICheckResult Perform(ISession session);
+        public ICheckResult Perform(ISession session)
+        {
+            foreach (var sessionDocument in session.Documents)
+            {
+                sessionDocument.Initialize();
+            }
+            return PerformInternal(session);
+        }
+        protected abstract ICheckResult PerformInternal(ISession session);
 
         public virtual bool IsAvailable(ISession session) => true;
 
         public void InitializeParameters(IDictionary<string, object> values)
         {
-            _parameters = InitializeParametersInternal(values);
+            _parameters = values;
+            InitializeParametersInternal(values);
         }
 
-        protected virtual IDictionary<string, object> InitializeParametersInternal(IDictionary<string, object> values)
-        {
-            return values;
-        }
+        protected virtual void InitializeParametersInternal(IDictionary<string, object> values) { }
     }
 }

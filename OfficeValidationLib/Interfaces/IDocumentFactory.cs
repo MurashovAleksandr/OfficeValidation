@@ -2,8 +2,9 @@
 {
     public interface IDocumentFactory
     {
-        string ExtentionsName { get; }
+        string Name { get; }
         string[] SupportingExtention { get; }
         bool CanCreate(string path);
+        IDocument Create(string path);
     }
 }

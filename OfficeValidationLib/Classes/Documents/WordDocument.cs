@@ -5,13 +5,13 @@ namespace OfficeValidationLib.Classes.Documents
 {
     public class WordDocumentFactory : DocumentFactoryBase
     {
-        public override string ExtentionsName { get; protected set; } = "Word";
+        public override string Name { get; protected set; } = "Word";
         public override string[] SupportingExtention { get; protected set; } = new[]
         {
             ".doc", ".docm", ".docx", ".dot",
             ".dotm", ".dotx",".odt", ".rtf", ".wps", ".xps"
         };
-        public override IDocument CreateInternal(string path) =>
+        protected override IDocument CreateInternal(string path) =>
             new WordDocument(path);
     }
 

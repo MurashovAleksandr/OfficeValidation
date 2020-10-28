@@ -5,7 +5,7 @@ using OfficeValidationLib.Interfaces;
 
 namespace OfficeValidationLib.Classes.Session
 {
-    public class Session : ISession
+    public class Session : ISession, IDisposable
     {
         public Session()
         {
@@ -13,10 +13,18 @@ namespace OfficeValidationLib.Classes.Session
         }
         public long ID { get; }
         public IList<IDocument> Documents { get; } = new List<IDocument>();
-        public IEnumerable<ICheck> Checks { get; } = new List<ICheck>();
+        public IList<ICheck> Checks { get; } = new List<ICheck>();
         public ISessionLog Log { get; set; }
 
         public ICheckResult[] PerformAll() =>
             Checks.Select(x => x.Perform(this)).ToArray();
+
+        public void Dispose()
+        {
+            foreach (var document in Documents)
+            {
+                document.Dispose();
+            }
+        }
     }
 }

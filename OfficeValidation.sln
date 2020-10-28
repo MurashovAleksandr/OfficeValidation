@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeValidationLib", "OfficeValidationLib\OfficeValidationLib.csproj", "{E40B60E5-66A2-4DD0-BB59-41BF5FD5FB8A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeValidationApp", "OfficeValidationApp\OfficeValidationApp.csproj", "{F50E4281-1B1A-4B84-B009-7D61A246F7DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonOfficeValidationChecks", "CommonOfficeValidationChecks\CommonOfficeValidationChecks.csproj", "{3054CE64-6A9D-4871-80E1-7D1B1DFC4F2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{F50E4281-1B1A-4B84-B009-7D61A246F7DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F50E4281-1B1A-4B84-B009-7D61A246F7DD}.Release|x64.ActiveCfg = Release|Any CPU
 		{F50E4281-1B1A-4B84-B009-7D61A246F7DD}.Release|x64.Build.0 = Release|Any CPU
+		{3054CE64-6A9D-4871-80E1-7D1B1DFC4F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3054CE64-6A9D-4871-80E1-7D1B1DFC4F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3054CE64-6A9D-4871-80E1-7D1B1DFC4F2F}.Debug|x64.ActiveCfg = Debug|x64
+		{3054CE64-6A9D-4871-80E1-7D1B1DFC4F2F}.Debug|x64.Build.0 = Debug|x64
+		{3054CE64-6A9D-4871-80E1-7D1B1DFC4F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3054CE64-6A9D-4871-80E1-7D1B1DFC4F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3054CE64-6A9D-4871-80E1-7D1B1DFC4F2F}.Release|x64.ActiveCfg = Release|Any CPU
+		{3054CE64-6A9D-4871-80E1-7D1B1DFC4F2F}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -108,6 +108,8 @@
     <Compile Include="Classes\Session\Session.cs" />
     <Compile Include="Classes\Session\SessionBuilder.cs" />
     <Compile Include="Classes\Session\SessionManager.cs" />
+    <Compile Include="Classes\SimpleCheckResult.cs" />
+    <Compile Include="Classes\SimpleViolation.cs" />
     <Compile Include="Enums\LogMessageSeverity.cs" />
     <Compile Include="Enums\ViolationLevel.cs" />
     <Compile Include="Interfaces\ICheck.cs" />
@@ -121,11 +123,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.3</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -136,6 +133,8 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

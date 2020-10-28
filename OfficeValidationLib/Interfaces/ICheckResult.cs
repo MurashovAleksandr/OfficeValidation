@@ -5,7 +5,7 @@ namespace OfficeValidationLib.Interfaces
     public interface ICheckResult
     {
         ICheck Check { get; }
-        IEnumerable<object> AllObjects { get; }
-        IEnumerable<IViolation> Violations { get; }
+        IList<object> CheckedObjects { get; }
+        IList<IViolation> Violations { get; }
     }
 }

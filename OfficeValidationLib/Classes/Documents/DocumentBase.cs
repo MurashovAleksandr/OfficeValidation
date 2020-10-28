@@ -19,5 +19,7 @@ namespace OfficeValidationLib.Classes.Documents
         public abstract void Initialize();
 
         public abstract void Dispose();
+
+        public override string ToString() => Name;
     }
 }

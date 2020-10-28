@@ -4,12 +4,12 @@ namespace OfficeValidationLib.Classes.Documents
 {
     public class MarkdownDocumentFactory : DocumentFactoryBase
     {
-        public override string ExtentionsName { get; protected set; } = "Markdown";
+        public override string Name { get; protected set; } = "Markdown";
         public override string[] SupportingExtention { get; protected set; } = new[]
         {
             ".tex"
         };
-        public override IDocument CreateInternal(string path) =>
+        protected override IDocument CreateInternal(string path) =>
             new MarkdownDocument(path);
     }
 

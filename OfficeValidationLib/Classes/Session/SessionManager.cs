@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 using OfficeValidationLib.Interfaces;
 
@@ -10,25 +9,22 @@ namespace OfficeValidationLib.Classes.Session
     public class SessionManager
     {
         readonly SessionBuilder _builder = new SessionBuilder();
-        readonly Config _config;
-        readonly IEnumerable<IDocument> _documents;
+        private readonly Config _config;
         readonly IList<ISession> _sessions = new List<ISession>();
         public ISession[] Sessions => _sessions.ToArray();
 
-        public SessionManager(Config config, IEnumerable<IDocument> documents)
+        public SessionManager(Config config)
         {
             _config = config;
-            _documents = documents;
         }
 
-        public SessionManager(string configPath, IEnumerable<IDocument> documents)
+        public SessionManager(string configPath)
         {
             _config = JsonConvert.DeserializeObject<Config>(File.ReadAllText(configPath));
-            _documents = documents;
         }
-        public ISession Create()
+        public ISession Create(IEnumerable<IDocument> documents)
         {
-            var session = _builder.Build(_config, _documents);
+            var session = _builder.Build(_config, documents);
             _sessions.Add(session);
             return session;
         }
