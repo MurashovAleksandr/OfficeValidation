@@ -17,7 +17,7 @@ namespace OfficeValidationLib.Classes.Session
         public ISessionLog Log { get; set; }
 
         public ICheckResult[] PerformAll() =>
-            Checks.Select(x => x.Perform(this)).ToArray();
+            Checks.Where(x=>x.IsAvailable(this)).Select(x => x.Perform(this)).ToArray();
 
         public void Dispose()
         {

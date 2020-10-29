@@ -10,10 +10,7 @@ namespace OfficeValidationLib.Classes.Session
 {
     public class SessionBuilder
     {
-        public Session Build(string configPath, IEnumerable<IDocument> documents) =>
-            Build(JsonConvert.DeserializeObject<Config>(File.ReadAllText(configPath)), documents);
-
-        public Session Build(Config config, IEnumerable<IDocument> documents)
+        public Session Build(IEnumerable<Instance> instances, IEnumerable<IDocument> documents)
         {
             var session = new Session();
             session.Log = new MultiLog(session);
@@ -25,7 +22,7 @@ namespace OfficeValidationLib.Classes.Session
                 session.Log.AddMessage(new LogMessage(LogMessageSeverity.Information, $"Добавлен документ {doc.Name}"));
             }
 
-            foreach (var instance in config.Instances)
+            foreach (var instance in instances)
             {
                 try
                 {

@@ -25,9 +25,9 @@ namespace OfficeValidationLib.Classes.Session
         {
 
         }
-        public ISession Create(IEnumerable<IDocument> documents)
+        public ISession Create(IEnumerable<Instance> instances, IEnumerable<IDocument> documents)
         {
-            var session = _builder.Build(_config, documents);
+            var session = _builder.Build(instances, documents);
             _sessions.Add(session);
             return session;
         }

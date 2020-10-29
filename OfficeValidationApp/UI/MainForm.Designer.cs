@@ -43,19 +43,22 @@
             this.olvColumnTag = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.groupBoxDescription = new System.Windows.Forms.GroupBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.openFileDialogDocuments = new System.Windows.Forms.OpenFileDialog();
+            this.tableLayoutPanelDocumentTypes = new System.Windows.Forms.TableLayoutPanel();
+            this.objectListViewDocuments = new BrightIdeasSoftware.ObjectListView();
             this.olvColumnDocument = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnType = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.objectListViewDocuments = new BrightIdeasSoftware.ObjectListView();
+            this.objectListViewDocumentTypes = new BrightIdeasSoftware.ObjectListView();
+            this.olvColumnDocumentTypes = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.openFileDialogDocuments = new System.Windows.Forms.OpenFileDialog();
             this.menuStripMain.SuspendLayout();
             this.tableLayoutPanelDocumentsChecks.SuspendLayout();
             this.tableLayoutPanelTagsChecksDescriptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListViewChecks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectListViewTags)).BeginInit();
             this.groupBoxDescription.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tableLayoutPanelDocumentTypes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListViewDocuments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectListViewDocumentTypes)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -105,7 +108,7 @@
             this.tableLayoutPanelDocumentsChecks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelDocumentsChecks.Controls.Add(this.buttonPerform, 0, 2);
             this.tableLayoutPanelDocumentsChecks.Controls.Add(this.tableLayoutPanelTagsChecksDescriptions, 0, 1);
-            this.tableLayoutPanelDocumentsChecks.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanelDocumentsChecks.Controls.Add(this.tableLayoutPanelDocumentTypes, 0, 0);
             this.tableLayoutPanelDocumentsChecks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelDocumentsChecks.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanelDocumentsChecks.Name = "tableLayoutPanelDocumentsChecks";
@@ -120,19 +123,21 @@
             // buttonPerform
             // 
             this.buttonPerform.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonPerform.Enabled = false;
             this.buttonPerform.Location = new System.Drawing.Point(681, 503);
             this.buttonPerform.Name = "buttonPerform";
             this.buttonPerform.Size = new System.Drawing.Size(100, 31);
             this.buttonPerform.TabIndex = 0;
             this.buttonPerform.Text = "Запустить";
             this.buttonPerform.UseVisualStyleBackColor = true;
+            this.buttonPerform.Click += new System.EventHandler(this.buttonPerform_Click);
             // 
             // tableLayoutPanelTagsChecksDescriptions
             // 
             this.tableLayoutPanelTagsChecksDescriptions.ColumnCount = 3;
             this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.06961F));
             this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.93039F));
-            this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199F));
+            this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanelTagsChecksDescriptions.Controls.Add(this.objectListViewChecks, 0, 0);
             this.tableLayoutPanelTagsChecksDescriptions.Controls.Add(this.objectListViewTags, 0, 0);
             this.tableLayoutPanelTagsChecksDescriptions.Controls.Add(this.groupBoxDescription, 2, 0);
@@ -160,11 +165,12 @@
             this.objectListViewChecks.Location = new System.Drawing.Point(182, 3);
             this.objectListViewChecks.Name = "objectListViewChecks";
             this.objectListViewChecks.ShowGroups = false;
-            this.objectListViewChecks.Size = new System.Drawing.Size(393, 322);
+            this.objectListViewChecks.Size = new System.Drawing.Size(392, 322);
             this.objectListViewChecks.TabIndex = 3;
             this.objectListViewChecks.UseCompatibleStateImageBehavior = false;
             this.objectListViewChecks.UseFiltering = true;
             this.objectListViewChecks.View = System.Windows.Forms.View.Details;
+            this.objectListViewChecks.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.objectListViewChecks_ItemChecked);
             this.objectListViewChecks.SelectedIndexChanged += new System.EventHandler(this.objectListViewChecks_SelectedIndexChanged);
             // 
             // olvColumnCheck
@@ -204,9 +210,9 @@
             // 
             this.groupBoxDescription.Controls.Add(this.textBoxDescription);
             this.groupBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxDescription.Location = new System.Drawing.Point(581, 3);
+            this.groupBoxDescription.Location = new System.Drawing.Point(580, 3);
             this.groupBoxDescription.Name = "groupBoxDescription";
-            this.groupBoxDescription.Size = new System.Drawing.Size(194, 322);
+            this.groupBoxDescription.Size = new System.Drawing.Size(195, 322);
             this.groupBoxDescription.TabIndex = 2;
             this.groupBoxDescription.TabStop = false;
             this.groupBoxDescription.Text = "Описание";
@@ -218,34 +224,23 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
-            this.textBoxDescription.Size = new System.Drawing.Size(188, 303);
+            this.textBoxDescription.Size = new System.Drawing.Size(189, 303);
             this.textBoxDescription.TabIndex = 0;
             // 
-            // panel1
+            // tableLayoutPanelDocumentTypes
             // 
-            this.panel1.Controls.Add(this.objectListViewDocuments);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(778, 160);
-            this.panel1.TabIndex = 2;
-            // 
-            // openFileDialogDocuments
-            // 
-            this.openFileDialogDocuments.Multiselect = true;
-            this.openFileDialogDocuments.RestoreDirectory = true;
-            // 
-            // olvColumnDocument
-            // 
-            this.olvColumnDocument.FillsFreeSpace = true;
-            this.olvColumnDocument.Text = "Документ";
-            this.olvColumnDocument.Width = 300;
-            // 
-            // olvColumnType
-            // 
-            this.olvColumnType.FillsFreeSpace = true;
-            this.olvColumnType.Text = "Тип";
-            this.olvColumnType.Width = 219;
+            this.tableLayoutPanelDocumentTypes.ColumnCount = 2;
+            this.tableLayoutPanelDocumentTypes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.75064F));
+            this.tableLayoutPanelDocumentTypes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.24936F));
+            this.tableLayoutPanelDocumentTypes.Controls.Add(this.objectListViewDocuments, 0, 0);
+            this.tableLayoutPanelDocumentTypes.Controls.Add(this.objectListViewDocumentTypes, 0, 0);
+            this.tableLayoutPanelDocumentTypes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelDocumentTypes.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanelDocumentTypes.Name = "tableLayoutPanelDocumentTypes";
+            this.tableLayoutPanelDocumentTypes.RowCount = 1;
+            this.tableLayoutPanelDocumentTypes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelDocumentTypes.Size = new System.Drawing.Size(778, 160);
+            this.tableLayoutPanelDocumentTypes.TabIndex = 2;
             // 
             // objectListViewDocuments
             // 
@@ -261,13 +256,59 @@
             this.objectListViewDocuments.FullRowSelect = true;
             this.objectListViewDocuments.GridLines = true;
             this.objectListViewDocuments.HideSelection = false;
-            this.objectListViewDocuments.Location = new System.Drawing.Point(0, 0);
+            this.objectListViewDocuments.Location = new System.Drawing.Point(179, 3);
             this.objectListViewDocuments.Name = "objectListViewDocuments";
             this.objectListViewDocuments.ShowGroups = false;
-            this.objectListViewDocuments.Size = new System.Drawing.Size(778, 160);
-            this.objectListViewDocuments.TabIndex = 2;
+            this.objectListViewDocuments.Size = new System.Drawing.Size(596, 154);
+            this.objectListViewDocuments.TabIndex = 5;
             this.objectListViewDocuments.UseCompatibleStateImageBehavior = false;
+            this.objectListViewDocuments.UseFiltering = true;
             this.objectListViewDocuments.View = System.Windows.Forms.View.Details;
+            this.objectListViewDocuments.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.objectListViewDocuments_ItemChecked);
+            // 
+            // olvColumnDocument
+            // 
+            this.olvColumnDocument.FillsFreeSpace = true;
+            this.olvColumnDocument.Text = "Документ";
+            this.olvColumnDocument.Width = 300;
+            // 
+            // olvColumnType
+            // 
+            this.olvColumnType.FillsFreeSpace = true;
+            this.olvColumnType.Text = "Тип";
+            this.olvColumnType.Width = 219;
+            // 
+            // objectListViewDocumentTypes
+            // 
+            this.objectListViewDocumentTypes.AllColumns.Add(this.olvColumnDocumentTypes);
+            this.objectListViewDocumentTypes.CellEditUseWholeCell = false;
+            this.objectListViewDocumentTypes.CheckBoxes = true;
+            this.objectListViewDocumentTypes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.olvColumnDocumentTypes});
+            this.objectListViewDocumentTypes.Cursor = System.Windows.Forms.Cursors.Default;
+            this.objectListViewDocumentTypes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.objectListViewDocumentTypes.FullRowSelect = true;
+            this.objectListViewDocumentTypes.GridLines = true;
+            this.objectListViewDocumentTypes.HideSelection = false;
+            this.objectListViewDocumentTypes.Location = new System.Drawing.Point(3, 3);
+            this.objectListViewDocumentTypes.Name = "objectListViewDocumentTypes";
+            this.objectListViewDocumentTypes.ShowGroups = false;
+            this.objectListViewDocumentTypes.Size = new System.Drawing.Size(170, 154);
+            this.objectListViewDocumentTypes.TabIndex = 4;
+            this.objectListViewDocumentTypes.UseCompatibleStateImageBehavior = false;
+            this.objectListViewDocumentTypes.View = System.Windows.Forms.View.Details;
+            this.objectListViewDocumentTypes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.objectListViewDocumentTypes_ItemChecked);
+            // 
+            // olvColumnDocumentTypes
+            // 
+            this.olvColumnDocumentTypes.FillsFreeSpace = true;
+            this.olvColumnDocumentTypes.Text = "Тип документа";
+            this.olvColumnDocumentTypes.Width = 300;
+            // 
+            // openFileDialogDocuments
+            // 
+            this.openFileDialogDocuments.Multiselect = true;
+            this.openFileDialogDocuments.RestoreDirectory = true;
             // 
             // MainForm
             // 
@@ -292,8 +333,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.objectListViewTags)).EndInit();
             this.groupBoxDescription.ResumeLayout(false);
             this.groupBoxDescription.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanelDocumentTypes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.objectListViewDocuments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.objectListViewDocumentTypes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,14 +354,16 @@
         private System.Windows.Forms.GroupBox groupBoxDescription;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.OpenFileDialog openFileDialogDocuments;
-        private System.Windows.Forms.Panel panel1;
         private BrightIdeasSoftware.ObjectListView objectListViewChecks;
         private BrightIdeasSoftware.OLVColumn olvColumnCheck;
         private BrightIdeasSoftware.ObjectListView objectListViewTags;
         private BrightIdeasSoftware.OLVColumn olvColumnTag;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDocumentTypes;
         private BrightIdeasSoftware.ObjectListView objectListViewDocuments;
         private BrightIdeasSoftware.OLVColumn olvColumnDocument;
         private BrightIdeasSoftware.OLVColumn olvColumnType;
+        private BrightIdeasSoftware.ObjectListView objectListViewDocumentTypes;
+        private BrightIdeasSoftware.OLVColumn olvColumnDocumentTypes;
     }
 }
 

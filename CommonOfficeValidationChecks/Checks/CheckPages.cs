@@ -11,7 +11,7 @@ namespace CommonOfficeValidationChecks.Checks
     {
         private long _bookmarksMinCount;
         public override bool IsAvailable(ISession session) =>
-            session.Documents.Cast<WordDocument>().Any();
+            session.Documents.Where(x=>x is WordDocument).Cast<WordDocument>().Any();
         protected override void InitializeParametersInternal(IDictionary<string, object> values)
         {
             _bookmarksMinCount = (long)values["BookmarksMinCount"];
@@ -19,7 +19,7 @@ namespace CommonOfficeValidationChecks.Checks
         protected override ICheckResult PerformInternal(ISession session)
         {
             var checkResult = new SimpleCheckResult(this);
-            var wordDocuments = session.Documents.Cast<WordDocument>().ToArray();
+            var wordDocuments = session.Documents.Where(x => x is WordDocument).Cast<WordDocument>().ToArray();
             foreach (var wordDocument in wordDocuments)
             {
                 checkResult.CheckedObjects.Add(wordDocument);

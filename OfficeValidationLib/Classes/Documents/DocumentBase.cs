@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.IO;
 using OfficeValidationLib.Interfaces;
 
@@ -17,11 +16,7 @@ namespace OfficeValidationLib.Classes.Documents
             {
                 throw new FileNotFoundException($"Документ не найден", path);
             }
-            if (creator == null)
-            {
-                throw new ArgumentNullException(nameof(creator));
-            }
-            Creator = creator;
+            Creator = creator ?? throw new ArgumentNullException(nameof(creator));
             this.Path = path;
         }
         public abstract void Initialize();

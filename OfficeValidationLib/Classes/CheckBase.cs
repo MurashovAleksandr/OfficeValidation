@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using OfficeValidationLib.Interfaces;
 
 namespace OfficeValidationLib.Classes
@@ -19,7 +20,15 @@ namespace OfficeValidationLib.Classes
         {
             foreach (var sessionDocument in session.Documents)
             {
-                sessionDocument.Initialize();
+                try
+                {
+                    sessionDocument.Initialize();
+                }
+                catch (Exception exception)
+                {
+                    session.Log.AddMessage(new ErrorLogMessage(exception, this));
+                    return null;
+                }
             }
             return PerformInternal(session);
         }

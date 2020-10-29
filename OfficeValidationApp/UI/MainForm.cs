@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using OfficeValidationLib.Classes;
@@ -24,9 +23,16 @@ namespace OfficeValidationApp.UI
         void SetupAspects()
         {
             //set document types
-            //objectListViewDocumentTypes.Objects = _documentManager.DocumentFactories;
-            //olvColumnDocumentTypes.AspectGetter = rowObject => rowObject is IDocumentFactory document ? document.Name : null;
-            //objectListViewDocumentTypes.RefreshObjects(objectListViewDocumentTypes.Objects.Cast<Object>().ToList());
+            objectListViewDocumentTypes.Objects = _documentManager.DocumentFactories;
+            olvColumnDocumentTypes.AspectGetter = rowObject => rowObject is IDocumentFactory document ? document.Name : null;
+            objectListViewDocumentTypes.RefreshObjects(objectListViewDocumentTypes.Objects.Cast<Object>().ToList());
+
+            //document types selection ('OR' behavior)
+            objectListViewDocuments.ModelFilter = new ModelFilter(objDocument =>
+                objectListViewDocumentTypes.CheckedObjects.Count == 0 ||
+                objDocument is IDocument document &&
+                objectListViewDocumentTypes.CheckedObjects.Cast<IDocumentFactory>()
+                    .Any(x=>string.Equals(x.Name, document.Creator.Name)));
 
             //prepare documents
             objectListViewDocuments.Objects = new List<IDocument>();
@@ -44,7 +50,7 @@ namespace OfficeValidationApp.UI
             olvColumnTag.AspectGetter = rowObject => rowObject;
             objectListViewTags.RefreshObjects(objectListViewTags.Objects.Cast<string>().ToList());
 
-            //tags selection behavior
+            //tags selection ('AND' behavior)
             objectListViewChecks.ModelFilter = new ModelFilter(objInstance => 
                 objectListViewTags.CheckedObjects.Count == 0 ||
                 objInstance is Instance instance && objectListViewTags.CheckedObjects.Count ==
@@ -90,9 +96,31 @@ namespace OfficeValidationApp.UI
             }
         }
 
-        private void objectListViewTags_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
+        private void objectListViewTags_ItemChecked(object sender, ItemCheckedEventArgs e) =>
             objectListViewChecks.UpdateObjects(objectListViewChecks.Objects.Cast<object>().ToArray());
+
+        private void objectListViewDocumentTypes_ItemChecked(object sender, ItemCheckedEventArgs e) => 
+            objectListViewDocuments.UpdateObjects(objectListViewDocuments.Objects.Cast<object>().ToArray());
+
+        void UpdatePerformState()
+        {
+            buttonPerform.Enabled = objectListViewDocuments.CheckedObjects.Count > 0 && 
+                                    objectListViewChecks.CheckedObjects.Count > 0;
         }
+
+
+        private void buttonPerform_Click(object sender, EventArgs e)
+        {
+            var session = _sessionManager.Create(
+                objectListViewChecks.CheckedObjects.Cast<Instance>(),
+                objectListViewDocuments.CheckedObjects.Cast<IDocument>());
+            var results = session.PerformAll();
+        }
+
+        private void objectListViewDocuments_ItemChecked(object sender, ItemCheckedEventArgs e) =>
+            UpdatePerformState();
+
+        private void objectListViewChecks_ItemChecked(object sender, ItemCheckedEventArgs e) =>
+            UpdatePerformState();
     }
 }
