@@ -10,13 +10,13 @@ namespace OfficeValidationLib.Classes.Documents
             ".tex"
         };
         protected override IDocument CreateInternal(string path) =>
-            new LaTeXDocument(path);
+            new LaTeXDocument(path, this);
     }
 
     public class LaTeXDocument : DocumentBase
     {
         public string Document { get; private set; }
-        public LaTeXDocument(string path) : base(path) { }
+        public LaTeXDocument(string path, IDocumentFactory creator) : base(path, creator) { }
         public override void Initialize()
         {
             Document = System.IO.File.ReadAllText(Path);

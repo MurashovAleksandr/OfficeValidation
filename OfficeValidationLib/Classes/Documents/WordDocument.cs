@@ -12,14 +12,14 @@ namespace OfficeValidationLib.Classes.Documents
             ".dotm", ".dotx",".odt", ".rtf", ".wps", ".xps"
         };
         protected override IDocument CreateInternal(string path) =>
-            new WordDocument(path);
+            new WordDocument(path, this);
     }
 
     public class WordDocument : DocumentBase
     {
         public Application Application { get; private set; }
         public Document Document { get; private set; }
-        public WordDocument(string path) : base(path) { }
+        public WordDocument(string path, IDocumentFactory creator) : base(path, creator) { }
         public override void Initialize()
         {
             Application = new Application() { Visible = false };

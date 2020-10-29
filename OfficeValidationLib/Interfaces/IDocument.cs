@@ -6,6 +6,7 @@ namespace OfficeValidationLib.Interfaces
     {
         string Name { get; }
         string Path { get; }
+        IDocumentFactory Creator { get; }
         void Initialize();
     }
 }

@@ -15,6 +15,9 @@ namespace OfficeValidationApp
         [STAThread]
         static void Main()
         {
+            Application.EnableVisualStyles(); // critical for TreeListView!!!
+            Application.SetCompatibleTextRenderingDefault(false);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

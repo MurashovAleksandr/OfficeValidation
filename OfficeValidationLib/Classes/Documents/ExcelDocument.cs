@@ -15,14 +15,14 @@ namespace OfficeValidationLib.Classes.Documents
             ".xltx", ".xlw", ".xps"
         };
         protected override IDocument CreateInternal(string path) => 
-            new ExcelDocument(path);
+            new ExcelDocument(path, this);
     }
 
     public class ExcelDocument : DocumentBase
     {
         public Application Application { get; private set; }
         public Workbook Document { get; private set; }
-        public ExcelDocument(string path) : base(path) { }
+        public ExcelDocument(string path, IDocumentFactory creator) : base(path, creator) { }
         public override void Initialize()
         {
             Application = new Application() { Visible = false };

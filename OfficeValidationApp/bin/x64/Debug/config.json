@@ -2,9 +2,24 @@
 	"Instances":
 	[
 		{
-			"Name":"ContainsBookmarks",
-			"DisplayName":"Проверка наличия закладок",
-			"Description":"Проверяется наличие закладок в документе",
+			"Name":"ContainsBookmarks2",
+			"DisplayName":"Более 2 закладок",
+			"Description":"Проверяется наличие закладок в документе (должно быть 2 или более)",
+			"Assembly":"CommonOfficeValidationChecks.dll",
+			"ClassName":"CommonOfficeValidationChecks.Checks.Bookmarks",
+			"Parameters":
+			{
+				"BookmarksMinCount":2
+			},
+			"Tags":
+			[
+				"Основные","Закладки","2"
+			]
+		},
+		{
+			"Name":"ContainsBookmarks5",
+			"DisplayName":"Более 5 закладок",
+			"Description":"Проверяется наличие закладок в документе (должно быть 5 или более)",
 			"Assembly":"CommonOfficeValidationChecks.dll",
 			"ClassName":"CommonOfficeValidationChecks.Checks.Bookmarks",
 			"Parameters":
@@ -13,7 +28,7 @@
 			},
 			"Tags":
 			[
-				"Основные","Закладки"
+				"Основные","Закладки","5"
 			]
 		}
 	]

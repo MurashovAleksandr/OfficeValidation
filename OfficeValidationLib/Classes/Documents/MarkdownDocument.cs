@@ -7,16 +7,16 @@ namespace OfficeValidationLib.Classes.Documents
         public override string Name { get; protected set; } = "Markdown";
         public override string[] SupportingExtention { get; protected set; } = new[]
         {
-            ".tex"
+            ".md"
         };
         protected override IDocument CreateInternal(string path) =>
-            new MarkdownDocument(path);
+            new MarkdownDocument(path, this);
     }
 
     public class MarkdownDocument : DocumentBase
     {
         public string Document { get; private set; }
-        public MarkdownDocument(string path) : base(path) { }
+        public MarkdownDocument(string path, IDocumentFactory creator) : base(path, creator) { }
         public override void Initialize()
         {
             Document = System.IO.File.ReadAllText(Path);

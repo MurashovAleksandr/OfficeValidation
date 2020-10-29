@@ -14,14 +14,14 @@ namespace OfficeValidationLib.Classes.Documents
             ".ppsx", ".ppt", ".pptm", ".pptx", ".thmx"
         };
         protected override IDocument CreateInternal(string path) =>
-            new PowerPointDocument(path);
+            new PowerPointDocument(path, this);
     }
 
     public class PowerPointDocument : DocumentBase
     {
         public Microsoft.Office.Interop.PowerPoint.Application Application { get; private set; }
         public Presentation Document { get; private set; }
-        public PowerPointDocument(string path) : base(path) { }
+        public PowerPointDocument(string path, IDocumentFactory creator) : base(path, creator) { }
         public override void Initialize()
         {
             Application = new Microsoft.Office.Interop.PowerPoint.Application() { Visible = MsoTriState.msoFalse };

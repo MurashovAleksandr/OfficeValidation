@@ -13,6 +13,7 @@ namespace OfficeValidationLib.Classes
                         .Contains(typeof(IDocumentFactory)))
                     .Select(Activator.CreateInstance)
                     .Cast<IDocumentFactory>()
+                    .OrderBy(x=>x.Name)
                     .ToArray();
     }
 }
