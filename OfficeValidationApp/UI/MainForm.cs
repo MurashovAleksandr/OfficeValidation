@@ -1,9 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using OfficeValidationLib.Classes;
-using OfficeValidationLib.Classes.Documents;
 using OfficeValidationLib.Classes.Session;
-using OfficeValidationLib.Interfaces;
 
 namespace OfficeValidationApp.UI
 {
@@ -14,18 +13,19 @@ namespace OfficeValidationApp.UI
         public MainForm()
         {
             InitializeComponent();
+
+            objectListViewDocumentTypes.Objects =
+                _documentManager.DocumentFactories.SelectMany(x => x.SupportingExtention).Distinct();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            /*using (ISession session = _sessionManager.Create(new IDocument[]
+            foreach (var session in _sessionManager.Sessions)
             {
-                new WordDocument(
-                    @"C:\Projects\CSharp\OfficeValidation\OfficeValidationApp\bin\x64\Debug\Arduino Nano.docx")
-            }))
-            {
-                var checkResult = session.PerformAll();
-            }*/
+                session.Dispose();
+            }
         }
     }
 }
