@@ -16,7 +16,8 @@ namespace CommonOfficeValidationChecks.Checks
         {
             _bookmarksMinCount = (long)values["BookmarksMinCount"];
         }
-        protected override ICheckResult PerformInternal(ISession session)
+
+        public override ICheckResult Perform(ISession session)
         {
             var checkResult = new SimpleCheckResult(this);
             var wordDocuments = session.Documents.Where(x => x is WordDocument).Cast<WordDocument>().ToArray();

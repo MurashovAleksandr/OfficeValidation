@@ -9,6 +9,7 @@ namespace OfficeValidationLib.Classes.Documents
         public string Name => System.IO.Path.GetFileName(Path);
         public string Path { get; }
         public IDocumentFactory Creator { get; }
+        public bool IsInitialized { get; private set; }
 
         protected DocumentBase(string path, IDocumentFactory creator)
         {
@@ -19,7 +20,16 @@ namespace OfficeValidationLib.Classes.Documents
             Creator = creator ?? throw new ArgumentNullException(nameof(creator));
             this.Path = path;
         }
-        public abstract void Initialize();
+
+        public void Initialize()
+        {
+            if (!IsInitialized)
+            {
+                InitializeInternal();
+            }
+            IsInitialized = true;
+        }
+        public abstract void InitializeInternal();
 
         public abstract void Dispose();
 

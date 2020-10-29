@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using OfficeValidationLib.Classes;
@@ -13,7 +14,7 @@ namespace OfficeValidationApp.UI
     {
         private readonly DocumentManager _documentManager = new DocumentManager();
         private readonly SessionManager _sessionManager = new SessionManager("config.json");
-
+        private readonly List<ISessionResults>  _sessionResults = new List<ISessionResults>();
         public MainForm()
         {
             InitializeComponent();
@@ -58,11 +59,11 @@ namespace OfficeValidationApp.UI
                 .Intersect(instance.Tags).Count());
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => _sessionManager.Dispose();
 
-        private void openDocumentsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenDocumentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialogDocuments.Filter = $@"Все документы|{string.Join(";", _documentManager.DocumentFactories.SelectMany(x=>x.SupportingExtention.Select(y=>$"*{y}")).Distinct())}|" + 
                 string.Join("|",
@@ -88,7 +89,7 @@ namespace OfficeValidationApp.UI
             }
         }
 
-        private void objectListViewChecks_SelectedIndexChanged(object sender, EventArgs e)
+        private void ObjectListViewChecks_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (objectListViewChecks.SelectedObject is Instance selectedInstance)
             {
@@ -96,10 +97,10 @@ namespace OfficeValidationApp.UI
             }
         }
 
-        private void objectListViewTags_ItemChecked(object sender, ItemCheckedEventArgs e) =>
+        private void ObjectListViewTags_ItemChecked(object sender, ItemCheckedEventArgs e) =>
             objectListViewChecks.UpdateObjects(objectListViewChecks.Objects.Cast<object>().ToArray());
 
-        private void objectListViewDocumentTypes_ItemChecked(object sender, ItemCheckedEventArgs e) => 
+        private void ObjectListViewDocumentTypes_ItemChecked(object sender, ItemCheckedEventArgs e) => 
             objectListViewDocuments.UpdateObjects(objectListViewDocuments.Objects.Cast<object>().ToArray());
 
         void UpdatePerformState()
@@ -109,18 +110,34 @@ namespace OfficeValidationApp.UI
         }
 
 
-        private void buttonPerform_Click(object sender, EventArgs e)
+        private void ButtonPerform_Click(object sender, EventArgs e)
         {
+            var splashForm = new SplashForm()
+            {
+                Message = "Пожалуйста, подождите"
+            };
+            var splashThread = new Thread(() => splashForm.ShowDialog());
+            splashThread.Start();
+            this.Hide();
             var session = _sessionManager.Create(
                 objectListViewChecks.CheckedObjects.Cast<Instance>(),
                 objectListViewDocuments.CheckedObjects.Cast<IDocument>());
-            var results = session.PerformAll();
+
+            _sessionResults.Add(new SessionResults(session.PerformAll(), session));
+            var resultForm = new ResultForm(_sessionResults);
+            resultForm.ShowDialog();
+
+            if (splashThread.ThreadState == ThreadState.Running)
+            {
+                splashForm.Invoke(new Action(() => splashForm.Close()));
+            }
+            this.Show();
         }
 
-        private void objectListViewDocuments_ItemChecked(object sender, ItemCheckedEventArgs e) =>
+        private void ObjectListViewDocuments_ItemChecked(object sender, ItemCheckedEventArgs e) =>
             UpdatePerformState();
 
-        private void objectListViewChecks_ItemChecked(object sender, ItemCheckedEventArgs e) =>
+        private void ObjectListViewChecks_ItemChecked(object sender, ItemCheckedEventArgs e) =>
             UpdatePerformState();
     }
 }

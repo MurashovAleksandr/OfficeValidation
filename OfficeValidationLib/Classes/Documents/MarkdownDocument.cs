@@ -17,7 +17,7 @@ namespace OfficeValidationLib.Classes.Documents
     {
         public string Document { get; private set; }
         public MarkdownDocument(string path, IDocumentFactory creator) : base(path, creator) { }
-        public override void Initialize()
+        public override void InitializeInternal()
         {
             Document = System.IO.File.ReadAllText(Path);
         }

@@ -11,5 +11,7 @@ namespace OfficeValidationLib.Classes
         public string ClassName { get; set; }
         public IDictionary<string, object> Parameters { get; set; }
         public string[] Tags { get; set; }
+
+        public override string ToString() => Name;
     }
 }

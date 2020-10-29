@@ -9,32 +9,23 @@ namespace OfficeValidationLib.Classes
         protected IDictionary<string, object> _parameters;
         public IDictionary<string, object> Parameters => _parameters;
 
-        protected readonly IList<string> _tags = new List<string>();
-        public IList<string> Tags => _tags;
+        public IList<string> Tags { get; } = new List<string>();
 
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public string Description { get; set; }
 
-        public ICheckResult Perform(ISession session)
-        {
-            foreach (var sessionDocument in session.Documents)
-            {
-                try
-                {
-                    sessionDocument.Initialize();
-                }
-                catch (Exception exception)
-                {
-                    session.Log.AddMessage(new ErrorLogMessage(exception, this));
-                    return null;
-                }
-            }
-            return PerformInternal(session);
-        }
-        protected abstract ICheckResult PerformInternal(ISession session);
+        public abstract ICheckResult Perform(ISession session);
 
         public virtual bool IsAvailable(ISession session) => true;
+
+        public virtual void InitializeDocuments(IEnumerable<IDocument> documents)
+        {
+            foreach (var document in documents)
+            {
+                document.Initialize();
+            }
+        }
 
         public void InitializeParameters(IDictionary<string, object> values)
         {

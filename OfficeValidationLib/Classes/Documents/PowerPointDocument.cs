@@ -22,7 +22,7 @@ namespace OfficeValidationLib.Classes.Documents
         public Microsoft.Office.Interop.PowerPoint.Application Application { get; private set; }
         public Presentation Document { get; private set; }
         public PowerPointDocument(string path, IDocumentFactory creator) : base(path, creator) { }
-        public override void Initialize()
+        public override void InitializeInternal()
         {
             Application = new Microsoft.Office.Interop.PowerPoint.Application() { Visible = MsoTriState.msoFalse };
             Document = Application.Presentations.Open(Path);

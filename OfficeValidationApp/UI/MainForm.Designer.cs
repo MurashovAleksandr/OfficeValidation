@@ -67,7 +67,8 @@
             this.fileToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(784, 24);
+            this.menuStripMain.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStripMain.Size = new System.Drawing.Size(1045, 24);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             // 
@@ -87,7 +88,7 @@
             this.openDocumentsToolStripMenuItem.Name = "openDocumentsToolStripMenuItem";
             this.openDocumentsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.openDocumentsToolStripMenuItem.Text = "Открыть документы";
-            this.openDocumentsToolStripMenuItem.Click += new System.EventHandler(this.openDocumentsToolStripMenuItem_Click);
+            this.openDocumentsToolStripMenuItem.Click += new System.EventHandler(this.OpenDocumentsToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
@@ -100,7 +101,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.exitToolStripMenuItem.Text = "Выход";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // tableLayoutPanelDocumentsChecks
             // 
@@ -111,43 +112,46 @@
             this.tableLayoutPanelDocumentsChecks.Controls.Add(this.tableLayoutPanelDocumentTypes, 0, 0);
             this.tableLayoutPanelDocumentsChecks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelDocumentsChecks.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanelDocumentsChecks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanelDocumentsChecks.Name = "tableLayoutPanelDocumentsChecks";
             this.tableLayoutPanelDocumentsChecks.RowCount = 3;
             this.tableLayoutPanelDocumentsChecks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.2F));
             this.tableLayoutPanelDocumentsChecks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.8F));
-            this.tableLayoutPanelDocumentsChecks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanelDocumentsChecks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelDocumentsChecks.Size = new System.Drawing.Size(784, 537);
+            this.tableLayoutPanelDocumentsChecks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanelDocumentsChecks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanelDocumentsChecks.Size = new System.Drawing.Size(1045, 666);
             this.tableLayoutPanelDocumentsChecks.TabIndex = 1;
             // 
             // buttonPerform
             // 
             this.buttonPerform.Dock = System.Windows.Forms.DockStyle.Right;
             this.buttonPerform.Enabled = false;
-            this.buttonPerform.Location = new System.Drawing.Point(681, 503);
+            this.buttonPerform.Location = new System.Drawing.Point(908, 625);
+            this.buttonPerform.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonPerform.Name = "buttonPerform";
-            this.buttonPerform.Size = new System.Drawing.Size(100, 31);
+            this.buttonPerform.Size = new System.Drawing.Size(133, 37);
             this.buttonPerform.TabIndex = 0;
             this.buttonPerform.Text = "Запустить";
             this.buttonPerform.UseVisualStyleBackColor = true;
-            this.buttonPerform.Click += new System.EventHandler(this.buttonPerform_Click);
+            this.buttonPerform.Click += new System.EventHandler(this.ButtonPerform_Click);
             // 
             // tableLayoutPanelTagsChecksDescriptions
             // 
             this.tableLayoutPanelTagsChecksDescriptions.ColumnCount = 3;
             this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.06961F));
             this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.93039F));
-            this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanelTagsChecksDescriptions.Controls.Add(this.objectListViewChecks, 0, 0);
             this.tableLayoutPanelTagsChecksDescriptions.Controls.Add(this.objectListViewTags, 0, 0);
             this.tableLayoutPanelTagsChecksDescriptions.Controls.Add(this.groupBoxDescription, 2, 0);
             this.tableLayoutPanelTagsChecksDescriptions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelTagsChecksDescriptions.Location = new System.Drawing.Point(3, 169);
+            this.tableLayoutPanelTagsChecksDescriptions.Location = new System.Drawing.Point(4, 210);
+            this.tableLayoutPanelTagsChecksDescriptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanelTagsChecksDescriptions.Name = "tableLayoutPanelTagsChecksDescriptions";
             this.tableLayoutPanelTagsChecksDescriptions.RowCount = 1;
             this.tableLayoutPanelTagsChecksDescriptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelTagsChecksDescriptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 328F));
-            this.tableLayoutPanelTagsChecksDescriptions.Size = new System.Drawing.Size(778, 328);
+            this.tableLayoutPanelTagsChecksDescriptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 410F));
+            this.tableLayoutPanelTagsChecksDescriptions.Size = new System.Drawing.Size(1037, 407);
             this.tableLayoutPanelTagsChecksDescriptions.TabIndex = 1;
             // 
             // objectListViewChecks
@@ -162,16 +166,17 @@
             this.objectListViewChecks.FullRowSelect = true;
             this.objectListViewChecks.GridLines = true;
             this.objectListViewChecks.HideSelection = false;
-            this.objectListViewChecks.Location = new System.Drawing.Point(182, 3);
+            this.objectListViewChecks.Location = new System.Drawing.Point(242, 4);
+            this.objectListViewChecks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.objectListViewChecks.Name = "objectListViewChecks";
             this.objectListViewChecks.ShowGroups = false;
-            this.objectListViewChecks.Size = new System.Drawing.Size(392, 322);
+            this.objectListViewChecks.Size = new System.Drawing.Size(520, 399);
             this.objectListViewChecks.TabIndex = 3;
             this.objectListViewChecks.UseCompatibleStateImageBehavior = false;
             this.objectListViewChecks.UseFiltering = true;
             this.objectListViewChecks.View = System.Windows.Forms.View.Details;
-            this.objectListViewChecks.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.objectListViewChecks_ItemChecked);
-            this.objectListViewChecks.SelectedIndexChanged += new System.EventHandler(this.objectListViewChecks_SelectedIndexChanged);
+            this.objectListViewChecks.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.ObjectListViewChecks_ItemChecked);
+            this.objectListViewChecks.SelectedIndexChanged += new System.EventHandler(this.ObjectListViewChecks_SelectedIndexChanged);
             // 
             // olvColumnCheck
             // 
@@ -191,14 +196,15 @@
             this.objectListViewTags.FullRowSelect = true;
             this.objectListViewTags.GridLines = true;
             this.objectListViewTags.HideSelection = false;
-            this.objectListViewTags.Location = new System.Drawing.Point(3, 3);
+            this.objectListViewTags.Location = new System.Drawing.Point(4, 4);
+            this.objectListViewTags.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.objectListViewTags.Name = "objectListViewTags";
             this.objectListViewTags.ShowGroups = false;
-            this.objectListViewTags.Size = new System.Drawing.Size(173, 322);
+            this.objectListViewTags.Size = new System.Drawing.Size(230, 399);
             this.objectListViewTags.TabIndex = 0;
             this.objectListViewTags.UseCompatibleStateImageBehavior = false;
             this.objectListViewTags.View = System.Windows.Forms.View.Details;
-            this.objectListViewTags.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.objectListViewTags_ItemChecked);
+            this.objectListViewTags.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.ObjectListViewTags_ItemChecked);
             // 
             // olvColumnTag
             // 
@@ -210,9 +216,11 @@
             // 
             this.groupBoxDescription.Controls.Add(this.textBoxDescription);
             this.groupBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxDescription.Location = new System.Drawing.Point(580, 3);
+            this.groupBoxDescription.Location = new System.Drawing.Point(770, 4);
+            this.groupBoxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxDescription.Name = "groupBoxDescription";
-            this.groupBoxDescription.Size = new System.Drawing.Size(195, 322);
+            this.groupBoxDescription.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDescription.Size = new System.Drawing.Size(263, 399);
             this.groupBoxDescription.TabIndex = 2;
             this.groupBoxDescription.TabStop = false;
             this.groupBoxDescription.Text = "Описание";
@@ -220,11 +228,12 @@
             // textBoxDescription
             // 
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescription.Location = new System.Drawing.Point(3, 16);
+            this.textBoxDescription.Location = new System.Drawing.Point(4, 20);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
-            this.textBoxDescription.Size = new System.Drawing.Size(189, 303);
+            this.textBoxDescription.Size = new System.Drawing.Size(255, 375);
             this.textBoxDescription.TabIndex = 0;
             // 
             // tableLayoutPanelDocumentTypes
@@ -235,11 +244,12 @@
             this.tableLayoutPanelDocumentTypes.Controls.Add(this.objectListViewDocuments, 0, 0);
             this.tableLayoutPanelDocumentTypes.Controls.Add(this.objectListViewDocumentTypes, 0, 0);
             this.tableLayoutPanelDocumentTypes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelDocumentTypes.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanelDocumentTypes.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanelDocumentTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanelDocumentTypes.Name = "tableLayoutPanelDocumentTypes";
             this.tableLayoutPanelDocumentTypes.RowCount = 1;
             this.tableLayoutPanelDocumentTypes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelDocumentTypes.Size = new System.Drawing.Size(778, 160);
+            this.tableLayoutPanelDocumentTypes.Size = new System.Drawing.Size(1037, 198);
             this.tableLayoutPanelDocumentTypes.TabIndex = 2;
             // 
             // objectListViewDocuments
@@ -256,15 +266,16 @@
             this.objectListViewDocuments.FullRowSelect = true;
             this.objectListViewDocuments.GridLines = true;
             this.objectListViewDocuments.HideSelection = false;
-            this.objectListViewDocuments.Location = new System.Drawing.Point(179, 3);
+            this.objectListViewDocuments.Location = new System.Drawing.Point(239, 4);
+            this.objectListViewDocuments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.objectListViewDocuments.Name = "objectListViewDocuments";
             this.objectListViewDocuments.ShowGroups = false;
-            this.objectListViewDocuments.Size = new System.Drawing.Size(596, 154);
+            this.objectListViewDocuments.Size = new System.Drawing.Size(794, 190);
             this.objectListViewDocuments.TabIndex = 5;
             this.objectListViewDocuments.UseCompatibleStateImageBehavior = false;
             this.objectListViewDocuments.UseFiltering = true;
             this.objectListViewDocuments.View = System.Windows.Forms.View.Details;
-            this.objectListViewDocuments.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.objectListViewDocuments_ItemChecked);
+            this.objectListViewDocuments.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.ObjectListViewDocuments_ItemChecked);
             // 
             // olvColumnDocument
             // 
@@ -290,14 +301,15 @@
             this.objectListViewDocumentTypes.FullRowSelect = true;
             this.objectListViewDocumentTypes.GridLines = true;
             this.objectListViewDocumentTypes.HideSelection = false;
-            this.objectListViewDocumentTypes.Location = new System.Drawing.Point(3, 3);
+            this.objectListViewDocumentTypes.Location = new System.Drawing.Point(4, 4);
+            this.objectListViewDocumentTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.objectListViewDocumentTypes.Name = "objectListViewDocumentTypes";
             this.objectListViewDocumentTypes.ShowGroups = false;
-            this.objectListViewDocumentTypes.Size = new System.Drawing.Size(170, 154);
+            this.objectListViewDocumentTypes.Size = new System.Drawing.Size(227, 190);
             this.objectListViewDocumentTypes.TabIndex = 4;
             this.objectListViewDocumentTypes.UseCompatibleStateImageBehavior = false;
             this.objectListViewDocumentTypes.View = System.Windows.Forms.View.Details;
-            this.objectListViewDocumentTypes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.objectListViewDocumentTypes_ItemChecked);
+            this.objectListViewDocumentTypes.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.ObjectListViewDocumentTypes_ItemChecked);
             // 
             // olvColumnDocumentTypes
             // 
@@ -312,14 +324,16 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1045, 690);
             this.Controls.Add(this.tableLayoutPanelDocumentsChecks);
             this.Controls.Add(this.menuStripMain);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMain;
-            this.MinimumSize = new System.Drawing.Size(800, 600);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1061, 729);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Программный комплекс для пакетной автоматизированной проверки офисной документаци" +

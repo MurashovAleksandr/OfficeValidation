@@ -109,6 +109,7 @@
     <Compile Include="Classes\Session\Session.cs" />
     <Compile Include="Classes\Session\SessionBuilder.cs" />
     <Compile Include="Classes\Session\SessionManager.cs" />
+    <Compile Include="Classes\Session\SessionResults.cs" />
     <Compile Include="Classes\SimpleCheckResult.cs" />
     <Compile Include="Classes\SimpleViolation.cs" />
     <Compile Include="Enums\LogMessageSeverity.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Interfaces\IDocument.cs" />
     <Compile Include="Interfaces\ISession.cs" />
     <Compile Include="Interfaces\ISessionLog.cs" />
+    <Compile Include="Interfaces\ISessionResults.cs" />
     <Compile Include="Interfaces\IViolation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

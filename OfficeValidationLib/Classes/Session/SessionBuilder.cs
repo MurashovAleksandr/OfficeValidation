@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 using OfficeValidationLib.Enums;
@@ -20,6 +21,14 @@ namespace OfficeValidationLib.Classes.Session
             {
                 session.Documents.Add(doc);
                 session.Log.AddMessage(new LogMessage(LogMessageSeverity.Information, $"Добавлен документ {doc.Name}"));
+            }
+
+            foreach (var instance in instances)
+            {
+                if (instances.Count(x => string.Equals(x.Name, instance.Name)) > 1)
+                {
+                    session.Log.AddMessage(new ErrorLogMessage("Ошибка построения списка проверок. Проверки должны иметь уникальные имена", instance));
+                }
             }
 
             foreach (var instance in instances)
@@ -46,6 +55,9 @@ namespace OfficeValidationLib.Classes.Session
 
                         //add parameters
                         check.InitializeParameters(instance.Parameters);
+
+                        //initialize documents
+                        check.InitializeDocuments(session.Documents);
 
                         //add tags
                         foreach (var tag in instance.Tags)

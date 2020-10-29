@@ -23,7 +23,7 @@ namespace OfficeValidationLib.Classes.Documents
         public Application Application { get; private set; }
         public Workbook Document { get; private set; }
         public ExcelDocument(string path, IDocumentFactory creator) : base(path, creator) { }
-        public override void Initialize()
+        public override void InitializeInternal()
         {
             Application = new Application() { Visible = false };
             Document = Application.Workbooks.Open(Path);

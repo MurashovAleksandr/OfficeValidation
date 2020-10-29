@@ -20,7 +20,7 @@ namespace OfficeValidationLib.Classes.Documents
         public Application Application { get; private set; }
         public Document Document { get; private set; }
         public WordDocument(string path, IDocumentFactory creator) : base(path, creator) { }
-        public override void Initialize()
+        public override void InitializeInternal()
         {
             Application = new Application() { Visible = false };
             Document = Application.Documents.Open(Path);
