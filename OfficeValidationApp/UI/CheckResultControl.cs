@@ -12,9 +12,22 @@ namespace OfficeValidationApp.UI
             _sessionResult = sessionResult;
             InitializeComponent();
 
+            //load checks
             treeListViewChecks.Objects = _sessionResult.Results;
-            olvColumnName.AspectGetter = rowObject => (rowObject as ICheckResult).Check.DisplayName;
+            olvColumnName.AspectGetter = delegate(object rowObject)
+            {
+                if (rowObject is ICheckResult checkResult)
+                {
+                    return checkResult.Check.DisplayName;
+                }
+                return rowObject;
+            };
             treeListViewChecks.UpdateObjects(treeListViewChecks.Objects.Cast<ICheckResult>().ToArray());
+
+            //load checked objects
+            treeListViewChecks.CanExpandGetter =
+                model => model is ICheckResult checkResult && checkResult.CheckedObjects.Any();
+            treeListViewChecks.ChildrenGetter = delegate(object model) { return (model as ICheckResult) ?.CheckedObjects; };
         }
     }
 }

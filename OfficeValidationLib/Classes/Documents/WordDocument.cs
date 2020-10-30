@@ -9,7 +9,8 @@ namespace OfficeValidationLib.Classes.Documents
         public override string[] SupportingExtention { get; protected set; } = new[]
         {
             ".doc", ".docm", ".docx", ".dot",
-            ".dotm", ".dotx",".odt", ".rtf", ".wps", ".xps"
+            ".dotm", ".dotx",".odt", ".rtf",
+            ".wps", ".xps"
         };
         protected override IDocument CreateInternal(string path) =>
             new WordDocument(path, this);
