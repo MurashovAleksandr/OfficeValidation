@@ -34,12 +34,12 @@ namespace OfficeValidationLib.Interfaces
         /// <returns></returns>
         bool IsAvailable(ISession session);
         /// <summary>
-        /// Подготовка параметров
+        /// Подготовка параметров перед выполнением проверки
         /// </summary>
         /// <param name="parameters"></param>
         void InitializeParameters(IDictionary<string, object> parameters);
         /// <summary>
-        /// Подготовка документов
+        /// Подготовка документов, приложения и т.п. перед выполнением проверки
         /// </summary>
         /// <param name="documents"></param>
         void InitializeDocuments(IEnumerable<IDocument> documents);

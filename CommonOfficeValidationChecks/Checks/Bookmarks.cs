@@ -16,7 +16,7 @@ namespace CommonOfficeValidationChecks.Checks
         {
             _bookmarksMinCount = (long)values["BookmarksMinCount"];
         }
-
+        
         public override ICheckResult Perform(ISession session)
         {
             var checkResult = new SimpleCheckResult(this);

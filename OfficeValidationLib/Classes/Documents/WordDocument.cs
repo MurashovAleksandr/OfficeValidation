@@ -26,7 +26,7 @@ namespace OfficeValidationLib.Classes.Documents
             Application = new Application() { Visible = false };
             Document = Application.Documents.Open(Path);
         }
-        public override void Dispose()
+        public override void DisposeInternal()
         {
             Document.Close(false);
             Application.Quit();

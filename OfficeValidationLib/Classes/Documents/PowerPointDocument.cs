@@ -27,7 +27,7 @@ namespace OfficeValidationLib.Classes.Documents
             Application = new Microsoft.Office.Interop.PowerPoint.Application() { Visible = MsoTriState.msoFalse };
             Document = Application.Presentations.Open(Path);
         }
-        public override void Dispose()
+        public override void DisposeInternal()
         {
             Document.Close();
             Application.Quit();

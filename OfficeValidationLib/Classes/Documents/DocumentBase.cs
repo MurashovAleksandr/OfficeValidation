@@ -9,7 +9,7 @@ namespace OfficeValidationLib.Classes.Documents
         public string Name => System.IO.Path.GetFileName(Path);
         public string Path { get; }
         public IDocumentFactory Creator { get; }
-        public bool IsInitialized { get; private set; }
+        public bool IsInitialized { get; protected set; }
 
         protected DocumentBase(string path, IDocumentFactory creator)
         {
@@ -31,7 +31,15 @@ namespace OfficeValidationLib.Classes.Documents
         }
         public abstract void InitializeInternal();
 
-        public abstract void Dispose();
+        public virtual void DisposeInternal() { }
+
+        public void Dispose()
+        {
+            if (IsInitialized)
+                DisposeInternal();
+
+            IsInitialized = false;
+        }
 
         public override string ToString() => Name;
 

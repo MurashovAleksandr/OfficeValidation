@@ -21,7 +21,7 @@ namespace OfficeValidationLib.Classes.Documents
         {
             Document = System.IO.File.ReadAllText(Path);
         }
-        public override void Dispose()
+        public override void DisposeInternal()
         {
             Document = null;
         }
