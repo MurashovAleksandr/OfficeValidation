@@ -7,13 +7,18 @@ namespace OfficeValidationLib.Classes
 {
     public class DocumentManager
     {
-        public IDocumentFactory[] DocumentFactories => Assembly.GetExecutingAssembly()
-                    .GetTypes()
-                    .Where(x => !x.IsAbstract && x.GetInterfaces()
-                        .Contains(typeof(IDocumentFactory)))
-                    .Select(Activator.CreateInstance)
-                    .Cast<IDocumentFactory>()
-                    .OrderBy(x=>x.Name)
-                    .ToArray();
+        public IDocumentFactory[] DocumentFactories { get; }
+
+        public DocumentManager()
+        {
+            DocumentFactories = Assembly.GetExecutingAssembly()
+                .GetTypes()
+                .Where(x => !x.IsAbstract && x.GetInterfaces()
+                    .Contains(typeof(IDocumentFactory)))
+                .Select(Activator.CreateInstance)
+                .Cast<IDocumentFactory>()
+                .OrderBy(x => x.Name)
+                .ToArray();
+        }
     }
 }

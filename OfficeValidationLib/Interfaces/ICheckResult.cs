@@ -14,10 +14,11 @@ namespace OfficeValidationLib.Interfaces
         /// <summary>
         /// Список проверенных объектов
         /// </summary>
-        IList<object> CheckedObjects { get; }
+        IList<ICheckedObject> CheckedObjects { get; }
         /// <summary>
         /// Список нарушений
         /// </summary>
         IList<IViolation> Violations { get; }
     }
+
 }

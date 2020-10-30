@@ -23,7 +23,7 @@ namespace CommonOfficeValidationChecks.Checks
             var wordDocuments = session.Documents.Where(x => x is WordDocument).Cast<WordDocument>().ToArray();
             foreach (var wordDocument in wordDocuments)
             {
-                checkResult.CheckedObjects.Add(wordDocument);
+                checkResult.CheckedObjects.Add(new CheckedObject(wordDocument, checkResult));
                 var bookmarks = wordDocument.Document.Bookmarks;
                 if (bookmarks == null || bookmarks.Count < _bookmarksMinCount)
                 {

@@ -1,0 +1,20 @@
+{
+	"Instances":
+	[
+		{
+			"Name":"CheckPages",
+			"DisplayName":"Проверка на количество страниц",
+			"Description":"Проверяется минимальное количество страниц",
+			"Assembly":"test.dll",
+			"ClassName":"OfficeValidation.CheckPages",
+			"Parameters":
+			{
+				"PageCount":5
+			},
+			"Tags":
+			[
+				"Основные","Страницы"
+			]
+		}
+	]
+}

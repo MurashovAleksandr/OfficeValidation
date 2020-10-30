@@ -10,7 +10,7 @@ namespace OfficeValidationLib.Classes
             Check = check;
         }
         public ICheck Check { get; }
-        public IList<object> CheckedObjects { get; } = new List<object>();
+        public IList<ICheckedObject> CheckedObjects { get; } = new List<ICheckedObject>();
         public IList<IViolation> Violations { get; } = new List<IViolation>();
     }
 }

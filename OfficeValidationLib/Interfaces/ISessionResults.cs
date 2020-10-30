@@ -3,7 +3,7 @@
 namespace OfficeValidationLib.Interfaces
 {
     /// <summary>
-    /// Результат сессии
+    /// Результаты сессии
     /// </summary>
     public interface ISessionResults
     {

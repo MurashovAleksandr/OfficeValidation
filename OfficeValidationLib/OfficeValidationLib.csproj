@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CheckBase.cs" />
+    <Compile Include="Classes\CheckedObject.cs" />
     <Compile Include="Classes\Config.cs" />
     <Compile Include="Classes\DocumentManager.cs" />
     <Compile Include="Classes\Documents\DocumentBase.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Enums\LogMessageSeverity.cs" />
     <Compile Include="Enums\ViolationLevel.cs" />
     <Compile Include="Interfaces\ICheck.cs" />
+    <Compile Include="Interfaces\ICheckedObject.cs" />
     <Compile Include="Interfaces\ICheckResult.cs" />
     <Compile Include="Interfaces\IDocumentFactory.cs" />
     <Compile Include="Interfaces\ILogMessage.cs" />
