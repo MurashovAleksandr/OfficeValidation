@@ -36,7 +36,7 @@
             // 
             this.tabControlSessions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlSessions.Location = new System.Drawing.Point(0, 0);
-            this.tabControlSessions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControlSessions.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlSessions.Name = "tabControlSessions";
             this.tabControlSessions.SelectedIndex = 0;
             this.tabControlSessions.Size = new System.Drawing.Size(1045, 690);
@@ -50,10 +50,10 @@
             this.Controls.Add(this.tabControlSessions);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ResultForm";
+            this.Text = "Результат проверок";
             this.ResumeLayout(false);
 
         }

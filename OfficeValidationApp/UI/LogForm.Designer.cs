@@ -62,7 +62,7 @@
             this.objectListViewLogs.GridLines = true;
             this.objectListViewLogs.HideSelection = false;
             this.objectListViewLogs.Location = new System.Drawing.Point(0, 25);
-            this.objectListViewLogs.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.objectListViewLogs.Margin = new System.Windows.Forms.Padding(5);
             this.objectListViewLogs.Name = "objectListViewLogs";
             this.objectListViewLogs.ShowGroups = false;
             this.objectListViewLogs.Size = new System.Drawing.Size(645, 296);
@@ -96,8 +96,9 @@
             this.Controls.Add(this.toolStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LogForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Журнал сообщений";
             ((System.ComponentModel.ISupportInitialize)(this.objectListViewLogs)).EndInit();
             this.ResumeLayout(false);

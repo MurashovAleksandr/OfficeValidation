@@ -166,8 +166,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="log.png" />
+    <None Include="remove.png" />
+    <None Include="file.png" />
     <None Include="open.png" />
     <None Include="exit.png" />
+    <None Include="documents.png" />
+    <None Include="directory.png" />
     <Content Include="favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

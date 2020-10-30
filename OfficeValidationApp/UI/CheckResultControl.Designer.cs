@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckResultControl));
             this.tableLayoutPanelLogPanelChecks = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBoxChecks = new System.Windows.Forms.GroupBox();
@@ -177,11 +176,11 @@
             // toolStripButtonLog
             // 
             this.toolStripButtonLog.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonLog.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLog.Image")));
+            this.toolStripButtonLog.Image = global::OfficeValidationApp.Properties.Resources.log;
             this.toolStripButtonLog.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonLog.Name = "toolStripButtonLog";
             this.toolStripButtonLog.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonLog.Text = "toolStripButton1";
+            this.toolStripButtonLog.Text = "Журнал сообщений";
             this.toolStripButtonLog.Click += new System.EventHandler(this.toolStripButtonLog_Click);
             // 
             // CheckResultControl
