@@ -25,7 +25,7 @@ namespace OfficeValidationLib.Classes.Documents
         public override void InitializeInternal()
         {
             Application = new Microsoft.Office.Interop.PowerPoint.Application() { Visible = MsoTriState.msoFalse };
-            Document = Application.Presentations.Open(Path);
+            Document = Application.Presentations.Open(Path, MsoTriState.msoTrue);
         }
         public override void DisposeInternal()
         {

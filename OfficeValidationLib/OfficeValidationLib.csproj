@@ -103,6 +103,7 @@
     <Compile Include="Classes\Documents\MarkdownDocument.cs" />
     <Compile Include="Classes\Documents\PowerPointDocument.cs" />
     <Compile Include="Classes\Documents\WordDocument.cs" />
+    <Compile Include="Classes\Documents\WordOpenXMLDocument.cs" />
     <Compile Include="Classes\ErrorLogMessage.cs" />
     <Compile Include="Classes\Instance.cs" />
     <Compile Include="Classes\LogMessage.cs" />
@@ -111,8 +112,8 @@
     <Compile Include="Classes\Session\SessionBuilder.cs" />
     <Compile Include="Classes\Session\SessionManager.cs" />
     <Compile Include="Classes\Session\SessionResults.cs" />
-    <Compile Include="Classes\SimpleCheckResult.cs" />
-    <Compile Include="Classes\SimpleViolation.cs" />
+    <Compile Include="Classes\CheckResult.cs" />
+    <Compile Include="Classes\Violation.cs" />
     <Compile Include="Enums\LogMessageSeverity.cs" />
     <Compile Include="Enums\ViolationLevel.cs" />
     <Compile Include="Interfaces\ICheck.cs" />
@@ -139,6 +140,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml">
+      <Version>2.11.3</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>

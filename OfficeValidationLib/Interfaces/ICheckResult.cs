@@ -19,6 +19,11 @@ namespace OfficeValidationLib.Interfaces
         /// Список нарушений
         /// </summary>
         IList<IViolation> Violations { get; }
+        /// <summary>
+        /// Сохранить результат проверки в файл
+        /// </summary>
+        /// <param name="filePath"></param>
+        void Save(string filePath);
     }
 
 }

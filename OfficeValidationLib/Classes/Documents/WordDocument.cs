@@ -24,7 +24,7 @@ namespace OfficeValidationLib.Classes.Documents
         public override void InitializeInternal()
         {
             Application = new Application() { Visible = false };
-            Document = Application.Documents.Open(Path);
+            Document = Application.Documents.Open(Path, ReadOnly: true);
         }
         public override void DisposeInternal()
         {

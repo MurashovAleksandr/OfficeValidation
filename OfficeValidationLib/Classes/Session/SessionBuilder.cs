@@ -60,13 +60,17 @@ namespace OfficeValidationLib.Classes.Session
                         check.InitializeDocuments(session.Documents);
 
                         //add tags
-                        foreach (var tag in instance.Tags)
+                        if (instance.Tags != null)
                         {
-                            if (!check.Tags.Contains(tag))
+                            foreach (var tag in instance.Tags)
                             {
-                                check.Tags.Add(tag);
+                                if (!check.Tags.Contains(tag))
+                                {
+                                    check.Tags.Add(tag);
+                                }
                             }
                         }
+
                         session.Checks.Add(check);
                     }
                     else

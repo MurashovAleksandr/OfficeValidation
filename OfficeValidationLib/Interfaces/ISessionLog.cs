@@ -18,5 +18,11 @@
         /// </summary>
         /// <param name="message">Текст и важность сообщения</param>
         void AddMessage(ILogMessage message);
+
+        /// <summary>
+        /// Сохранить журнал сообщений в файл
+        /// </summary>
+        /// <param name="filePath">Path to file log</param>
+        void Save(string filePath);
     }
 }

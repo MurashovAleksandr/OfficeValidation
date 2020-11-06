@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using OfficeValidationLib.Interfaces;
 
@@ -8,18 +9,9 @@ namespace OfficeValidationLib.Classes
     public class MultiLog : ISessionLog
     {
         readonly ISession _session;
-        public ISession Session
-        {
-            get { return _session; }
-        }
+        public ISession Session => _session;
         readonly IList<ILogMessage> _messages = new List<ILogMessage>();
         public ILogMessage[] Messages => _messages.ToArray();
-
-        readonly IList<Action<ILogMessage>> _handlers = new List<Action<ILogMessage>>();
-        public IList<Action<ILogMessage>> Handlers
-        {
-            get { return _handlers; }
-        }
 
         public MultiLog(ISession session)
         {
@@ -32,11 +24,18 @@ namespace OfficeValidationLib.Classes
 
             _messages.Add(message);
             message.SessionLog = this;
+        }
 
-            // call message handlers
-            foreach (var handler in _handlers)
+        public void Save(string filePath)
+        {
+            if (File.Exists(filePath))
             {
-                handler(message);
+                File.Delete(filePath);
+            }
+
+            foreach (var logMsg in Messages)
+            {
+                File.AppendAllText(filePath, $"{logMsg.Severity}\t{logMsg.Message}\t{logMsg.Sender}\n");
             }
         }
     }

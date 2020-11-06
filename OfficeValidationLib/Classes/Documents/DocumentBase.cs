@@ -18,7 +18,7 @@ namespace OfficeValidationLib.Classes.Documents
                 throw new FileNotFoundException($"Документ не найден", path);
             }
             Creator = creator ?? throw new ArgumentNullException(nameof(creator));
-            this.Path = path;
+            this.Path = System.IO.Path.GetFullPath(path);
         }
 
         public void Initialize()
@@ -43,7 +43,7 @@ namespace OfficeValidationLib.Classes.Documents
 
         public override string ToString() => Name;
 
-        public override int GetHashCode() => Path.GetHashCode();
+        public override int GetHashCode() => $"{Creator.Name}_{Path}".GetHashCode();
 
         public override bool Equals(object obj) => 
             obj is IDocument doc && doc.GetHashCode() == this.GetHashCode();

@@ -22,5 +22,10 @@ namespace OfficeValidationLib.Classes.Documents
         protected abstract IDocument CreateInternal(string path);
 
         public override string ToString() => Name;
+
+        public override int GetHashCode() => $"{Name}".GetHashCode();
+
+        public override bool Equals(object obj) =>
+            obj is IDocumentFactory docFactory && docFactory.GetHashCode() == this.GetHashCode();
     }
 }

@@ -62,6 +62,7 @@ namespace OfficeValidationApp.UI
                 : null;
             objectListViewChecks.RefreshObjects(objectListViewChecks.Objects.Cast<Instance>().ToList());
             objectListViewChecks.ItemChecked += (sender, args) => UpdatePerformState();
+            objectListViewChecks.ItemsChanged += (sender, args) => UpdatePerformState();
 
             //tags
             objectListViewTags.Objects = _sessionManager.Config.Instances.SelectMany(x => x.Tags).Distinct().ToArray();
@@ -121,8 +122,12 @@ namespace OfficeValidationApp.UI
                 : string.Empty;
         }
 
-        private void ObjectListViewTags_ItemChecked(object sender, ItemCheckedEventArgs e) =>
+        private void ObjectListViewTags_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+
             objectListViewChecks.UpdateObjects(objectListViewChecks.Objects.Cast<object>().ToArray());
+            UpdatePerformState();
+        }
 
         void UpdatePerformState()
         {

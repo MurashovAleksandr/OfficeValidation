@@ -1,13 +1,12 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using OfficeValidationLib.Enums;
 using OfficeValidationLib.Interfaces;
 
 namespace OfficeValidationLib.Classes
 {
-    public class SimpleViolation : IViolation
+    public class Violation : IViolation
     {
-        public SimpleViolation(
+        public Violation(
             ICheckResult checkResult,
             IDocument document,
             object obj,

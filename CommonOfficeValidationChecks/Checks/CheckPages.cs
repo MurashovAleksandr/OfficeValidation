@@ -16,10 +16,10 @@ namespace CommonOfficeValidationChecks.Checks
         {
             _bookmarksMinCount = (long)values["BookmarksMinCount"];
         }
-        
+
         public override ICheckResult Perform(ISession session)
         {
-            var checkResult = new CheckResult(this);
+            var checkResult = new SimpleCheckResult(this);
             var wordDocuments = session.Documents.Where(x => x is WordDocument).Cast<WordDocument>().ToArray();
             foreach (var wordDocument in wordDocuments)
             {
@@ -27,7 +27,7 @@ namespace CommonOfficeValidationChecks.Checks
                 var bookmarks = wordDocument.Document.Bookmarks;
                 if (bookmarks == null || bookmarks.Count < _bookmarksMinCount)
                 {
-                    checkResult.Violations.Add(new Violation(
+                    checkResult.Violations.Add(new SimpleViolation(
                         checkResult,
                         wordDocument,
                         wordDocument,
