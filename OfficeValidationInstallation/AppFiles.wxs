@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="OFFICEVALIDATION" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="AppFiles">
+            <Component Id="cmp2770C88806A8AF2675EADA38D3B97F1B" Directory="OFFICEVALIDATION" Guid="{685666B2-AFD8-4857-A283-8DAE98D952FC}">
+                <File Id="fil77E7AD36B3A87D0DD80FF8C478163FB9" KeyPath="yes" Source="SourceDir\CommandLine.dll" />
+            </Component>
+            <Component Id="cmpEED1DE5A0908434AD2EF5675D6D45C8A" Directory="OFFICEVALIDATION" Guid="{4E19D317-9ACE-4FB8-9F37-F6B8780AD6B4}">
+                <File Id="fil94583DB1F64EB14B82471559B8677D46" KeyPath="yes" Source="SourceDir\CommonOfficeValidationChecks.dll" />
+            </Component>
+            <Component Id="cmp80B396FD8E42DF6E577B89478619878D" Directory="OFFICEVALIDATION" Guid="{C5991EB3-5C51-4338-A617-4E1BF443BA4E}">
+                <File Id="filE4CD0325AE1483FEC224E754491D8FA1" KeyPath="yes" Source="SourceDir\config.json" />
+            </Component>
+            <Component Id="cmpB5053779AA37B8B9E1F7BA41724B32DE" Directory="OFFICEVALIDATION" Guid="{501323A4-61C8-4AAD-9BD3-9B952C9F325A}">
+                <File Id="fil8DB41088808252275AAAC2819436598E" KeyPath="yes" Source="SourceDir\DocumentFormat.OpenXml.dll" />
+            </Component>
+            <Component Id="cmpEEC7386F51BA1C2A32E5FB5D27DC28C2" Directory="OFFICEVALIDATION" Guid="{F7082E8B-6367-43CF-A3CE-DD45E8B0B7D4}">
+                <File Id="filCBC4C066C181ED48DDEFE5B690963DD5" KeyPath="yes" Source="SourceDir\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="cmp4F8DE79C7A1F68276B58224EC98DC203" Directory="OFFICEVALIDATION" Guid="{3BA0182B-636C-4DFD-AA8B-DE13489B7974}">
+                <File Id="fil4787D18E26FFABDF7182A39944C3EA3B" KeyPath="yes" Source="SourceDir\ObjectListView.dll" />
+            </Component>
+            <Component Id="cmp9DBB65429EE20D88E80EFA1130963579" Directory="OFFICEVALIDATION" Guid="{97892691-72EC-43E9-9ED5-3F059EBD8D48}">
+                <File Id="filFAACDAAE66B29BD8E4D27F90C2832600" KeyPath="yes" Source="SourceDir\ObjectListView.xml" />
+            </Component>
+            <Component Id="cmp632E09C31EE30D95172749A03B408BC0" Directory="OFFICEVALIDATION" Guid="{A23C6B3C-15FB-4AFE-B479-E923102383CE}">
+                <File Id="fil35F5B6F6222A069BD05923ED0A052725" KeyPath="yes" Source="SourceDir\OfficeValidationApp.exe" />
+            </Component>
+            <Component Id="cmp2BD3D60C6B74274D3109648E7D254263" Directory="OFFICEVALIDATION" Guid="{41497494-0A4A-4587-BDDE-7E8973940BA8}">
+                <File Id="fil7A897F14E88485BC96A99DF4DD3CB699" KeyPath="yes" Source="SourceDir\OfficeValidationApp.exe.config" />
+            </Component>
+            <Component Id="cmpB45213FE4CEFCB2386A1DACD13FE8A57" Directory="OFFICEVALIDATION" Guid="{44BFD68B-AE5A-451D-86B1-C41CA2852B63}">
+                <File Id="filC8C4776E38F53728818028F8A624CA52" KeyPath="yes" Source="SourceDir\OfficeValidationCLI.exe" />
+            </Component>
+            <Component Id="cmp5BE2E5ADE7ECF265C1B198D83AD97553" Directory="OFFICEVALIDATION" Guid="{C39AC6AB-1394-47D8-8B6D-EBC013795709}">
+                <File Id="filAA2BFA231CB57366C4009D5BC6D464E6" KeyPath="yes" Source="SourceDir\OfficeValidationCLI.exe.config" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

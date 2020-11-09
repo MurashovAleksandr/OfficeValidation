@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonOfficeValidationCheck
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeValidationCLI", "OfficeValidationCLI\OfficeValidationCLI.csproj", "{0A296552-4970-4BF9-84F5-A857243EF1E6}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "OfficeValidationInstallation", "OfficeValidationInstallation\OfficeValidationInstallation.wixproj", "{D9B2E702-5E6D-4541-AB1C-91CFA9AF616C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,14 @@ Global
 		{0A296552-4970-4BF9-84F5-A857243EF1E6}.Release|x64.ActiveCfg = Release|x64
 		{0A296552-4970-4BF9-84F5-A857243EF1E6}.Release|x64.Build.0 = Release|x64
 		{0A296552-4970-4BF9-84F5-A857243EF1E6}.Release|x86.ActiveCfg = Release|x64
+		{D9B2E702-5E6D-4541-AB1C-91CFA9AF616C}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{D9B2E702-5E6D-4541-AB1C-91CFA9AF616C}.Debug|x64.ActiveCfg = Debug|x64
+		{D9B2E702-5E6D-4541-AB1C-91CFA9AF616C}.Debug|x64.Build.0 = Debug|x64
+		{D9B2E702-5E6D-4541-AB1C-91CFA9AF616C}.Debug|x86.ActiveCfg = Debug|x64
+		{D9B2E702-5E6D-4541-AB1C-91CFA9AF616C}.Release|Any CPU.ActiveCfg = Release|x64
+		{D9B2E702-5E6D-4541-AB1C-91CFA9AF616C}.Release|x64.ActiveCfg = Release|x64
+		{D9B2E702-5E6D-4541-AB1C-91CFA9AF616C}.Release|x64.Build.0 = Release|x64
+		{D9B2E702-5E6D-4541-AB1C-91CFA9AF616C}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
