@@ -15,9 +15,10 @@ namespace OfficeValidationApp.UI
 {
     public partial class MainForm : Form
     {
-        private readonly DocumentManager _documentManager = new DocumentManager();
+        private readonly List<ISessionResults> _sessionResults = new List<ISessionResults>();
+        private DocumentManager _documentManager;
         private readonly SessionManager _sessionManager = new SessionManager("config.json");
-        private readonly List<ISessionResults>  _sessionResults = new List<ISessionResults>();
+        
         public MainForm()
         {
             InitializeComponent();
@@ -26,6 +27,9 @@ namespace OfficeValidationApp.UI
 
         void SetupAspects()
         {
+            //get document factory names by config
+            _documentManager = new DocumentManager(_sessionManager.Config.DocumentFactoryNames);
+
             //prepare documents
             objectListViewDocuments.Objects = new List<IDocument>();
             olvColumnDocument.AspectGetter = rowObject => rowObject is IDocument document 

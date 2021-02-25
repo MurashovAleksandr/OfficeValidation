@@ -25,7 +25,6 @@ namespace OfficeValidationLib.Classes.Documents
 
         public override int GetHashCode() => $"{Name}".GetHashCode();
 
-        public override bool Equals(object obj) =>
-            obj is IDocumentFactory docFactory && docFactory.GetHashCode() == this.GetHashCode();
+        public override bool Equals(object obj) => obj is IDocumentFactory docFactory && docFactory.GetHashCode() == this.GetHashCode();
     }
 }

@@ -1,4 +1,8 @@
 {
+	"DocumentFactoryNames":
+	[
+		"Excel", "LaTeX", "Markdown", "PowerPoint", "Word", "Word_OpenXML"
+	],
 	"Instances":
 	[
 		{

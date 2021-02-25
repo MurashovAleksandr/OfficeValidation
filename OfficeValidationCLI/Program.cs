@@ -15,14 +15,14 @@ namespace OfficeValidationCLI
         }
         static void RunOptions(Options opts)
         {
-            var documentManager = new DocumentManager();
+            var sessionManager = new SessionManager(opts.ConfigFile);
+            var documentManager = new DocumentManager(sessionManager.Config.DocumentFactoryNames);
             var documents = opts.DocumentFiles
                 .SelectMany(file =>
                     documentManager.DocumentFactories
                         .Where(docFactory => docFactory.CanCreate(file))
                         .Select(docFactory => docFactory.Create(file)))
                 .ToArray();
-            var sessionManager = new SessionManager(opts.ConfigFile);
             using (var session = sessionManager.Create(sessionManager.Config.Instances, documents))
             {
                 opts.SessionDirectoryPath = string.Format(opts.SessionDirectoryPath, session.ID);
