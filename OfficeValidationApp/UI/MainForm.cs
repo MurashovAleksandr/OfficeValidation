@@ -128,7 +128,6 @@ namespace OfficeValidationApp.UI
 
         private void ObjectListViewTags_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-
             objectListViewChecks.UpdateObjects(objectListViewChecks.Objects.Cast<object>().ToArray());
             UpdatePerformState();
         }
