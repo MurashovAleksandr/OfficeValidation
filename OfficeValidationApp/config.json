@@ -45,6 +45,27 @@
     },
     {
       "Name": "Antiplagiat",
+      "DisplayName": "Антиплагиат (полный отчёт)",
+      "Description": "Проверка через сервис Antiplagiat",
+      "Assembly": "CommonOfficeValidationChecks.dll",
+      "ClassName": "CommonOfficeValidationChecks.Checks.Antiplagiat",
+      "Parameters": {
+        "AntipalgiatUrl": "https://testapi.antiplagiat.ru",
+        "ApicorpAddr": "api.antiplagiat.ru:44902",
+        "Company": "testapi",
+        "Login": "testapi@antiplagiat.ru",
+        "Password": "testapi",
+        "SecurityDomain": "antiplagiat.ru",
+        "ExternalUserID": "testapi",
+        "CheckType": "Full"
+      },
+      "Tags": [
+        "Основные",
+        "Антиплагиат"
+      ]
+    },
+    {
+      "Name": "Antiplagiat",
       "DisplayName": "Антиплагиат (краткий отчёт)",
       "Description": "Проверка через сервис Antiplagiat",
       "Assembly": "CommonOfficeValidationChecks.dll",

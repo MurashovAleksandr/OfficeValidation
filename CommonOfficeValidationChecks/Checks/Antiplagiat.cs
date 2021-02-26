@@ -14,7 +14,7 @@ using System.Threading;
 
 namespace CommonOfficeValidationChecks.Checks
 {
-    enum CheckTypes { Short, Modules, Sources }
+    enum CheckTypes { Full, Short, Modules, Sources }
     public class Antiplagiat : CheckBase
     {
         private CheckTypes _checkType;
@@ -77,7 +77,7 @@ namespace CommonOfficeValidationChecks.Checks
                 }
                 else
                 {
-                    var report = client.GetReportView(id);
+                    var report = client.GetReportView(id, new ReportViewOptions { FullReport = true, NeedText = true });
                     // Краткий отчет
                     if (_checkType == CheckTypes.Short)
                     {
@@ -88,11 +88,27 @@ namespace CommonOfficeValidationChecks.Checks
                             ViolationLevel.Information,
                             new Dictionary<string, object>()
                                 {
-                                    {"Report Summary", 100 - report.Summary.DetailedScore.Unknown},
-                                    {"Legal", report.Summary.DetailedScore.Legal},
-                                    {"Plagiarism", report.Summary.DetailedScore.Plagiarism},
-                                    {"SelfCite", report.Summary.DetailedScore.SelfCite}
+                                    {"Процент оригинальности", report.Summary.DetailedScore.Unknown},
+                                    {"Процент заимствования", report.Summary.DetailedScore.Plagiarism},
+                                    {"Процент самоцитирования", report.Summary.DetailedScore.SelfCite},
+                                    {"Процент цитирования", report.Summary.DetailedScore.Legal}
                                 }));
+                    }
+                    if(_checkType == CheckTypes.Full && report.Details.CiteBlocks != null)
+                    {
+                        foreach (var block in report.Details.CiteBlocks)
+                        {
+                            checkResult.Violations.Add(new Violation(
+                                checkResult,
+                                document,
+                                Path.GetFileName(document.Path),
+                                ViolationLevel.Information,
+                                new Dictionary<string, object>()
+                                    {
+                                        {"Размер блока заимствования", block.Length},
+                                        {"Текст заимствования", report.Details.Text.Substring(block.Offset, block.Length)}
+                                    }));
+                        }
                     }
                     foreach (var checkService in report.CheckServiceResults)
                     {
@@ -106,12 +122,12 @@ namespace CommonOfficeValidationChecks.Checks
                                 ViolationLevel.Information,
                                 new Dictionary<string, object>()
                                     {
-                                        {"Сервис", checkService.CheckServiceName},
-                                        {"Описание", checkService.CollectionDescription},
-                                        {"Score by report", checkService.ScoreByReport.Unknown},
-                                        {"Score white", checkService.ScoreByReport.Legal},
-                                        {"Score black", checkService.ScoreByReport.Plagiarism},
-                                        {"Score self cite", checkService.ScoreByReport.SelfCite}
+                                        {"Название модуля поиска", checkService.CheckServiceName},
+                                        {"Описание модуля поиска", checkService.CollectionDescription},
+                                        {"Процент оригинальности", checkService.ScoreByReport.Unknown},
+                                        {"Процент заимствования", checkService.ScoreByReport.Plagiarism},
+                                        {"Процент самоцитирования", checkService.ScoreByReport.SelfCite},
+                                        {"Процент цитирования", checkService.ScoreByReport.Legal}
                                     }));
                         }
 
@@ -132,8 +148,7 @@ namespace CommonOfficeValidationChecks.Checks
                                             {"Источник", source.Name},
                                             {"Автор", source.Author},
                                             {"Ссылка", source.Url},
-                                            {"Score by report", source.ScoreByReport},
-                                            {"Score by source", source.ScoreBySource }
+                                            {"Процент заимствования", source.ScoreBySource }
                                         }));
                             }
                         }
