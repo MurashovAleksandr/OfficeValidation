@@ -65,4 +65,7 @@
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>xcopy "$(SolutionDir)\config.json" "$(TargetDir)" /Y</PreBuildEvent>
+  </PropertyGroup>
 </Project>

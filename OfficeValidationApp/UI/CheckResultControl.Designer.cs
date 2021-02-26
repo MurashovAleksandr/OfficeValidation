@@ -142,7 +142,7 @@
             // objectListViewViolations
             // 
             this.objectListViewViolations.AllowColumnReorder = true;
-            this.objectListViewViolations.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.DoubleClick;
+            this.objectListViewViolations.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.SingleClick;
             this.objectListViewViolations.CellEditEnterChangesRows = true;
             this.objectListViewViolations.CellEditUseWholeCell = false;
             this.objectListViewViolations.Cursor = System.Windows.Forms.Cursors.Default;

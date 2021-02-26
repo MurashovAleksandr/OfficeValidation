@@ -72,13 +72,6 @@ namespace OfficeValidationApp.UI
             objectListViewTags.Objects = _sessionManager.Config.Instances.SelectMany(x => x.Tags).Distinct().ToArray();
             olvColumnTag.AspectGetter = rowObject => rowObject;
             objectListViewTags.RefreshObjects(objectListViewTags.Objects.Cast<string>().ToList());
-
-            //tags selection ('AND' behavior)
-            objectListViewChecks.ModelFilter = new ModelFilter(objInstance => 
-                objectListViewTags.CheckedObjects.Count == 0 ||
-                objInstance is Instance instance && objectListViewTags.CheckedObjects.Count ==
-                objectListViewTags.CheckedObjects.Cast<string>()
-                .Intersect(instance.Tags).Count());
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
@@ -134,8 +127,23 @@ namespace OfficeValidationApp.UI
 
         void UpdatePerformState()
         {
-            buttonPerform.Enabled = objectListViewDocuments.Objects.Cast<IDocument>().Any() && 
-                                    objectListViewChecks.CheckedObjects.Count > 0;
+            objectListViewChecks.DisabledObjects = objectListViewChecks.Objects;
+
+            var enabledObjects = objectListViewChecks.Objects
+                .Cast<Instance>()
+                .Where(instance => objectListViewTags.CheckedObjects.Count == 0 ||
+                    objectListViewTags.CheckedObjects.Count ==
+                    objectListViewTags.CheckedObjects.Cast<string>()
+                    .Intersect(instance.Tags).Count());
+
+            objectListViewChecks.EnableObjects(enabledObjects);
+
+            buttonPerform.Enabled = objectListViewDocuments.Objects.Cast<IDocument>()
+                .Any() && 
+                    objectListViewChecks.CheckedObjects.Cast<Instance>()
+                    .Except(objectListViewChecks.DisabledObjects
+                    .Cast<Instance>())
+                    .Any();
         }
 
 
@@ -149,7 +157,10 @@ namespace OfficeValidationApp.UI
             splashThread.Start();
             this.Hide();
             var session = _sessionManager.Create(
-                objectListViewChecks.CheckedObjects.Cast<Instance>(),
+                objectListViewChecks.CheckedObjects
+                .Cast<Instance>()
+                .Except(objectListViewChecks.DisabledObjects
+                .Cast<Instance>()),
                 objectListViewDocuments.Objects.Cast<IDocument>());
 
             _sessionResults.Add(new SessionResults(session.PerformAll(), session));

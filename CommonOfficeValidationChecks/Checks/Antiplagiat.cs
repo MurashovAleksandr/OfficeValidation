@@ -43,6 +43,7 @@ namespace CommonOfficeValidationChecks.Checks
             var client = new ApiCorpClient(_company, _apicorpAddr, _login, _password).UseMtomMessageEnconding();
             foreach (var document in session.Documents)
             {
+                checkResult.CheckedObjects.Add(new CheckedObject(Path.GetFileName(document.Path), checkResult));
                 var docData = new DocData
                 {
                     Data = File.ReadAllBytes(document.Path),

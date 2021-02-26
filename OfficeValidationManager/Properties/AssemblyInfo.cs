@@ -4,23 +4,23 @@ using System.Runtime.InteropServices;
 
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
-// связанные со сборкой.
-[assembly: AssemblyTitle("CommonOfficeValidationChecks")]
+// связанных со сборкой.
+[assembly: AssemblyTitle("OfficeValidationManager")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CommonOfficeValidationChecks")]
-[assembly: AssemblyCopyright("Copyright ©  2020-2021")]
+[assembly: AssemblyProduct("OfficeValidationManager")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
 // для компонентов COM. Если необходимо обратиться к типу в этой сборке через
-// COM, задайте атрибуту ComVisible значение TRUE для этого типа.
+// COM, следует установить атрибут ComVisible в TRUE для этого типа.
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("3054ce64-6a9d-4871-80e1-7d1b1dfc4f2f")]
+[assembly: Guid("dcd1cd0e-dbff-4760-b70f-2f586a08e010")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //
