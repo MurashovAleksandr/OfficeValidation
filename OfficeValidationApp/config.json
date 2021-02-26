@@ -8,12 +8,10 @@
       "Assembly": "CommonOfficeValidationChecks.dll",
       "ClassName": "CommonOfficeValidationChecks.Checks.Antiplagiat",
       "Parameters": {
-        "AntipalgiatUrl": "https://testapi.antiplagiat.ru",
         "ApicorpAddr": "api.antiplagiat.ru:44902",
         "Company": "testapi",
         "Login": "testapi@antiplagiat.ru",
         "Password": "testapi",
-        "SecurityDomain": "antiplagiat.ru",
         "ExternalUserID": "testapi",
         "CheckType": "Sources"
       },
@@ -29,12 +27,10 @@
       "Assembly": "CommonOfficeValidationChecks.dll",
       "ClassName": "CommonOfficeValidationChecks.Checks.Antiplagiat",
       "Parameters": {
-        "AntipalgiatUrl": "https://testapi.antiplagiat.ru",
         "ApicorpAddr": "api.antiplagiat.ru:44902",
         "Company": "testapi",
         "Login": "testapi@antiplagiat.ru",
         "Password": "testapi",
-        "SecurityDomain": "antiplagiat.ru",
         "ExternalUserID": "testapi",
         "CheckType": "Modules"
       },
@@ -50,12 +46,10 @@
       "Assembly": "CommonOfficeValidationChecks.dll",
       "ClassName": "CommonOfficeValidationChecks.Checks.Antiplagiat",
       "Parameters": {
-        "AntipalgiatUrl": "https://testapi.antiplagiat.ru",
         "ApicorpAddr": "api.antiplagiat.ru:44902",
         "Company": "testapi",
         "Login": "testapi@antiplagiat.ru",
         "Password": "testapi",
-        "SecurityDomain": "antiplagiat.ru",
         "ExternalUserID": "testapi",
         "CheckType": "Full"
       },
@@ -71,12 +65,10 @@
       "Assembly": "CommonOfficeValidationChecks.dll",
       "ClassName": "CommonOfficeValidationChecks.Checks.Antiplagiat",
       "Parameters": {
-        "AntipalgiatUrl": "https://testapi.antiplagiat.ru",
         "ApicorpAddr": "api.antiplagiat.ru:44902",
         "Company": "testapi",
         "Login": "testapi@antiplagiat.ru",
         "Password": "testapi",
-        "SecurityDomain": "antiplagiat.ru",
         "ExternalUserID": "testapi",
         "CheckType": "Short"
       },
@@ -106,11 +98,10 @@
       "Assembly": "CommonOfficeValidationChecks.dll",
       "ClassName": "CommonOfficeValidationChecks.Checks.LineRules",
       "Parameters": {
-        "LineSpacingList": [ 0.0 ],
+        "LineSpacingList": [ 12, 18 ],
         "LineUnitBeforeList": [ 0.0 ],
         "LineUnitAfterList": [ 0.0 ],
         "LineSpacingRuleList": [ "wdLineSpace1pt5" ]
-
       },
       "Tags": [
         "Основные",

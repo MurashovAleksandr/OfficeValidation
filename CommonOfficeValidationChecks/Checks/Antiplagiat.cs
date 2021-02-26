@@ -18,24 +18,20 @@ namespace CommonOfficeValidationChecks.Checks
     public class Antiplagiat : CheckBase
     {
         private CheckTypes _checkType;
-        private string _antipalgiatUrl;
         private string _apicorpAddr;
         private string _company;
         private string _login;
         private string _password;
-        private string _securityDomain;
         private string _externalUserID;
 
         public override void InitializeDocuments(IEnumerable<IDocument> documents) { }
 
         protected override void InitializeParametersInternal(IDictionary<string, object> values)
         {
-            _antipalgiatUrl = (string)values["AntipalgiatUrl"];
             _apicorpAddr = (string)values["ApicorpAddr"];
             _company = (string)values["Company"];
             _login = (string)values["Login"];
             _password = (string)values["Password"];
-            _securityDomain = (string)values["SecurityDomain"];
             _externalUserID = (string)values["ExternalUserID"];
             _checkType = (CheckTypes)Enum.Parse(typeof(CheckTypes), (string)values["CheckType"]);
         }
@@ -72,7 +68,7 @@ namespace CommonOfficeValidationChecks.Checks
                         ViolationLevel.Error,
                         new Dictionary<string, object>()
                             {
-                                    {"Ошибка", status.FailDetails}
+                                {"Ошибка", status.FailDetails}
                             }));
                 }
                 else
