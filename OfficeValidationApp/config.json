@@ -1,0 +1,139 @@
+{
+  "DocumentFactoryNames": [ "Excel", "LaTeX", "Markdown", "PowerPoint", "Word" ],
+  "Instances": [
+    {
+      "Name": "Antiplagiat",
+      "DisplayName": "Антиплагиат (источники)",
+      "Description": "Проверка через сервис Antiplagiat",
+      "Assembly": "CommonOfficeValidationChecks.dll",
+      "ClassName": "CommonOfficeValidationChecks.Checks.Antiplagiat",
+      "Parameters": {
+        "AntipalgiatUrl": "https://testapi.antiplagiat.ru",
+        "ApicorpAddr": "api.antiplagiat.ru:44902",
+        "Company": "testapi",
+        "Login": "testapi@antiplagiat.ru",
+        "Password": "testapi",
+        "SecurityDomain": "antiplagiat.ru",
+        "ExternalUserID": "testapi",
+        "CheckType": "Sources"
+      },
+      "Tags": [
+        "Основные",
+        "Антиплагиат"
+      ]
+    },
+    {
+      "Name": "Antiplagiat",
+      "DisplayName": "Антиплагиат (поисковые модули)",
+      "Description": "Проверка через сервис Antiplagiat",
+      "Assembly": "CommonOfficeValidationChecks.dll",
+      "ClassName": "CommonOfficeValidationChecks.Checks.Antiplagiat",
+      "Parameters": {
+        "AntipalgiatUrl": "https://testapi.antiplagiat.ru",
+        "ApicorpAddr": "api.antiplagiat.ru:44902",
+        "Company": "testapi",
+        "Login": "testapi@antiplagiat.ru",
+        "Password": "testapi",
+        "SecurityDomain": "antiplagiat.ru",
+        "ExternalUserID": "testapi",
+        "CheckType": "Modules"
+      },
+      "Tags": [
+        "Основные",
+        "Антиплагиат"
+      ]
+    },
+    {
+      "Name": "Antiplagiat",
+      "DisplayName": "Антиплагиат (краткий отчёт)",
+      "Description": "Проверка через сервис Antiplagiat",
+      "Assembly": "CommonOfficeValidationChecks.dll",
+      "ClassName": "CommonOfficeValidationChecks.Checks.Antiplagiat",
+      "Parameters": {
+        "AntipalgiatUrl": "https://testapi.antiplagiat.ru",
+        "ApicorpAddr": "api.antiplagiat.ru:44902",
+        "Company": "testapi",
+        "Login": "testapi@antiplagiat.ru",
+        "Password": "testapi",
+        "SecurityDomain": "antiplagiat.ru",
+        "ExternalUserID": "testapi",
+        "CheckType": "Short"
+      },
+      "Tags": [
+        "Основные",
+        "Антиплагиат"
+      ]
+    },
+    {
+      "Name": "Alignment",
+      "DisplayName": "Выравнивание абзаца",
+      "Description": "Проверяется выравнивание абзаца",
+      "Assembly": "CommonOfficeValidationChecks.dll",
+      "ClassName": "CommonOfficeValidationChecks.Checks.Alignment",
+      "Parameters": {
+        "AlignmentList": [ "wdAlignParagraphJustify", "wdAlignParagraphJustifyHi", "wdAlignParagraphJustifyLow", "wdAlignParagraphJustifyMed" ]
+      },
+      "Tags": [
+        "Основные",
+        "Шрифт"
+      ]
+    },
+    {
+      "Name": "LineRules",
+      "DisplayName": "Форматирование абзаца",
+      "Description": "Проверяется междустрочный интервал, перед, после, расстояние между абзацами",
+      "Assembly": "CommonOfficeValidationChecks.dll",
+      "ClassName": "CommonOfficeValidationChecks.Checks.LineRules",
+      "Parameters": {
+        "LineSpacingList": [ 0.0 ],
+        "LineUnitBeforeList": [ 0.0 ],
+        "LineUnitAfterList": [ 0.0 ],
+        "LineSpacingRuleList": [ "wdLineSpace1pt5" ]
+
+      },
+      "Tags": [
+        "Основные",
+        "Шрифт"
+      ]
+    },
+    {
+      "Name": "FontSize",
+      "DisplayName": "Размер шрифта",
+      "Description": "Проверяется размер используемого шрифта",
+      "Assembly": "CommonOfficeValidationChecks.dll",
+      "ClassName": "CommonOfficeValidationChecks.Checks.FontSize",
+      "Parameters": {
+        "SizeList": [ 12.0, 14.0 ]
+      },
+      "Tags": [
+        "Основные",
+        "Шрифт"
+      ]
+    },
+    {
+      "Name": "ContainsBookmarks2",
+      "DisplayName": "Более 2 закладок",
+      "Description": "Проверяется наличие закладок в документе (должно быть 2 или более)",
+      "Assembly": "CommonOfficeValidationChecks.dll",
+      "ClassName": "CommonOfficeValidationChecks.Checks.Bookmarks",
+      "Parameters": {
+        "BookmarksMinCount": 2
+      },
+      "Tags": [
+        "Основные",
+        "Содержание"
+      ]
+    },
+    {
+      "Name": "TableOfContents",
+      "DisplayName": "Наличие содержания",
+      "Description": "Проверяется наличие содержания в документе",
+      "Assembly": "CommonOfficeValidationChecks.dll",
+      "ClassName": "CommonOfficeValidationChecks.Checks.TableOfContents",
+      "Tags": [
+        "Основные",
+        "Закладки"
+      ]
+    }
+  ]
+}
