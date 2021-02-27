@@ -20,9 +20,6 @@
             <Component Id="cmp41243CB87B466B0274A507F9EB49FFB2" Directory="OFFICEVALIDATION" Guid="{38641768-3CF8-4FDF-9F0D-5258188F7F37}">
                 <File Id="fil4013353E4077BD24EAA90E6B43C797D7" KeyPath="yes" Source="SourceDir\Antiplagiat.ApiCorp.dll" />
             </Component>
-            <Component Id="cmpE75604C11FADF23B17BD916BCD6DA93F" Directory="OFFICEVALIDATION" Guid="{34A964D1-1212-432E-9A26-6D16053A9231}">
-                <File Id="fil07C77B2F3FEC115DC87365BFC0BDE97A" KeyPath="yes" Source="SourceDir\Antiplagiat.ApiCorp.pdb" />
-            </Component>
             <Component Id="cmp2770C88806A8AF2675EADA38D3B97F1B" Directory="OFFICEVALIDATION" Guid="{B2F77178-8F48-4EC3-B497-DCFC904B98D6}">
                 <File Id="fil77E7AD36B3A87D0DD80FF8C478163FB9" KeyPath="yes" Source="SourceDir\CommandLine.dll" />
             </Component>
@@ -38,35 +35,17 @@
             <Component Id="cmpEEC7386F51BA1C2A32E5FB5D27DC28C2" Directory="OFFICEVALIDATION" Guid="{0252FDDF-0FBE-469D-916F-E4ED414C49B7}">
                 <File Id="filCBC4C066C181ED48DDEFE5B690963DD5" KeyPath="yes" Source="SourceDir\Newtonsoft.Json.dll" />
             </Component>
-            <Component Id="cmpCDBECBFE69BD466CEA4B3CC879212933" Directory="OFFICEVALIDATION" Guid="{10F692A4-CEEC-4F4B-A59C-5F5EB12219B0}">
-                <File Id="fil79EB8D2C6232676EBD557B4870AA4E58" KeyPath="yes" Source="SourceDir\Newtonsoft.Json.xml" />
-            </Component>
             <Component Id="cmp4F8DE79C7A1F68276B58224EC98DC203" Directory="OFFICEVALIDATION" Guid="{981F77E0-7195-4A47-9EED-AA1B3ADB2F64}">
                 <File Id="fil4787D18E26FFABDF7182A39944C3EA3B" KeyPath="yes" Source="SourceDir\ObjectListView.dll" />
             </Component>
-            <Component Id="cmp9DBB65429EE20D88E80EFA1130963579" Directory="OFFICEVALIDATION" Guid="{EF2B4807-3A91-4379-AE1F-44DA85D228CD}">
-                <File Id="filFAACDAAE66B29BD8E4D27F90C2832600" KeyPath="yes" Source="SourceDir\ObjectListView.xml" />
-            </Component>
-            <Component Id="cmp2BD3D60C6B74274D3109648E7D254263" Directory="OFFICEVALIDATION" Guid="{C0B10738-4456-400F-AE4F-97EC9F11671A}">
-                <File Id="fil7A897F14E88485BC96A99DF4DD3CB699" KeyPath="yes" Source="SourceDir\OfficeValidationApp.exe.config" />
-            </Component>
             <Component Id="cmpB45213FE4CEFCB2386A1DACD13FE8A57" Directory="OFFICEVALIDATION" Guid="{2D283EA2-61C3-45FF-97DA-34992E618E94}">
                 <File Id="filC8C4776E38F53728818028F8A624CA52" KeyPath="yes" Source="SourceDir\OfficeValidationCLI.exe" />
-            </Component>
-            <Component Id="cmp5BE2E5ADE7ECF265C1B198D83AD97553" Directory="OFFICEVALIDATION" Guid="{0842E474-CBA7-4AFD-A963-CB35D210586F}">
-                <File Id="filAA2BFA231CB57366C4009D5BC6D464E6" KeyPath="yes" Source="SourceDir\OfficeValidationCLI.exe.config" />
             </Component>
             <Component Id="cmp9826541B3954C7D697A7FAAF23886E29" Directory="OFFICEVALIDATION" Guid="{0A2A7C13-BBAD-4D3C-B34C-7CCF02173D7D}">
                 <File Id="filD8B0D909A6DE1237FB4018EEC3A1AE5F" KeyPath="yes" Source="SourceDir\OfficeValidationLib.dll" />
             </Component>
             <Component Id="cmp98C79B2FE999F89E614F51481FCF2E78" Directory="OFFICEVALIDATION" Guid="{DDE4BDCF-CDD3-43AB-BAAD-B99FDB4E2210}">
                 <File Id="filEE012F06FE8A452E7EDC89E5C0029155" KeyPath="yes" Source="SourceDir\OfficeValidationManager.exe" />
-            </Component>
-            <Component Id="cmp5D8F5116830A52CADDFAECAC79F922B7" Directory="OFFICEVALIDATION" Guid="{CE286388-832C-4EF6-B343-A8A264D7C1DC}">
-                <File Id="filD1992147D10B1B881058577904AA0557" KeyPath="yes" Source="SourceDir\OfficeValidationManager.exe.config" />
-            </Component>
-            <Component Id="cmpA1F867CA7980D2A49838870FC2B5FD3C" Directory="OFFICEVALIDATION" Guid="{33FBB136-C8FB-4635-9BFB-8EABB1C48D40}">
-                <File Id="fil573FC1FC4350F494C3F4901520CF56EF" KeyPath="yes" Source="SourceDir\OfficeValidationManager.pdb" />
             </Component>
         </ComponentGroup>
     </Fragment>
