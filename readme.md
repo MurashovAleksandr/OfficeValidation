@@ -14,3 +14,5 @@
   Приложение для использования проверок с интерфейсом GUI
 * [CommonOfficeValidationChecks](CommonOfficeValidationChecks)  
   Библиотека с проверками
+* [CommonOfficeValidationChecks.Tests](CommonOfficeValidationChecks.Tests)  
+  xUnit тесты для проверок `CommonOfficeValidationChecks`
