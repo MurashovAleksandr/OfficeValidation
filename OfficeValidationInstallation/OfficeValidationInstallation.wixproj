@@ -13,7 +13,8 @@
     <OutputPath>..\bin\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <VerboseOutput>True</VerboseOutput>
-	<LinkerAdditionalOptions>-b ..\bin -spdb</LinkerAdditionalOptions>
+    <LinkerAdditionalOptions>-b ..\bin -spdb</LinkerAdditionalOptions>
+    <Cultures>ru-RU</Cultures>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AppFiles.wxs" />

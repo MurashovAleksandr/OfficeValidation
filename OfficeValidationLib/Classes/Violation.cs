@@ -19,7 +19,10 @@ namespace OfficeValidationLib.Classes
             Level = level;
 
             Data.Add("Документ", Document);
-            Data.Add("Объект", Object);
+            if (Document != Object)
+            {
+                Data.Add("Область исследования", Object);
+            }
 
             if (data != null)
             {

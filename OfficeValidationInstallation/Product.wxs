@@ -10,8 +10,8 @@
            UpgradeCode="$(var.UpgradeCode)">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     <MediaTemplate EmbedCab="yes"/>
-		<MajorUpgrade DowngradeErrorMessage="A newer version of OfficeValidation is already installed." />
-
+    <MajorUpgrade AllowDowngrades="no" DowngradeErrorMessage="$(var.NewerVersionInstalled)" AllowSameVersionUpgrades="no"/>
+    
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFiles64Folder">
         <Directory Id="INSTALLLOCATION">

@@ -36,6 +36,11 @@ namespace CommonOfficeValidationChecks.Checks
             _checkType = (CheckTypes)Enum.Parse(typeof(CheckTypes), (string)values["CheckType"]);
         }
 
+        /// <summary>
+        /// Key = session id, path to file. Value = antiplagiat report
+        /// </summary>
+        private static Dictionary<Tuple<int, string>, ReportView> _reportCache = new Dictionary<Tuple<int, string>, ReportView>();
+
         public override ICheckResult Perform(ISession session)
         {
             var checkResult = new CheckResult(this);
@@ -44,44 +49,54 @@ namespace CommonOfficeValidationChecks.Checks
             foreach (var document in session.Documents)
             {
                 checkResult.CheckedObjects.Add(new CheckedObject(Path.GetFileName(document.Path), checkResult));
-                var docData = new DocData
+
+                ReportView report;
+                var cacheKey = new Tuple<int, string>(session.ID, document.Path);
+                if (!_reportCache.ContainsKey(cacheKey))
                 {
-                    Data = File.ReadAllBytes(document.Path),
-                    FileType = Path.GetExtension(document.Path),
-                    FileName = Path.GetFileName(document.Path),
-                    ExternalUserID = _externalUserID,
-                };
-                var uploadResult = client.UploadDocument(docData);
-                var id = uploadResult.Uploaded.First().Id;
-                client.CheckDocument(id);
-                var status = client.GetCheckStatus(id);
-                while (ReportStatus.InProgress == status.Status)
-                {
-                    Thread.Sleep(TimeSpan.FromSeconds(status.EstimatedWaitTime.Value));
-                    status = client.GetCheckStatus(id);
-                }
-                if (ReportStatus.Failed == status.Status)
-                {
-                    checkResult.Violations.Add(new Violation(
-                        checkResult,
-                        document,
-                        Path.GetFileName(document.Path),
-                        ViolationLevel.Error,
-                        new Dictionary<string, object>()
-                            {
+                    var docData = new DocData
+                    {
+                        Data = File.ReadAllBytes(document.Path),
+                        FileType = Path.GetExtension(document.Path),
+                        FileName = Path.GetFileName(document.Path),
+                        ExternalUserID = _externalUserID,
+                    };
+                    var uploadResult = client.UploadDocument(docData);
+                    var id = uploadResult.Uploaded.First().Id;
+                    client.CheckDocument(id);
+                    var status = client.GetCheckStatus(id);
+                    while (ReportStatus.InProgress == status.Status)
+                    {
+                        Thread.Sleep(1000);
+                        status = client.GetCheckStatus(id);
+                    }
+                    if (ReportStatus.Failed == status.Status)
+                    {
+                        checkResult.Violations.Add(new Violation(
+                            checkResult,
+                            document,
+                            document,
+                            ViolationLevel.Error,
+                            new Dictionary<string, object>()
+                                {
                                 {"Ошибка", status.FailDetails}
-                            }));
+                                }));
+                    }
+                    else
+                    {
+                        _reportCache.Add(cacheKey, client.GetReportView(id, new ReportViewOptions { FullReport = true, NeedText = true }));
+                    }
                 }
-                else
+                if(_reportCache.ContainsKey(cacheKey))
                 {
-                    var report = client.GetReportView(id, new ReportViewOptions { FullReport = true, NeedText = true });
-                    // Краткий отчет
+                    report = _reportCache[cacheKey];
+                    // Short report
                     if (_checkType == CheckTypes.Short)
                     {
                         checkResult.Violations.Add(new Violation(
                             checkResult,
                             document,
-                            Path.GetFileName(document.Path),
+                            document,
                             ViolationLevel.Information,
                             new Dictionary<string, object>()
                                 {
@@ -98,7 +113,7 @@ namespace CommonOfficeValidationChecks.Checks
                             checkResult.Violations.Add(new Violation(
                                 checkResult,
                                 document,
-                                Path.GetFileName(document.Path),
+                                document,
                                 ViolationLevel.Information,
                                 new Dictionary<string, object>()
                                     {
@@ -109,13 +124,13 @@ namespace CommonOfficeValidationChecks.Checks
                     }
                     foreach (var checkService in report.CheckServiceResults)
                     {
-                        // Информация по каждому поисковому модулю
+                        // Information by search modules
                         if (_checkType == CheckTypes.Modules)
                         {
                             checkResult.Violations.Add(new Violation(
                                 checkResult,
                                 document,
-                                Path.GetFileName(document.Path),
+                                document,
                                 ViolationLevel.Information,
                                 new Dictionary<string, object>()
                                     {
@@ -138,7 +153,7 @@ namespace CommonOfficeValidationChecks.Checks
                                 checkResult.Violations.Add(new Violation(
                                     checkResult,
                                     document,
-                                    Path.GetFileName(document.Path),
+                                    document,
                                     ViolationLevel.Information,
                                     new Dictionary<string, object>()
                                         {

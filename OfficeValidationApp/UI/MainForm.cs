@@ -149,13 +149,11 @@ namespace OfficeValidationApp.UI
 
         private void ButtonPerform_Click(object sender, EventArgs e)
         {
-            var splashForm = new SplashForm()
-            {
-                Message = "Пожалуйста, подождите"
-            };
+            var splashForm = new SplashForm();
             var splashThread = new Thread(() => splashForm.ShowDialog());
             splashThread.Start();
             this.Hide();
+            splashForm.Message = "Создание сессии";
             var session = _sessionManager.Create(
                 objectListViewChecks.CheckedObjects
                 .Cast<Instance>()
@@ -163,7 +161,17 @@ namespace OfficeValidationApp.UI
                 .Cast<Instance>()),
                 objectListViewDocuments.Objects.Cast<IDocument>());
 
-            _sessionResults.Add(new SessionResults(session.PerformAll(), session));
+            List<ICheckResult> checkResults = new List<ICheckResult>();
+            var checks = session.Checks.Where(x => x.IsAvailable(session)).ToArray();
+            splashForm.Maximum = checks.Length;
+            foreach(var check in checks)
+            {
+                splashForm.Message = $"Выполнение проверки '{check.DisplayName}'";
+                splashForm.Value++;
+                checkResults.Add(check.Perform(session));
+            }
+            _sessionResults.Add(new SessionResults(checkResults, session));
+            splashForm.Message = $"Вывод результата";
             var resultForm = new ResultForm(_sessionResults);
             if (splashThread.ThreadState == ThreadState.Running)
             {

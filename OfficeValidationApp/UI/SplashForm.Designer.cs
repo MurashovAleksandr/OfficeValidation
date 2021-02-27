@@ -29,35 +29,47 @@
         private void InitializeComponent()
         {
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.labelState = new System.Windows.Forms.Label();
+            this.labelWaitText = new System.Windows.Forms.Label();
+            this.labelMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar.Location = new System.Drawing.Point(12, 65);
+            this.progressBar.Location = new System.Drawing.Point(12, 55);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(376, 23);
-            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar.TabIndex = 0;
             // 
-            // labelState
+            // labelWaitText
             // 
-            this.labelState.AutoSize = true;
-            this.labelState.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelState.Location = new System.Drawing.Point(12, 9);
-            this.labelState.Name = "labelState";
-            this.labelState.Size = new System.Drawing.Size(71, 31);
-            this.labelState.TabIndex = 1;
-            this.labelState.Text = "label";
+            this.labelWaitText.AutoSize = true;
+            this.labelWaitText.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWaitText.Location = new System.Drawing.Point(27, 9);
+            this.labelWaitText.Name = "labelWaitText";
+            this.labelWaitText.Size = new System.Drawing.Size(345, 31);
+            this.labelWaitText.TabIndex = 1;
+            this.labelWaitText.Text = "Пожалуйста, подождите...";
+            this.labelWaitText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelMessage
+            // 
+            this.labelMessage.AutoSize = true;
+            this.labelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.labelMessage.Location = new System.Drawing.Point(10, 80);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(114, 13);
+            this.labelMessage.TabIndex = 2;
+            this.labelMessage.Text = "Поясняющий текст...";
             // 
             // SplashForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 100);
-            this.Controls.Add(this.labelState);
+            this.Controls.Add(this.labelMessage);
+            this.Controls.Add(this.labelWaitText);
             this.Controls.Add(this.progressBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -77,6 +89,7 @@
         #endregion
 
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Label labelState;
+        private System.Windows.Forms.Label labelWaitText;
+        private System.Windows.Forms.Label labelMessage;
     }
 }
