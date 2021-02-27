@@ -36,6 +36,6 @@
     </WixExtension>
   </ItemGroup>
   <PropertyGroup>
-    <PreBuildEvent>heat dir .\ -gg -scom -sreg -platform x64 -srd -dr OFFICEVALIDATION -cg AppFiles -o $(ProjectDir)AppFiles.wxs</PreBuildEvent>
+    <PreBuildEvent />
   </PropertyGroup>
 </Project>

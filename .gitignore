@@ -32,4 +32,3 @@ msbuild.wrn
 .vs/
 
 packages/
-/OfficeValidationInstallation/AppFiles.wxs

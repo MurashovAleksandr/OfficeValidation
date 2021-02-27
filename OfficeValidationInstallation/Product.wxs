@@ -11,15 +11,18 @@
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     <MediaTemplate EmbedCab="yes"/>
     <MajorUpgrade AllowDowngrades="no" DowngradeErrorMessage="$(var.NewerVersionInstalled)" AllowSameVersionUpgrades="no"/>
-    
+
     <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="DesktopFolder" SourceName="Desktop" />
       <Directory Id="ProgramFiles64Folder">
         <Directory Id="INSTALLLOCATION">
           <Directory Id="OFFICEVALIDATION" Name="OfficeValidation" />
         </Directory>
       </Directory>
     </Directory>
+    
     <FeatureRef Id="AppFiles"/>
+    
     <Property Id="WIXUI_INSTALLDIR" Value="OFFICEVALIDATION" />
     <UIRef Id="WixUI_InstallDir"/>
   </Product>

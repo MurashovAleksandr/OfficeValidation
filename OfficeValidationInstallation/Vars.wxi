@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include>
-  <?define ProductVersion="0.1.1.0" ?>
+  <?define ProductVersion="1.0.0.0" ?>
   <?define ProductName="Office Validation"?>
   <?define ProductCode="*"?>
   <?define UpgradeCode="BDBAEC29-617C-4DE6-A961-E89A6EEEBB56"?>
