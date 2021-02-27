@@ -19,7 +19,8 @@
         </Directory>
       </Directory>
     </Directory>
-    <FeatureRef Id="App"/>
-    <UIRef Id="WixUI_FeatureTree"/>
+    <FeatureRef Id="AppFiles"/>
+    <Property Id="WIXUI_INSTALLDIR" Value="OFFICEVALIDATION" />
+    <UIRef Id="WixUI_InstallDir"/>
   </Product>
 </Wix>
