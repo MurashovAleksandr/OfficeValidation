@@ -24,6 +24,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C26496A-6CA8-4A18-BBF6-6EDD8A05A5D2}"
 	ProjectSection(SolutionItems) = preProject
 		config.json = config.json
+		MIT-X License.rtf = MIT-X License.rtf
 		readme.md = readme.md
 	EndProjectSection
 	ProjectSection(FolderGlobals) = preProject
@@ -32,7 +33,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeValidationManager", "OfficeValidationManager\OfficeValidationManager.csproj", "{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonOfficeValidationChecks.Tests", "CommonOfficeValidationChecks.Tests\CommonOfficeValidationChecks.Tests.csproj", "{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonOfficeValidationChecks.Tests", "CommonOfficeValidationChecks.Tests\CommonOfficeValidationChecks.Tests.csproj", "{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,25 +90,21 @@ Global
 		{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}.Debug|x64.ActiveCfg = Debug|x64
 		{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}.Debug|x64.Build.0 = Debug|x64
 		{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}.Debug|x86.ActiveCfg = Debug|x64
-		{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}.Debug|x86.Build.0 = Debug|x64
 		{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}.Release|x64.ActiveCfg = Release|x64
 		{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}.Release|x64.Build.0 = Release|x64
 		{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}.Release|x86.ActiveCfg = Release|x64
-		{DCD1CD0E-DBFF-4760-B70F-2F586A08E010}.Release|x86.Build.0 = Release|x64
 		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Debug|x64.ActiveCfg = Debug|x64
 		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Debug|x64.Build.0 = Debug|x64
 		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Debug|x86.ActiveCfg = Debug|x64
-		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Debug|x86.Build.0 = Debug|x64
 		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Release|x64.ActiveCfg = Release|x64
 		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Release|x64.Build.0 = Release|x64
 		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Release|x86.ActiveCfg = Release|x64
-		{E34AB334-3FCD-4A23-825D-A8EFCAC7DA22}.Release|x86.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
