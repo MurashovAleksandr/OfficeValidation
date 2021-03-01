@@ -8,22 +8,33 @@
            Version="$(var.ProductVersion)"
            Manufacturer="$(var.Manufacturer)"
            UpgradeCode="$(var.UpgradeCode)">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+		<Package InstallerVersion="200" Compressed="yes"/>
     <MediaTemplate EmbedCab="yes"/>
     <MajorUpgrade AllowDowngrades="no" DowngradeErrorMessage="$(var.NewerVersionInstalled)" AllowSameVersionUpgrades="no"/>
 
     <Directory Id="TARGETDIR" Name="SourceDir">
-      <Directory Id="DesktopFolder" SourceName="Desktop" />
-      <Directory Id="ProgramFiles64Folder">
-        <Directory Id="INSTALLLOCATION">
-          <Directory Id="OFFICEVALIDATION" Name="OfficeValidation" />
+      <Directory Id="DesktopFolder"/>
+      <Directory Id="ProgramFiles64Folder" Name="PFiles">
+        <Directory Id="APPLICATIONFOLDER" Name="OfficeValidation">
         </Directory>
       </Directory>
     </Directory>
     
     <FeatureRef Id="AppFiles"/>
+
+    <CustomAction Id="Overwrite_WixSetDefaultPerMachineFolder" Property="WixPerMachineFolder" Value="[ProgramFiles64Folder][ApplicationFolderName]" Execute="immediate" />
+    <InstallUISequence>
+      <Custom Action="Overwrite_WixSetDefaultPerMachineFolder" After="WixSetDefaultPerMachineFolder" />
+    </InstallUISequence>
+    <InstallExecuteSequence>
+      <Custom Action="Overwrite_WixSetDefaultPerMachineFolder" After="WixSetDefaultPerMachineFolder" />
+    </InstallExecuteSequence>
     
-    <Property Id="WIXUI_INSTALLDIR" Value="OFFICEVALIDATION" />
-    <UIRef Id="WixUI_InstallDir"/>
+    <Property Id="ApplicationFolderName" Value="OfficeValidation" />
+    <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
+    <WixVariable Id="WixUILicenseRtf" Value="../MIT-X License.rtf"/>
+    <UI>
+      <UIRef Id="WixUI_Advanced" />
+    </UI>
   </Product>
 </Wix>
