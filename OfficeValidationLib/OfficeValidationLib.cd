@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="OfficeValidationLib.Classes.CheckBase" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="28.5" Y="7.5" Width="1.5" />
+  <Class Name="OfficeValidationLib.Classes.CheckBase" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAkAgAAAAAAAgQAAAgAAEAAAIAAAYAAAAA=</HashCode>
       <FileName>Classes\CheckBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="OfficeValidationLib.Classes.CheckedObject" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="28.5" Y="9.75" Width="1.5" />
+  <Class Name="OfficeValidationLib.Classes.CheckedObject" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAkAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\CheckedObject.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="OfficeValidationLib.Classes.CheckResult" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="28.5" Y="12.5" Width="1.5" />
+  <Class Name="OfficeValidationLib.Classes.CheckResult" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIiAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Classes\CheckResult.cs</FileName>
@@ -25,35 +25,35 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="OfficeValidationLib.Classes.Config">
-    <Position X="28.5" Y="0.5" Width="1.5" />
+    <Position X="25.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Classes\Config.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.DocumentManager">
-    <Position X="12.25" Y="1" Width="1.75" />
+    <Position X="12.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\DocumentManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OfficeValidationLib.Classes.ErrorLogMessage" Collapsed="true">
-    <Position X="26.5" Y="7.5" Width="1.5" />
+  <Class Name="OfficeValidationLib.Classes.ErrorLogMessage">
+    <Position X="23.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\ErrorLogMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Instance">
-    <Position X="28.5" Y="1.75" Width="1.5" />
+    <Position X="25.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAAAACgAAAEAAAAAAQAAAAAAMAAAIAAAAAAAAA=</HashCode>
+      <HashCode>AAACEAAAAACgAAAEAAAAAAQAAAAAAMAgAIAAAAAAAAA=</HashCode>
       <FileName>Classes\Instance.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OfficeValidationLib.Classes.LogMessage" Collapsed="true">
-    <Position X="24.75" Y="7.5" Width="1.5" />
+  <Class Name="OfficeValidationLib.Classes.LogMessage">
+    <Position X="21.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAAAAAAAAAAAAACAAAAAAAAAAAEAAAIAQIAAE=</HashCode>
       <FileName>Classes\LogMessage.cs</FileName>
@@ -61,23 +61,23 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="OfficeValidationLib.Classes.MultiLog" BaseTypeListCollapsed="true">
-    <Position X="24.75" Y="2.75" Width="1.5" />
+    <Position X="21.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAIAAAAAAAQAAAAAAAAAAAAAAAAAgEAAAAQAAAAA=</HashCode>
       <FileName>Classes\MultiLog.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="OfficeValidationLib.Classes.Violation" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="28.5" Y="15.25" Width="1.5" />
+  <Class Name="OfficeValidationLib.Classes.Violation" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAACAAAAAAAAABADAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Violation.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="OfficeValidationLib.Classes.Documents.DocumentBase" Collapsed="true">
-    <Position X="14.25" Y="8" Width="1.5" />
+  <Class Name="OfficeValidationLib.Classes.Documents.DocumentBase">
+    <Position X="14.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAwIEgAAAAAQAEAAAAIAAEAAABAAAAAA=</HashCode>
       <FileName>Classes\Documents\DocumentBase.cs</FileName>
@@ -93,91 +93,91 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.ExcelDocumentFactory" Collapsed="true">
-    <Position X="11.25" Y="4.5" Width="2" />
+    <Position X="16.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\ExcelDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.ExcelDocument" Collapsed="true">
-    <Position X="10.5" Y="9.25" Width="1.5" />
+    <Position X="17.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAgAAAAAAAAAAEAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\ExcelDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.LaTeXDocumentFactory" Collapsed="true">
-    <Position X="15.25" Y="4.5" Width="2" />
+    <Position X="10.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\LaTeXDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.LaTeXDocument" Collapsed="true">
-    <Position X="13.5" Y="9.25" Width="1.5" />
+    <Position X="11.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAEAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\LaTeXDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.MarkdownDocumentFactory" Collapsed="true">
-    <Position X="19.75" Y="4.5" Width="2.25" />
+    <Position X="13.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\MarkdownDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.MarkdownDocument" Collapsed="true">
-    <Position X="17" Y="9.25" Width="1.75" />
+    <Position X="14.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAEAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\MarkdownDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.PowerPointDocumentFactory" Collapsed="true">
-    <Position X="9" Y="4.5" Width="2.25" />
+    <Position X="14.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\PowerPointDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.PowerPointDocument" Collapsed="true">
-    <Position X="8.75" Y="9.25" Width="1.75" />
+    <Position X="16.25" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAgAAAAAAAAAAEAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\PowerPointDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.WordDocumentFactory" Collapsed="true">
-    <Position X="13.25" Y="4.5" Width="2" />
+    <Position X="17.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\WordDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.WordDocument" Collapsed="true">
-    <Position X="12" Y="9.25" Width="1.5" />
+    <Position X="10.25" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAgAAAAAAAAAAEAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\WordDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.WordOpenXMLDocumentFactory" Collapsed="true">
-    <Position X="17.25" Y="4.5" Width="2.5" />
+    <Position X="11.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\WordOpenXMLDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Documents.WordOpenXMLDocument" Collapsed="true">
-    <Position X="15" Y="9.25" Width="2" />
+    <Position X="13.25" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAEAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\WordOpenXMLDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OfficeValidationLib.Classes.Session.Session" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="23" Y="6" Width="1.5" />
+  <Class Name="OfficeValidationLib.Classes.Session.Session" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgBACAAgAAAgAEAAAAAAAgAAIACAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Session\Session.cs</FileName>
@@ -185,107 +185,122 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="OfficeValidationLib.Classes.Session.SessionBuilder">
-    <Position X="21.25" Y="0.75" Width="1.5" />
+    <Position X="17.75" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Session\SessionBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Session.SessionManager" BaseTypeListCollapsed="true">
-    <Position X="23" Y="0.5" Width="1.5" />
+    <Position X="19.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAiAAAAAAACAAAAAAAAAAAEAgAAAAAAAACAA=</HashCode>
+      <HashCode>AAAIAAAAAiAAAAAAACAAAAAAAAAAAEAgQAAAAAAACAA=</HashCode>
       <FileName>Classes\Session\SessionManager.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="OfficeValidationLib.Classes.Session.SessionResults" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="23" Y="8.25" Width="1.5" />
+  <Class Name="OfficeValidationLib.Classes.Session.SessionResults" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="10.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Session\SessionResults.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
+  <Class Name="OfficeValidationLib.Database.DatabaseManager" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAACAAAAAAAAAAAAAABAACAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Database\DatabaseManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
   <Interface Name="OfficeValidationLib.Interfaces.ICheck">
-    <Position X="28.5" Y="4.5" Width="1.5" />
+    <Position X="25.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAgAgAAAAAAAAQAAAgAAEAAAIAAAYAAAAA=</HashCode>
       <FileName>Interfaces\ICheck.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="OfficeValidationLib.Interfaces.ICheckedObject">
-    <Position X="28.5" Y="8.25" Width="1.5" />
+    <Position X="25.25" Y="12" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\ICheckedObject.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="OfficeValidationLib.Interfaces.ICheckResult">
-    <Position X="28.5" Y="10.5" Width="1.5" />
+    <Position X="27.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIiAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\ICheckResult.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Interface Name="OfficeValidationLib.Interfaces.IDatabaseManager">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAABAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IDatabaseManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Interface Name="OfficeValidationLib.Interfaces.IDocument">
-    <Position X="14.25" Y="5.25" Width="1.5" />
+    <Position X="12.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQIAAAAAAAQAAAAAAAAAEAAABAAAAAA=</HashCode>
       <FileName>Interfaces\IDocument.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="OfficeValidationLib.Interfaces.IDocumentFactory">
-    <Position X="14.25" Y="1" Width="1.75" />
+    <Position X="14.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAAAAAAAAAQAAAAAAEAAAABAAAAAAAA=</HashCode>
       <FileName>Interfaces\IDocumentFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="OfficeValidationLib.Interfaces.ILogMessage">
-    <Position X="24.75" Y="5.75" Width="1.5" />
+    <Position X="21.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAIAQIAAA=</HashCode>
       <FileName>Interfaces\ILogMessage.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="OfficeValidationLib.Interfaces.ISession">
-    <Position X="23" Y="3.5" Width="1.5" />
+    <Position X="19.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgBAAAAgAAAAAEAAAAAAAgAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\ISession.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="OfficeValidationLib.Interfaces.ISessionLog">
-    <Position X="24.75" Y="0.5" Width="1.5" />
+    <Position X="21.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAIAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Interfaces\ISessionLog.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="OfficeValidationLib.Interfaces.ISessionResults">
-    <Position X="23" Y="6.75" Width="1.5" />
+    <Position X="19.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\ISessionResults.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="OfficeValidationLib.Interfaces.IViolation">
-    <Position X="28.5" Y="13.25" Width="1.5" />
+    <Position X="27.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAACAAAAAAAAABADAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IViolation.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="OfficeValidationLib.Enums.LogMessageSeverity">
-    <Position X="24.75" Y="8.25" Width="1.75" />
+    <Position X="21.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAQAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Enums\LogMessageSeverity.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="OfficeValidationLib.Enums.ViolationLevel">
-    <Position X="28.5" Y="16" Width="1.5" />
+    <Position X="27.25" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAQAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Enums\ViolationLevel.cs</FileName>
