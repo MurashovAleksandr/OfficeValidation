@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using BrightIdeasSoftware;
 using OfficeValidationLib.Classes;
 using OfficeValidationLib.Classes.Session;
+using OfficeValidationLib.Database;
 using OfficeValidationLib.Interfaces;
 using ThreadState = System.Threading.ThreadState;
 
@@ -15,9 +16,9 @@ namespace OfficeValidationApp.UI
 {
     public partial class MainForm : Form
     {
-        private readonly List<ISessionResults> _sessionResults = new List<ISessionResults>();
+        private readonly List<ISessionResults> _sessionResults = new();
         private DocumentManager _documentManager;
-        private readonly SessionManager _sessionManager = new SessionManager("config.json");
+        private readonly SessionManager _sessionManager = new(new DatabaseManager(Properties.Settings.Default.ConnectionString));
         
         public MainForm()
         {
@@ -161,7 +162,7 @@ namespace OfficeValidationApp.UI
                 .Cast<Instance>()),
                 objectListViewDocuments.Objects.Cast<IDocument>());
 
-            List<ICheckResult> checkResults = new List<ICheckResult>();
+            List<ICheckResult> checkResults = new();
             var checks = session.Checks.Where(x => x.IsAvailable(session)).ToArray();
             splashForm.Maximum = checks.Length;
             foreach(var check in checks)

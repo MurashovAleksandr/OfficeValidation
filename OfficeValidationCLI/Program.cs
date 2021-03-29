@@ -3,6 +3,7 @@ using System.Linq;
 using CommandLine;
 using OfficeValidationLib.Classes;
 using OfficeValidationLib.Classes.Session;
+using OfficeValidationLib.Database;
 using OfficeValidationLib.Enums;
 
 namespace OfficeValidationCLI
@@ -15,9 +16,9 @@ namespace OfficeValidationCLI
         }
         static void RunOptions(Options opts)
         {
-            var sessionManager = new SessionManager(opts.ConfigFile);
+            var sessionManager = new SessionManager(new DatabaseManager(opts.ConnectionString));
             var documentManager = new DocumentManager(sessionManager.Config.DocumentFactoryNames);
-            var documents = opts.DocumentFiles
+            var documents = sessionManager.Config.DocumentFactoryNames
                 .SelectMany(file =>
                     documentManager.DocumentFactories
                         .Where(docFactory => docFactory.CanCreate(file))
