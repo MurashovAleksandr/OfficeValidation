@@ -30,20 +30,35 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogForm));
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.objectListViewLogs = new BrightIdeasSoftware.ObjectListView();
             this.olvColumnSeverity = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnMessage = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnSender = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.saveFileDialogLog = new System.Windows.Forms.SaveFileDialog();
+            this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListViewLogs)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip
             // 
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonSave});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(645, 25);
             this.toolStrip.TabIndex = 0;
             this.toolStrip.Text = "toolStrip1";
+            // 
+            // toolStripButtonSave
+            // 
+            this.toolStripButtonSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSave.Image = global::OfficeValidationApp.Properties.Resources.save;
+            this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSave.Name = "toolStripButtonSave";
+            this.toolStripButtonSave.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSave.Text = "toolStripButton1";
+            this.toolStripButtonSave.Click += new System.EventHandler(this.ToolStripButtonSave_Click);
             // 
             // objectListViewLogs
             // 
@@ -87,6 +102,10 @@
             this.olvColumnSender.Text = "Источник";
             this.olvColumnSender.Width = 153;
             // 
+            // saveFileDialogLog
+            // 
+            this.saveFileDialogLog.Filter = "Log File|*.log";
+            // 
             // LogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -100,6 +119,8 @@
             this.Name = "LogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Журнал сообщений";
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListViewLogs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -113,5 +134,7 @@
         private BrightIdeasSoftware.OLVColumn olvColumnSeverity;
         private BrightIdeasSoftware.OLVColumn olvColumnMessage;
         private BrightIdeasSoftware.OLVColumn olvColumnSender;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSave;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogLog;
     }
 }

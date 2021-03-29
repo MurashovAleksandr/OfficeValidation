@@ -26,7 +26,7 @@
               <File Id="fil94583DB1F64EB14B82471559B8677D46" KeyPath="no" Source="SourceDir\CommonOfficeValidationChecks.dll" />
             </Component>
             <Component Id="cmp80B396FD8E42DF6E577B89478619878D" Directory="APPLICATIONFOLDER" Guid="{87186E3E-AE63-4305-9CC3-B2C85987AA5B}">
-              <File Id="filE4CD0325AE1483FEC224E754491D8FA1" KeyPath="no" Source="SourceDir\config.json" />
+              <File Id="filE4CD0325AE1483FEC224E754491D8FA1" KeyPath="no" Source="SourceDir\Checks.db" />
             </Component>
             <Component Id="cmpB5053779AA37B8B9E1F7BA41724B32DE" Directory="APPLICATIONFOLDER" Guid="{F554121A-17BF-4B57-86F2-77037AF87443}">
               <File Id="fil8DB41088808252275AAAC2819436598E" KeyPath="no" Source="SourceDir\DocumentFormat.OpenXml.dll" />

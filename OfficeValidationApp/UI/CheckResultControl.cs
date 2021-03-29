@@ -62,7 +62,7 @@ namespace OfficeValidationApp.UI
         }
 
         OLVColumn BuildViolationColumn(string name) =>
-            new OLVColumn
+            new()
             {
                 Text = name,
                 Name = name,
@@ -87,7 +87,7 @@ namespace OfficeValidationApp.UI
             return null;
         }
 
-        private Dictionary<ViolationLevel, Color> violationColor = new Dictionary<ViolationLevel, Color>()
+        private readonly Dictionary<ViolationLevel, Color> violationColor = new()
         {
             {ViolationLevel.Error, Color.Red},
             {ViolationLevel.Warning, Color.SandyBrown},
@@ -116,7 +116,7 @@ namespace OfficeValidationApp.UI
             }
         }
 
-        private void toolStripButtonLog_Click(object sender, EventArgs e) =>
+        private void ToolStripButtonLog_Click(object sender, EventArgs e) =>
             new LogForm(_sessionResult.Session.Log.Messages).ShowDialog();
     }
 }

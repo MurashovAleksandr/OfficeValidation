@@ -36,6 +36,8 @@
             this.olvColumnName = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.groupBoxViolations = new System.Windows.Forms.GroupBox();
             this.objectListViewViolations = new BrightIdeasSoftware.ObjectListView();
+            this.toolStripButtonLog = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tableLayoutPanelLogPanelChecks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -45,6 +47,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeListViewChecks)).BeginInit();
             this.groupBoxViolations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.objectListViewViolations)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelLogPanelChecks
@@ -52,6 +55,7 @@
             this.tableLayoutPanelLogPanelChecks.ColumnCount = 1;
             this.tableLayoutPanelLogPanelChecks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelLogPanelChecks.Controls.Add(this.splitContainer1, 0, 1);
+            this.tableLayoutPanelLogPanelChecks.Controls.Add(this.toolStrip1, 0, 0);
             this.tableLayoutPanelLogPanelChecks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelLogPanelChecks.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelLogPanelChecks.Margin = new System.Windows.Forms.Padding(4);
@@ -162,6 +166,26 @@
             this.objectListViewViolations.View = System.Windows.Forms.View.Details;
             this.objectListViewViolations.FormatRow += new System.EventHandler<BrightIdeasSoftware.FormatRowEventArgs>(this.ObjectListViewViolations_FormatRow);
             // 
+            // toolStripButtonLog
+            // 
+            this.toolStripButtonLog.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonLog.Image = global::OfficeValidationApp.Properties.Resources.log;
+            this.toolStripButtonLog.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonLog.Name = "toolStripButtonLog";
+            this.toolStripButtonLog.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonLog.Text = "toolStripButton1";
+            this.toolStripButtonLog.Click += new System.EventHandler(this.ToolStripButtonLog_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonLog});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(879, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // CheckResultControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -172,6 +196,7 @@
             this.Name = "CheckResultControl";
             this.Size = new System.Drawing.Size(879, 570);
             this.tableLayoutPanelLogPanelChecks.ResumeLayout(false);
+            this.tableLayoutPanelLogPanelChecks.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -180,6 +205,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeListViewChecks)).EndInit();
             this.groupBoxViolations.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.objectListViewViolations)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -193,5 +220,7 @@
         private BrightIdeasSoftware.TreeListView treeListViewChecks;
         private BrightIdeasSoftware.OLVColumn olvColumnName;
         private BrightIdeasSoftware.ObjectListView objectListViewViolations;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonLog;
     }
 }

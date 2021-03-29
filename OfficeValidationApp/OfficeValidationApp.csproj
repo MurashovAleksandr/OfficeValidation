@@ -162,6 +162,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="save.png" />
     <None Include="log.png" />
     <None Include="remove.png" />
     <None Include="file.png" />
