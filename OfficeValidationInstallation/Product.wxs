@@ -10,7 +10,7 @@
            UpgradeCode="$(var.UpgradeCode)">
 		<Package InstallerVersion="200" Compressed="yes"/>
     <MediaTemplate EmbedCab="yes"/>
-    <MajorUpgrade AllowDowngrades="no" DowngradeErrorMessage="$(var.NewerVersionInstalled)" AllowSameVersionUpgrades="no"/>
+    <MajorUpgrade AllowDowngrades="no" DowngradeErrorMessage="Уже установлена более новая версия данного продукта." AllowSameVersionUpgrades="no"/>
 
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="DesktopFolder"/>
