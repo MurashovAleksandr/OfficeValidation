@@ -85,10 +85,10 @@ namespace OfficeValidationApp.UI
 
         private void OpenDocumentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialogDocuments.Filter = $@"Все документы|{string.Join(";", _documentManager.DocumentFactories.SelectMany(x=>x.SupportingExtention.Select(y=>$"*{y}")).Distinct())}|" + 
+            openFileDialogDocuments.Filter = $@"Все документы|{string.Join(";", _documentManager.DocumentFactories.SelectMany(x=>x.SupportingExtension.Select(y=>$"*{y}")).Distinct())}|" + 
                 string.Join("|",
                     _documentManager.DocumentFactories
-                .Select(x => $"{x.Name}|{string.Join(";", x.SupportingExtention.Select(y => $"*{y}"))}"));
+                .Select(x => $"{x.Name}|{string.Join(";", x.SupportingExtension.Select(y => $"*{y}"))}"));
             if (openFileDialogDocuments.ShowDialog() == DialogResult.OK)
             {
                 AddDocuments(openFileDialogDocuments.FileNames);

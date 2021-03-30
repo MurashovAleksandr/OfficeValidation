@@ -7,7 +7,7 @@ namespace OfficeValidationLib.Classes.Documents
     public class PowerPointDocumentFactory : DocumentFactoryBase
     {
         public override string Name { get; protected set; } = "PowerPoint";
-        public override string[] SupportingExtention { get; protected set; } = new[]
+        public override string[] SupportingExtension { get; protected set; } = new[]
         {
             ".odp", ".pot", ".potm", ".potx",
             ".ppa", ".ppam", ".pps", ".ppsm",

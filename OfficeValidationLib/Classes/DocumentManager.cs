@@ -11,7 +11,7 @@ namespace OfficeValidationLib.Classes
         public IDocumentFactory[] DocumentFactories { get; }
 
         /// <summary>
-        /// Load all factories
+        /// Создаёт фабрику всех документов
         /// </summary>
         public DocumentManager()
         {
@@ -19,7 +19,7 @@ namespace OfficeValidationLib.Classes
         }
 
         /// <summary>
-        /// Create document factories by names
+        /// Создаёт фабрику документов по именам
         /// </summary>
         /// <param name=""></param>
         public DocumentManager(string[] documentFactoryNames)

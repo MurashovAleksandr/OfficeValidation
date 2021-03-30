@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using OfficeValidationLib.Enums;
@@ -37,7 +36,6 @@ namespace OfficeValidationLib.Classes.Session
                     var type = Type.GetType(instance.ClassName, false);
                     if (type == null)
                     {
-                        // check assembly
                         var assembly = Assembly.LoadFrom(instance.Assembly);
                         type = assembly.GetType(instance.ClassName);
                     }
@@ -48,17 +46,17 @@ namespace OfficeValidationLib.Classes.Session
 
                         check.Name = instance.Name;
 
-                        //add visualization
+                        //визуализация
                         check.DisplayName = instance.DisplayName;
                         check.Description = instance.Description;
 
-                        //add parameters
+                        //параметры
                         check.InitializeParameters(instance.Parameters);
 
-                        //initialize documents
+                        //инициализация документов
                         check.InitializeDocuments(session.Documents);
 
-                        //add tags
+                        //aдобавление меток
                         if (instance.Tags != null)
                         {
                             foreach (var tag in instance.Tags)

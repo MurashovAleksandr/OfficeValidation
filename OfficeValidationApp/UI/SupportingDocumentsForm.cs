@@ -16,7 +16,7 @@ namespace OfficeValidationApp.UI
                 ? documentFactory.Name 
                 : null;
             olvColumnExtentions.AspectGetter = rowObject => rowObject is IDocumentFactory documentFactory 
-                ? string.Join(";", documentFactory.SupportingExtention) 
+                ? string.Join(";", documentFactory.SupportingExtension) 
                 : null;
             objectListViewDocuments.UpdateObjects(documentFactories.ToArray());
         }

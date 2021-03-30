@@ -5,7 +5,7 @@ namespace OfficeValidationLib.Classes.Documents
     public class MarkdownDocumentFactory : DocumentFactoryBase
     {
         public override string Name { get; protected set; } = "Markdown";
-        public override string[] SupportingExtention { get; protected set; } = new[]
+        public override string[] SupportingExtension { get; protected set; } = new[]
         {
             ".md"
         };

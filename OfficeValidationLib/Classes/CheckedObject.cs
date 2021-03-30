@@ -7,7 +7,7 @@ namespace OfficeValidationLib.Classes
     {
         public ICheckResult CheckResult { get; }
         public object Object { get; }
-        public CheckedObject(Object obj, ICheckResult checkResult)
+        public CheckedObject(object obj, ICheckResult checkResult)
         {
             Object = obj;
             CheckResult = checkResult;

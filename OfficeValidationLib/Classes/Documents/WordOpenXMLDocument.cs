@@ -6,7 +6,7 @@ namespace OfficeValidationLib.Classes.Documents
     public class WordOpenXMLDocumentFactory : DocumentFactoryBase
     {
         public override string Name { get; protected set; } = "Word_OpenXML";
-        public override string[] SupportingExtention { get; protected set; } = new[]
+        public override string[] SupportingExtension { get; protected set; } = new[]
         {
             ".doc", ".docm", ".docx", ".dot",
             ".dotm", ".dotx",".odt", ".rtf",

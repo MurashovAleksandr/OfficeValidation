@@ -6,7 +6,7 @@ namespace OfficeValidationLib.Classes.Documents
     public class ExcelDocumentFactory : DocumentFactoryBase
     {
         public override string Name { get; protected set; } = "Excel";
-        public override string[] SupportingExtention { get; protected set; } = new[]
+        public override string[] SupportingExtension { get; protected set; } = new[]
         {
             ".csv", ".ods", ".prn",
             ".slk", ".xla", ".xlam",

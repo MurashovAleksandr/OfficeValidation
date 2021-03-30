@@ -8,14 +8,14 @@ namespace OfficeValidationLib.Classes
 {
     public class MultiLog : ISessionLog
     {
-        readonly ISession _session;
-        public ISession Session => _session;
+        public ISession Session { get; }
+
         readonly IList<ILogMessage> _messages = new List<ILogMessage>();
         public ILogMessage[] Messages => _messages.ToArray();
 
         public MultiLog(ISession session)
         {
-            _session = session;
+            Session = session;
         }
         public void AddMessage(ILogMessage message)
         {

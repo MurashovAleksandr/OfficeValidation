@@ -5,19 +5,16 @@ namespace OfficeValidationLib.Classes
 {
     public class LogMessage : ILogMessage
     {
-        private readonly LogMessageSeverity _severity;
-        public LogMessageSeverity Severity => _severity;
-        private readonly string _message;
-        public string Message => _message;
+        public LogMessageSeverity Severity { get; }
+        public string Message { get; }
         public ISessionLog SessionLog { get; set; }
-        private readonly object _sender;
-        public object Sender => _sender;
+        public object Sender { get; }
 
         public LogMessage(LogMessageSeverity severity, string message, object sender)
         {
-            _severity = severity;
-            _message = message;
-            _sender = sender;
+            Severity = severity;
+            Message = message;
+            Sender = sender;
         }
         public LogMessage(LogMessageSeverity severity, string message)
             : this(severity, message, null)

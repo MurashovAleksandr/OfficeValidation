@@ -19,7 +19,7 @@ namespace OfficeValidationCLI
             var databaseManager = new DatabaseManager(opts.ConnectionString);
             var sessionManager = new SessionManager(databaseManager);
             var documentManager = new DocumentManager(sessionManager.Config.DocumentFactoryNames);
-            var documents = sessionManager.Config.DocumentFactoryNames
+            var documents = opts.DocumentFiles
                 .SelectMany(file =>
                     documentManager.DocumentFactories
                         .Where(docFactory => docFactory.CanCreate(file))

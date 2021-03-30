@@ -12,7 +12,7 @@
         /// <summary>
         /// Поддерживаемые расширения файлов
         /// </summary>
-        string[] SupportingExtention { get; }
+        string[] SupportingExtension { get; }
         /// <summary>
         /// Проверка возможности создания документа
         /// </summary>

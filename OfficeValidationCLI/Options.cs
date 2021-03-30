@@ -5,6 +5,12 @@ namespace OfficeValidationCLI
 {
     class Options
     {
+        [Option('d',
+            "documents",
+            Required = true,
+            HelpText = "Document files for check")]
+        public IEnumerable<string> DocumentFiles { get; set; }
+
         [Option('c',
             "connection",
             Required = false,

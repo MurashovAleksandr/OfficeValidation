@@ -7,9 +7,9 @@ namespace OfficeValidationLib.Classes.Documents
     public abstract class DocumentFactoryBase : IDocumentFactory
     {
         public abstract string Name { get; protected set; }
-        public abstract string[] SupportingExtention { get; protected set; }
+        public abstract string[] SupportingExtension { get; protected set; }
         public virtual bool CanCreate(string path) =>
-            SupportingExtention.Select(x => x.ToLower()).Contains(System.IO.Path.GetExtension(path).ToLower());
+            SupportingExtension.Select(x => x.ToLower()).Contains(System.IO.Path.GetExtension(path).ToLower());
         public IDocument Create(string path)
         {
             if (!CanCreate(path))

@@ -5,7 +5,7 @@ namespace OfficeValidationLib.Classes.Documents
     public class LaTeXDocumentFactory : DocumentFactoryBase
     {
         public override string Name { get; protected set; } = "LaTeX";
-        public override string[] SupportingExtention { get; protected set; } = new[]
+        public override string[] SupportingExtension { get; protected set; } = new[]
         {
             ".tex"
         };
