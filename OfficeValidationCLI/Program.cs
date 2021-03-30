@@ -16,7 +16,8 @@ namespace OfficeValidationCLI
         }
         static void RunOptions(Options opts)
         {
-            var sessionManager = new SessionManager(new DatabaseManager(opts.ConnectionString));
+            var databaseManager = new DatabaseManager(opts.ConnectionString);
+            var sessionManager = new SessionManager(databaseManager);
             var documentManager = new DocumentManager(sessionManager.Config.DocumentFactoryNames);
             var documents = sessionManager.Config.DocumentFactoryNames
                 .SelectMany(file =>
@@ -43,7 +44,9 @@ namespace OfficeValidationCLI
                     throw new Exception(errorMessage);
                 }
 
-                foreach (var checkResult in session.PerformAll())
+                var checkResults = session.PerformAll();
+                databaseManager.AddResults(checkResults);
+                foreach (var checkResult in checkResults)
                 {
                     checkResult.Save(System.IO.Path.Combine(opts.SessionDirectoryPath, $"{checkResult.Check.Name}.txt"));
                 }

@@ -43,8 +43,14 @@
             <Component Id="cmp9826541B3954C7D697A7FAAF23886E29" Directory="APPLICATIONFOLDER" Guid="{0A2A7C13-BBAD-4D3C-B34C-7CCF02173D7D}">
               <File Id="filD8B0D909A6DE1237FB4018EEC3A1AE5F" KeyPath="no" Source="SourceDir\OfficeValidationLib.dll" />
             </Component>
-            <Component Id="cmp98C79B2FE999F89E614F51481FCF2E78" Directory="APPLICATIONFOLDER" Guid="{DDE4BDCF-CDD3-43AB-BAAD-B99FDB4E2210}">
-              <File Id="filEE012F06FE8A452E7EDC89E5C0029155" KeyPath="no" Source="SourceDir\OfficeValidationManager.exe" />
+            <Component Id="cmp3FFD316504B24A5F9AB881E32E8CABD2" Directory="APPLICATIONFOLDER" Guid="{E5D30E36-16C6-4D0E-A19D-100708ABF602}">
+              <File Id="filB4EEE3D1BE5244E39AC9884C43689EE8" KeyPath="no" Source="SourceDir\System.Data.SQLite.dll" />
+            </Component>
+            <Component Id="cmpA80B4234EC17474D96A22B615FCBDE73" Directory="APPLICATIONFOLDER64" Guid="{000D6FD5-C080-4800-BBFB-1FD19415A20D}">
+              <File Id="filEBF0DAED325B4B47A57ECA2AC8230AF1" KeyPath="no" Source="SourceDir\x64\SQLite.Interop.dll" />
+            </Component>
+            <Component Id="cmpC7D6F18E681B4858B1F808E87D01F31A" Directory="APPLICATIONFOLDER86" Guid="{86BDA7B1-34C8-484E-8DB4-D5A7F84B502D}">
+              <File Id="fil7E4E02ED42A34569A6823B81979DBD8D" KeyPath="no" Source="SourceDir\x86\SQLite.Interop.dll" />
             </Component>
         </ComponentGroup>
     </Fragment>

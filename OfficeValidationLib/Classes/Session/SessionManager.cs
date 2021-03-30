@@ -10,7 +10,7 @@ namespace OfficeValidationLib.Classes.Session
 {
     public class SessionManager : IDisposable
     {
-        readonly SessionBuilder _builder = new();
+        readonly SessionBuilder _builder = new SessionBuilder();
         private readonly Config _config;
         public Config Config => _config;
         readonly IList<ISession> _sessions = new List<ISession>();

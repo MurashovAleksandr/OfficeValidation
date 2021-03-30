@@ -24,6 +24,10 @@ namespace OfficeValidationLib.Interfaces
         /// </summary>
         bool IsInitialized { get; }
         /// <summary>
+        /// Получает md5 hash файла
+        /// </summary>
+        string Hash { get; }
+        /// <summary>
         /// Инициализация документа (может быть произведена один раз)
         /// </summary>
         void Initialize();

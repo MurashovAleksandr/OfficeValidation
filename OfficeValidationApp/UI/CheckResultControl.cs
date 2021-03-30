@@ -62,7 +62,7 @@ namespace OfficeValidationApp.UI
         }
 
         OLVColumn BuildViolationColumn(string name) =>
-            new()
+            new OLVColumn()
             {
                 Text = name,
                 Name = name,
@@ -87,7 +87,7 @@ namespace OfficeValidationApp.UI
             return null;
         }
 
-        private readonly Dictionary<ViolationLevel, Color> violationColor = new()
+        private readonly Dictionary<ViolationLevel, Color> violationColor = new Dictionary<ViolationLevel, Color>()
         {
             {ViolationLevel.Error, Color.Red},
             {ViolationLevel.Warning, Color.SandyBrown},

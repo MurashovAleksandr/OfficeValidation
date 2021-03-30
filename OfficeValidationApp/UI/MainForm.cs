@@ -16,13 +16,17 @@ namespace OfficeValidationApp.UI
 {
     public partial class MainForm : Form
     {
-        private readonly List<ISessionResults> _sessionResults = new();
+        private readonly List<ISessionResults> _sessionResults = new List<ISessionResults>();
         private DocumentManager _documentManager;
-        private readonly SessionManager _sessionManager = new(new DatabaseManager(Properties.Settings.Default.ConnectionString));
+
+        private readonly IDatabaseManager _databaseManager;
+        private readonly SessionManager _sessionManager;
         
         public MainForm()
         {
             InitializeComponent();
+            _databaseManager = new DatabaseManager(Properties.Settings.Default.ConnectionString);
+            _sessionManager = new SessionManager(_databaseManager);
             SetupAspects();
         }
 
@@ -162,7 +166,7 @@ namespace OfficeValidationApp.UI
                 .Cast<Instance>()),
                 objectListViewDocuments.Objects.Cast<IDocument>());
 
-            List<ICheckResult> checkResults = new();
+            List<ICheckResult> checkResults = new List<ICheckResult>();
             var checks = session.Checks.Where(x => x.IsAvailable(session)).ToArray();
             splashForm.Maximum = checks.Length;
             foreach(var check in checks)
@@ -171,6 +175,9 @@ namespace OfficeValidationApp.UI
                 splashForm.Value++;
                 checkResults.Add(check.Perform(session));
             }
+            splashForm.Message = $"Сохранение результатов в БД";
+            _databaseManager.AddResults(checkResults);
+
             _sessionResults.Add(new SessionResults(checkResults, session));
             splashForm.Message = $"Вывод результата";
             var resultForm = new ResultForm(_sessionResults);

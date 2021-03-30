@@ -39,7 +39,6 @@ namespace CommonOfficeValidationChecks.Checks
         {
             _lineSpacingList = (values["LineSpacingList"] as JArray).Select(x => (float)x).ToArray();
             _lineUnitBeforeList = (values["LineUnitBeforeList"] as JArray).Select(x => (float)x).ToArray();
-            _lineUnitBeforeList = (values["LineUnitBeforeList"] as JArray).Select(x => (float)x).ToArray();
             _lineUnitAfterList = (values["LineUnitAfterList"] as JArray).Select(x => (float)x).ToArray();
             _lineSpacingRuleList = (values["LineSpacingRuleList"] as JArray).Select(x => (WdLineSpacing)Enum.Parse(typeof(WdLineSpacing), x.Value<string>())).ToArray();
         }

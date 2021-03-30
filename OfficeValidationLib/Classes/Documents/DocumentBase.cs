@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Security.Cryptography;
 using OfficeValidationLib.Interfaces;
 
 namespace OfficeValidationLib.Classes.Documents
@@ -10,6 +11,28 @@ namespace OfficeValidationLib.Classes.Documents
         public string Path { get; }
         public IDocumentFactory Creator { get; }
         public bool IsInitialized { get; protected set; }
+
+        private string _hash;
+        public string Hash
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_hash))
+                {
+                    using (var md5Document = MD5.Create())
+                    {
+                        using (var fs = File.OpenRead(Path))
+                        {
+                            _hash = BitConverter.ToString(md5Document.ComputeHash(fs))
+                                .Replace("-", "")
+                                .ToLowerInvariant();
+                        }
+                    }
+                    
+                }
+                return _hash;
+            }
+        }
 
         protected DocumentBase(string path, IDocumentFactory creator)
         {

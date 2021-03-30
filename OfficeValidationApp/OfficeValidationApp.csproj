@@ -181,6 +181,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>xcopy "$(SolutionDir)\Checks.db" "$(TargetDir)" /Y</PreBuildEvent>
+    <PreBuildEvent>copy "$(SolutionDir)\Checks.db" "$(TargetDir)"</PreBuildEvent>
   </PropertyGroup>
 </Project>

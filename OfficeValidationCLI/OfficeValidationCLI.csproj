@@ -8,8 +8,9 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>OfficeValidationCLI</RootNamespace>
     <AssemblyName>OfficeValidationCLI</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -78,6 +79,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>xcopy "$(SolutionDir)\Checks.db" "$(TargetDir)" /Y</PreBuildEvent>
+    <PreBuildEvent>copy "$(SolutionDir)\Checks.db" "$(TargetDir)"</PreBuildEvent>
   </PropertyGroup>
 </Project>

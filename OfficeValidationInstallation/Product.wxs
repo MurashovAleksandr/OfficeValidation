@@ -15,8 +15,12 @@
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="DesktopFolder"/>
       <Directory Id="ProgramFiles64Folder" Name="PFiles">
-        <Directory Id="APPLICATIONFOLDER" Name="OfficeValidation">
-        </Directory>
+          <Directory Id="APPLICATIONFOLDER" Name="OfficeValidation">
+              <Directory Id="APPLICATIONFOLDER64" Name="x64">
+              </Directory>
+              <Directory Id="APPLICATIONFOLDER86" Name="x86">
+              </Directory>
+          </Directory>
       </Directory>
     </Directory>
     
