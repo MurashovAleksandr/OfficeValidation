@@ -180,7 +180,6 @@ namespace OfficeValidationApp.UI
                 {
                     session.Log.AddMessage(new ErrorLogMessage($"Ошибка выполнения проверки: {exception.Message}", check.Name));
                 }
-                
             }
             splashForm.Message = $"Сохранение результатов в БД";
             _databaseManager.AddResults(checkResults);

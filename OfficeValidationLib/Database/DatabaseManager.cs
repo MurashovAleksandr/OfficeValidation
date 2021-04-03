@@ -82,19 +82,18 @@ namespace OfficeValidationLib.Database
             {
                 Date = DateTime.Now,
                 IdCheck = (int)Db.Table<CheckEntity>()
-                    .Where(x=>x.Name == result.Check.Name)
-                    .First().Id //its faster. Do not touch
+                    .First(x => x.Name == result.Check.Name).Id
             };
             Db.Insert(checkResultEntity);
 
             foreach (var violation in result.Violations)
             {
                 //get or add document
-                var documentEntity = Db.Table<DocumentEntity>().Where(x =>
-                        x.Hash == violation.Document.Hash && 
-                        x.Path == violation.Document.Path && 
-                        x.Type == violation.Document.Creator.Name)
-                    .FirstOrDefault(); //its faster. Do not touch
+                var documentEntity = Db.Table<DocumentEntity>()
+                    .FirstOrDefault(x =>
+                        x.Hash == violation.Document.Hash &&
+                        x.Path == violation.Document.Path &&
+                        x.Type == violation.Document.Creator.Name);
                 if (documentEntity == null)
                 {
                     documentEntity = new DocumentEntity()
@@ -125,18 +124,18 @@ namespace OfficeValidationLib.Database
                     IdViolationLevel = violationLevelEntity.Id
                 };
                 Db.Insert(violationEntity);
+                var violationDataEntityList = new List<ViolationDataEntity>();
                 foreach (var violationData in violation.Data)
                 {
-                    //add violation data
-                    Db.Insert(new ViolationDataEntity()
+                    violationDataEntityList.Add(new ViolationDataEntity()
                     {
                         IdViolation = violationEntity.Id,
                         Name = violationData.Key,
                         Value = $"{violationData.Value}"
                     });
                 }
+                Db.InsertAll(violationDataEntityList); //it's faster?
             }
-            Db.Commit();
         }
 
         /// <summary>
