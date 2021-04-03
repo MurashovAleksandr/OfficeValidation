@@ -3,98 +3,69 @@ using OfficeValidationLib.Classes;
 using OfficeValidationLib.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
-using OfficeValidationLib.Enums;
+using System.Linq;
+using OfficeValidationLib.Database.Entities;
+using SQLite.Net;
+using SQLite.Net.Platform.Generic;
 
 namespace OfficeValidationLib.Database
 {
     public class DatabaseManager : IDatabaseManager
     {
-        private readonly SQLiteConnection _connection;
-        public DatabaseManager(string connectionString)
+        public SQLiteConnection Db { get; }
+
+        public DatabaseManager(string databasePath)
         {
-            _connection = new SQLiteConnection(connectionString);
-            _connection.Open();
+            Db = new SQLiteConnection(
+                sqlitePlatform: new SQLitePlatformGeneric(),
+                databasePath: databasePath,
+                storeDateTimeAsTicks:false);
         }
 
         public IEnumerable<Instance> GetInstances()
         {
-            using (var commandGetChecks =
-                new SQLiteCommand(
-                    "SELECT Id, Name, DisplayName, Description, Active, Assembly, ClassName FROM 'Check';",
-                    _connection))
+            foreach (var checkEntity in Db.Table<CheckEntity>().ToArray())
             {
-                using (var readerGetChecks = commandGetChecks.ExecuteReader())
+                //get check
+                var instance = new Instance()
                 {
-                    while (readerGetChecks.Read())
-                    {
-                        var instance = new Instance()
-                        {
-                            Id = (long)readerGetChecks["Id"],
-                            Name = (string)readerGetChecks["Name"],
-                            DisplayName = (string)readerGetChecks["DisplayName"],
-                            Description = (string)readerGetChecks["Description"],
-                            Active = (bool)readerGetChecks["Active"],
-                            Assembly = (string)readerGetChecks["Assembly"],
-                            ClassName = (string)readerGetChecks["ClassName"],
-                            Parameters = new Dictionary<string, object>()
-                        };
-                        //get tags
-                        using (var commandGetTags =
-                            new SQLiteCommand(
-                                $"SELECT t.Name FROM Tag t, CheckTag ct WHERE t.id = ct.IdTag AND ct.IdCheck = {instance.Id};",
-                                _connection))
-                        {
-                            using (var readerGetTags = commandGetTags.ExecuteReader())
-                            {
-                                var tagList = new List<string>();
-                                while (readerGetTags.Read())
-                                    tagList.Add((string)readerGetTags["Name"]);
-                                instance.Tags = tagList.ToArray();
-                                //get parameters
-                                using (var commandGetParameters =
-                                    new SQLiteCommand(
-                                        $"SELECT cp.Name, cp.Value FROM CheckParameter cp WHERE cp.IdCheck = {instance.Id};",
-                                        _connection))
-                                {
-                                    using (var readerGetParameters = commandGetParameters.ExecuteReader())
-                                    {
-                                        while (readerGetParameters.Read())
-                                            instance.Parameters.Add(
-                                                (string)readerGetParameters["Name"],
-                                                JsonConvert.DeserializeObject((string)readerGetParameters["Value"]));
-                                        yield return instance;
-                                    } 
-                                }
-                            }
-                        }
-                        
-                    }
+                    Active = checkEntity.Active,
+                    Assembly = checkEntity.Assembly,
+                    ClassName = checkEntity.ClassName,
+                    Description = checkEntity.Description,
+                    DisplayName = checkEntity.DisplayName,
+                    Name = checkEntity.Name
+                };
+                //get tags
+                var checkTagEntities = Db.Table<CheckTagEntity>()
+                    .Where(x => x.IdCheck == checkEntity.Id)
+                    .ToArray();
+                instance.Tags = Db.Table<TagEntity>()
+                    .ToArray()
+                    .Where(x => checkTagEntities.Any(y => y.IdTag == x.Id))
+                    .Select(x => x.Name)
+                    .ToArray();
+
+                //get parameters
+                instance.Parameters = new Dictionary<string, object>();
+                foreach (var parameter in Db.Table<CheckParameterEntity>()
+                    .Where(x=>x.IdCheck == checkEntity.Id)
+                    .ToArray())
+                {
+                    instance.Parameters.Add(parameter.Name, JsonConvert.DeserializeObject(parameter.Value));
                 }
+
+                yield return instance;
             }
         }
 
-        public IEnumerable<string> GetDocumentFactoryNames()
-        {
-            using (var commandGetDocumentFactoryName =
-                new SQLiteCommand("SELECT Name FROM DocumentFactoryName WHERE Active = true;", _connection))
-            {
-                using (var readerGetDocumentFactoryName = commandGetDocumentFactoryName.ExecuteReader())
-                {
-                    while (readerGetDocumentFactoryName.Read())
-                    {
-                        yield return (string)readerGetDocumentFactoryName["Name"];
-                    }
-                }
-            }
-            
-        }
+        public IEnumerable<string> GetDocumentFactoryNames() =>
+            Db.Table<DocumentFactoryNameEntity>()
+                .Where(x => x.Active)
+                .Select(x => x.Name);
 
-        [Obsolete("Не реализовано", true)]
-        public IEnumerable<ICheckResult> GetResults()
-        {
-            throw new System.NotImplementedException();
-        }
+        public IEnumerable<CheckResultEntity> GetResults() =>
+            Db.Table<CheckResultEntity>();
 
         public void AddResults(IEnumerable<ICheckResult> results)
         {
@@ -103,121 +74,77 @@ namespace OfficeValidationLib.Database
                 AddResult(checkResult);
             }
         }
+
         private void AddResult(ICheckResult result)
         {
-            //find id result.Check
-            var checkId = (long)new SQLiteCommand($"SELECT Id FROM 'Check' c WHERE c.Name = '{result.Check.Name}';", _connection)
-                .ExecuteScalar();
-            var checkResultId = AddCheckResult(checkId);
+            //add result
+            var checkResultEntity = new CheckResultEntity()
+            {
+                Date = DateTime.Now,
+                IdCheck = (int)Db.Table<CheckEntity>()
+                    .Where(x=>x.Name == result.Check.Name)
+                    .First().Id //its faster. Do not touch
+            };
+            Db.Insert(checkResultEntity);
+
             foreach (var violation in result.Violations)
             {
-                //add violation
-                var violationId = AddViolation(checkResultId, violation);
-                foreach (var data in violation.Data)
+                //get or add document
+                var documentEntity = Db.Table<DocumentEntity>().Where(x =>
+                        x.Hash == violation.Document.Hash && 
+                        x.Path == violation.Document.Path && 
+                        x.Type == violation.Document.Creator.Name)
+                    .FirstOrDefault(); //its faster. Do not touch
+                if (documentEntity == null)
                 {
-                    //add result.Violations...Data
-                    AddViolationData(violationId, data.Key, data.Value);
+                    documentEntity = new DocumentEntity()
+                    {
+                        Hash = violation.Document.Hash,
+                        Path = violation.Document.Path,
+                        Type = violation.Document.Creator.Name
+                    };
+                    Db.Insert(documentEntity);
+                }
+                //get or add violationLevel
+                var violationLevelEntity = Db.Table<ViolationLevelEntity>()
+                    .FirstOrDefault(x => string.Equals($"{violation.Level}", x.Name));
+                if (violationLevelEntity == null)
+                {
+                    violationLevelEntity = new ViolationLevelEntity()
+                    {
+                        Name = $"{violation.Level}"
+                    };
+                    Db.Insert(violationLevelEntity);
+                }
+                //add violation
+                var violationEntity = new ViolationEntity()
+                {
+                    IdCheckResult = checkResultEntity.Id,
+                    IdDocument = documentEntity.Id,
+                    ObjectName = $"{violation.Object}",
+                    IdViolationLevel = violationLevelEntity.Id
+                };
+                Db.Insert(violationEntity);
+                foreach (var violationData in violation.Data)
+                {
+                    //add violation data
+                    Db.Insert(new ViolationDataEntity()
+                    {
+                        IdViolation = violationEntity.Id,
+                        Name = violationData.Key,
+                        Value = $"{violationData.Value}"
+                    });
                 }
             }
+            Db.Commit();
         }
 
-        private long AddCheckResult(long checkId)
-        {
-            var checkResultId = NewSequence("CheckResult");
-            //add result
-            new SQLiteCommand("INSERT INTO CheckResult (Id, IdCheck, Date) VALUES (@Id, @IdCheck, @Date)", _connection)
-            {
-                Parameters =
-                {
-                    new SQLiteParameter("@Id", checkResultId),
-                    new SQLiteParameter("@IdCheck", checkId),
-                    new SQLiteParameter("@Date", DateTime.Now)
-                }
-            }.ExecuteNonQuery();
-            return checkResultId;
-        }
-        private long AddViolationData(long violationId, string name, object value)
-        {
-            var seqId = NewSequence("ViolationData");
-            new SQLiteCommand("INSERT INTO ViolationData (Id, Name, Value, IdViolation) VALUES (@Id, @Name, @Value, @IdViolation)", _connection)
-            {
-                Parameters =
-                {
-                    new SQLiteParameter("@Id", seqId),
-                    new SQLiteParameter("@Name", name),
-                    new SQLiteParameter("@Value", $"{value}"),
-                    new SQLiteParameter("@IdViolation", violationId)
-                }
-            }.ExecuteNonQuery();
-            return seqId;
-        }
-
-        private long AddViolation(long checkResultId, IViolation violation)
-        {
-            var violationLevelId = GetViolationLevelId(violation.Level) ?? AddViolationLevel(violation.Level);
-            var documentId = GetDocumentId(violation.Document) ?? AddDocument(violation.Document);
-            var seqId = NewSequence("Violation");
-            new SQLiteCommand("INSERT INTO Violation (Id, IdCheckResult, IdViolationLevel, IdDocument, ObjectName) VALUES (@Id, @IdCheckResult, @IdViolationLevel, @IdDocument, @ObjectName)", _connection)
-            {
-                Parameters =
-                {
-                    new SQLiteParameter("@Id", seqId),
-                    new SQLiteParameter("@IdCheckResult", checkResultId),
-                    new SQLiteParameter("@IdViolationLevel", violationLevelId),
-                    new SQLiteParameter("@IdDocument", documentId),
-                    new SQLiteParameter("@ObjectName", $"{violation.Object}")
-
-                }
-            }.ExecuteNonQuery();
-            return seqId;
-        }
-
-        private long AddDocument(IDocument document)
-        {
-            var seqId = NewSequence("Document");
-            new SQLiteCommand("INSERT INTO Document (Id, Path, Type, Hash) VALUES (@Id, @Path, @Type, @Hash)", _connection)
-            {
-                Parameters =
-                {
-                    new SQLiteParameter("@Id", seqId),
-                    new SQLiteParameter("@Path", $"{document.Path}"),
-                    new SQLiteParameter("@Type", $"{document.Creator.Name}"),
-                    new SQLiteParameter("@Hash", $"{document.Hash}")
-                }
-            }.ExecuteNonQuery();
-            return seqId;
-        }
-
-        private long? GetDocumentId(IDocument document) =>
-            (long?)new SQLiteCommand($"SELECT Id FROM Document WHERE Path = '{document.Path}' AND Type = '{document.Creator.Name}' AND Hash = '{document.Hash}';", _connection).ExecuteScalar();
-
-        private long AddViolationLevel(ViolationLevel level)
-        {
-            var seqId = NewSequence("ViolationLevel");
-            new SQLiteCommand("INSERT INTO ViolationLevel (Id, Name) VALUES (@Id, @Name)", _connection)
-            {
-                Parameters =
-                {
-                    new SQLiteParameter("@Id", seqId),
-                    new SQLiteParameter("@Name", $"{level}")
-                }
-            }.ExecuteNonQuery();
-            return seqId;
-        }
-
-        private long? GetViolationLevelId(ViolationLevel level) =>
-            (long?)new SQLiteCommand($"SELECT Id FROM ViolationLevel WHERE Name = '{level}'", _connection).ExecuteScalar();
-
-
-        private long NewSequence(string tableName) =>
-            (long)new SQLiteCommand($"SELECT seq FROM sqlite_sequence WHERE name = '{tableName}';", _connection).ExecuteScalar() + 1;
-        
         /// <summary>
         /// Закрывает соединение с БД
         /// </summary>
         public void Dispose()
         {
-            _connection.Close();
+            Db.Close();
         }
     }
 }

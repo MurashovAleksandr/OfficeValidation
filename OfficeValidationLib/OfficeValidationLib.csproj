@@ -67,6 +67,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -78,10 +79,13 @@
   <ItemGroup>
     <Compile Include="Classes\CheckBase.cs" />
     <Compile Include="Classes\CheckedObject.cs" />
+    <Compile Include="Classes\CheckHistory.cs" />
+    <Compile Include="Classes\CheckResultHistory.cs" />
     <Compile Include="Classes\Config.cs" />
     <Compile Include="Classes\DocumentManager.cs" />
     <Compile Include="Classes\Documents\DocumentBase.cs" />
     <Compile Include="Classes\Documents\DocumentFactoryBase.cs" />
+    <Compile Include="Classes\Documents\DocumentHistory.cs" />
     <Compile Include="Classes\Documents\ExcelDocument.cs" />
     <Compile Include="Classes\Documents\LaTeXDocument.cs" />
     <Compile Include="Classes\Documents\MarkdownDocument.cs" />
@@ -94,6 +98,7 @@
     <Compile Include="Classes\MultiLog.cs" />
     <Compile Include="Classes\Session\Session.cs" />
     <Compile Include="Classes\Session\SessionBuilder.cs" />
+    <Compile Include="Classes\Session\SessionHistory.cs" />
     <Compile Include="Classes\Session\SessionManager.cs" />
     <Compile Include="Classes\Session\SessionResults.cs" />
     <Compile Include="Classes\CheckResult.cs" />
@@ -103,7 +108,13 @@
     <Compile Include="Database\Entities\CheckParameterEntity.cs" />
     <Compile Include="Database\Entities\CheckResultEntity.cs" />
     <Compile Include="Database\Entities\CheckTagEntity.cs" />
+    <Compile Include="Database\Entities\DocumentEntity.cs" />
+    <Compile Include="Database\Entities\DocumentFactoryNameEntity.cs" />
     <Compile Include="Database\Entities\EntityBase.cs" />
+    <Compile Include="Database\Entities\TagEntity.cs" />
+    <Compile Include="Database\Entities\ViolationDataEntity.cs" />
+    <Compile Include="Database\Entities\ViolationEntity.cs" />
+    <Compile Include="Database\Entities\ViolationLevelEntity.cs" />
     <Compile Include="Enums\LogMessageSeverity.cs" />
     <Compile Include="Enums\ViolationLevel.cs" />
     <Compile Include="Interfaces\ICheck.cs" />
@@ -129,14 +140,8 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.1</Version>
     </PackageReference>
-    <PackageReference Include="System.Data.SQLite">
-      <Version>1.0.113.7</Version>
-    </PackageReference>
-    <PackageReference Include="System.Data.SQLite.Core">
-      <Version>1.0.113.7</Version>
-    </PackageReference>
-    <PackageReference Include="System.Data.SQLite.EF6">
-      <Version>1.0.113</Version>
+    <PackageReference Include="SQLite.Net-PCL">
+      <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="System.Data.SQLite.Linq">
       <Version>1.0.113</Version>

@@ -32,8 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openDocumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supportingDocumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.violationHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanelDocumentsChecks = new System.Windows.Forms.TableLayoutPanel();
             this.buttonPerform = new System.Windows.Forms.Button();
             this.tableLayoutPanelTagsChecksDescriptions = new System.Windows.Forms.TableLayoutPanel();
@@ -49,14 +54,11 @@
             this.olvColumnType = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.olvColumnDocument = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.contextMenuStripDocument = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showInDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьИзСпискаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.openFileDialogDocuments = new System.Windows.Forms.OpenFileDialog();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showInDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openDocumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.supportingDocumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.tableLayoutPanelDocumentsChecks.SuspendLayout();
             this.tableLayoutPanelTagsChecksDescriptions.SuspendLayout();
@@ -72,7 +74,8 @@
             // 
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.historyToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -90,10 +93,26 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.fileToolStripMenuItem.Text = "Файл";
             // 
+            // openDocumentsToolStripMenuItem
+            // 
+            this.openDocumentsToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.open;
+            this.openDocumentsToolStripMenuItem.Name = "openDocumentsToolStripMenuItem";
+            this.openDocumentsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.openDocumentsToolStripMenuItem.Text = "Открыть документы";
+            this.openDocumentsToolStripMenuItem.Click += new System.EventHandler(this.OpenDocumentsToolStripMenuItem_Click);
+            // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(182, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.exit;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.exitToolStripMenuItem.Text = "Выход";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -102,6 +121,29 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.helpToolStripMenuItem.Text = "Помощь";
+            // 
+            // supportingDocumentsToolStripMenuItem
+            // 
+            this.supportingDocumentsToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.documents;
+            this.supportingDocumentsToolStripMenuItem.Name = "supportingDocumentsToolStripMenuItem";
+            this.supportingDocumentsToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.supportingDocumentsToolStripMenuItem.Text = "Поддерживаемые документы";
+            this.supportingDocumentsToolStripMenuItem.Click += new System.EventHandler(this.SupportingDocumentsToolStripMenuItem_Click);
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.violationHistoryToolStripMenuItem});
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.historyToolStripMenuItem.Text = "История";
+            // 
+            // violationHistoryToolStripMenuItem
+            // 
+            this.violationHistoryToolStripMenuItem.Name = "violationHistoryToolStripMenuItem";
+            this.violationHistoryToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.violationHistoryToolStripMenuItem.Text = "История нарушений";
+            this.violationHistoryToolStripMenuItem.Click += new System.EventHandler(this.ViolationHistoryToolStripMenuItem_Click);
             // 
             // tableLayoutPanelDocumentsChecks
             // 
@@ -140,7 +182,7 @@
             this.tableLayoutPanelTagsChecksDescriptions.ColumnCount = 3;
             this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.06961F));
             this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.93039F));
-            this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 283F));
+            this.tableLayoutPanelTagsChecksDescriptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 285F));
             this.tableLayoutPanelTagsChecksDescriptions.Controls.Add(this.objectListViewChecks, 0, 0);
             this.tableLayoutPanelTagsChecksDescriptions.Controls.Add(this.objectListViewTags, 0, 0);
             this.tableLayoutPanelTagsChecksDescriptions.Controls.Add(this.groupBoxDescription, 2, 0);
@@ -166,11 +208,11 @@
             this.objectListViewChecks.FullRowSelect = true;
             this.objectListViewChecks.GridLines = true;
             this.objectListViewChecks.HideSelection = false;
-            this.objectListViewChecks.Location = new System.Drawing.Point(238, 4);
+            this.objectListViewChecks.Location = new System.Drawing.Point(237, 4);
             this.objectListViewChecks.Margin = new System.Windows.Forms.Padding(4);
             this.objectListViewChecks.Name = "objectListViewChecks";
             this.objectListViewChecks.ShowGroups = false;
-            this.objectListViewChecks.Size = new System.Drawing.Size(511, 399);
+            this.objectListViewChecks.Size = new System.Drawing.Size(510, 399);
             this.objectListViewChecks.TabIndex = 3;
             this.objectListViewChecks.UseCompatibleStateImageBehavior = false;
             this.objectListViewChecks.UseFiltering = true;
@@ -199,7 +241,7 @@
             this.objectListViewTags.Margin = new System.Windows.Forms.Padding(4);
             this.objectListViewTags.Name = "objectListViewTags";
             this.objectListViewTags.ShowGroups = false;
-            this.objectListViewTags.Size = new System.Drawing.Size(226, 399);
+            this.objectListViewTags.Size = new System.Drawing.Size(225, 399);
             this.objectListViewTags.TabIndex = 0;
             this.objectListViewTags.UseCompatibleStateImageBehavior = false;
             this.objectListViewTags.View = System.Windows.Forms.View.Details;
@@ -215,11 +257,11 @@
             // 
             this.groupBoxDescription.Controls.Add(this.textBoxDescription);
             this.groupBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBoxDescription.Location = new System.Drawing.Point(757, 4);
+            this.groupBoxDescription.Location = new System.Drawing.Point(755, 4);
             this.groupBoxDescription.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDescription.Name = "groupBoxDescription";
             this.groupBoxDescription.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxDescription.Size = new System.Drawing.Size(276, 399);
+            this.groupBoxDescription.Size = new System.Drawing.Size(278, 399);
             this.groupBoxDescription.TabIndex = 2;
             this.groupBoxDescription.TabStop = false;
             this.groupBoxDescription.Text = "Описание";
@@ -232,7 +274,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
-            this.textBoxDescription.Size = new System.Drawing.Size(268, 375);
+            this.textBoxDescription.Size = new System.Drawing.Size(270, 375);
             this.textBoxDescription.TabIndex = 0;
             // 
             // panelDocuments
@@ -306,6 +348,22 @@
             this.contextMenuStripDocument.Name = "contextMenuStripDocument";
             this.contextMenuStripDocument.Size = new System.Drawing.Size(175, 70);
             // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.file;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.openToolStripMenuItem.Text = "Открыть";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
+            // 
+            // showInDirectoryToolStripMenuItem
+            // 
+            this.showInDirectoryToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.directory;
+            this.showInDirectoryToolStripMenuItem.Name = "showInDirectoryToolStripMenuItem";
+            this.showInDirectoryToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.showInDirectoryToolStripMenuItem.Text = "Показать в папке";
+            this.showInDirectoryToolStripMenuItem.Click += new System.EventHandler(this.ShowInDirectoryToolStripMenuItem_Click);
+            // 
             // удалитьИзСпискаToolStripMenuItem
             // 
             this.удалитьИзСпискаToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.remove;
@@ -324,46 +382,6 @@
             // 
             this.openFileDialogDocuments.Multiselect = true;
             this.openFileDialogDocuments.RestoreDirectory = true;
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.file;
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.openToolStripMenuItem.Text = "Открыть";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
-            // 
-            // showInDirectoryToolStripMenuItem
-            // 
-            this.showInDirectoryToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.directory;
-            this.showInDirectoryToolStripMenuItem.Name = "showInDirectoryToolStripMenuItem";
-            this.showInDirectoryToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.showInDirectoryToolStripMenuItem.Text = "Показать в папке";
-            this.showInDirectoryToolStripMenuItem.Click += new System.EventHandler(this.ShowInDirectoryToolStripMenuItem_Click);
-            // 
-            // openDocumentsToolStripMenuItem
-            // 
-            this.openDocumentsToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.open;
-            this.openDocumentsToolStripMenuItem.Name = "openDocumentsToolStripMenuItem";
-            this.openDocumentsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.openDocumentsToolStripMenuItem.Text = "Открыть документы";
-            this.openDocumentsToolStripMenuItem.Click += new System.EventHandler(this.OpenDocumentsToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.exit;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.exitToolStripMenuItem.Text = "Выход";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
-            // 
-            // supportingDocumentsToolStripMenuItem
-            // 
-            this.supportingDocumentsToolStripMenuItem.Image = global::OfficeValidationApp.Properties.Resources.documents;
-            this.supportingDocumentsToolStripMenuItem.Name = "supportingDocumentsToolStripMenuItem";
-            this.supportingDocumentsToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.supportingDocumentsToolStripMenuItem.Text = "Поддерживаемые документы";
-            this.supportingDocumentsToolStripMenuItem.Click += new System.EventHandler(this.SupportingDocumentsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -427,6 +445,8 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private BrightIdeasSoftware.OLVColumn olvColumnIcon;
         private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem violationHistoryToolStripMenuItem;
     }
 }
 

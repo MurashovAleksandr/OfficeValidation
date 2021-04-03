@@ -11,11 +11,11 @@ namespace OfficeValidationCLI
             HelpText = "Document files for check")]
         public IEnumerable<string> DocumentFiles { get; set; }
 
-        [Option('c',
-            "connection",
+        [Option('p',
+            "database",
             Required = false,
-            HelpText = "SQLite connection string",
-            Default = "Data Source=Checks.db;Version=3;")]
+            HelpText = "SQLite database path",
+            Default = "Checks.db")]
         public string ConnectionString { get; set; }
 
         [Option('s',

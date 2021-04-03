@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OfficeValidationApp.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ConnectionString" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Data Source=Checks.db;Version=3;</Value>
+    <Setting Name="DatabasePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Checks.db</Value>
     </Setting>
   </Settings>
 </SettingsFile>

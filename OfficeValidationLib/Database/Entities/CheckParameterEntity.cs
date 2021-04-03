@@ -1,21 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using SQLite.Net;
 
 namespace OfficeValidationLib.Database.Entities
 {
-    [Table("CheckParameter")]
-    class CheckParameterEntity : BaseEntity
+    [SQLite.Net.Attributes.Table("CheckParameter")]
+    public class CheckParameterEntity : BaseEntity
     {
-        [Column("IdCheck")]
-        [Required]
-        public int IdCheck { get; set; }
+        [Column("IdCheck"), Required]
+        public long IdCheck { get; set; }
 
-        [Column("Name")]
-        [Required]
+        [SQLite.Net.Attributes.Column("Name"), Required]
         public string Name { get; set; }
 
-        [Column("Value")]
-        [Required]
+        [SQLite.Net.Attributes.Column("Value"), Required]
         public string Value { get; set; }
+
+        public CheckEntity GetCheckEntity(SQLiteConnection db) => db.Table<CheckEntity>().FirstOrDefault(x => x.Id == this.IdCheck);
     }
 }

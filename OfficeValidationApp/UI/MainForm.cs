@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using BrightIdeasSoftware;
 using OfficeValidationLib.Classes;
 using OfficeValidationLib.Classes.Session;
 using OfficeValidationLib.Database;
@@ -25,7 +24,7 @@ namespace OfficeValidationApp.UI
         public MainForm()
         {
             InitializeComponent();
-            _databaseManager = new DatabaseManager(Properties.Settings.Default.ConnectionString);
+            _databaseManager = new DatabaseManager(Properties.Settings.Default.DatabasePath);
             _sessionManager = new SessionManager(_databaseManager);
             SetupAspects();
         }
@@ -173,7 +172,15 @@ namespace OfficeValidationApp.UI
             {
                 splashForm.Message = $"Выполнение проверки '{check.DisplayName}'";
                 splashForm.Value++;
-                checkResults.Add(check.Perform(session));
+                try
+                {
+                    checkResults.Add(check.Perform(session));
+                }
+                catch (Exception exception)
+                {
+                    session.Log.AddMessage(new ErrorLogMessage($"Ошибка выполнения проверки: {exception.Message}", check.Name));
+                }
+                
             }
             splashForm.Message = $"Сохранение результатов в БД";
             _databaseManager.AddResults(checkResults);
@@ -224,5 +231,32 @@ namespace OfficeValidationApp.UI
                 .Cast<IDocument>()
                 .Select(document => Process.Start("explorer", document.Path))
                 .ToArray();
+
+        private void ViolationHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var splashForm = new SplashForm();
+            var splashThread = new Thread(() => splashForm.ShowDialog());
+            splashThread.Start();
+            Thread.Sleep(10);
+            splashForm.Message = "Получение результатов проверок из БД";
+
+            var resultEntities = _databaseManager.GetResults()
+                .ToArray();
+            
+            var checkResultHistories = new List<CheckResultHistory>();
+            foreach (var resultEntity in resultEntities)
+            {
+                checkResultHistories.Add(new CheckResultHistory(_databaseManager.Db, resultEntity, _documentManager));
+            }
+            var session = new SessionBuilder().Build(checkResultHistories, DateTime.Now);
+            var resultForm = new ResultForm(new ISessionResults[] {new SessionResults(checkResultHistories, session)});
+
+            if (splashThread.ThreadState == ThreadState.Running)
+            {
+                splashForm.Invoke(new Action(() => splashForm.Close()));
+            }
+
+            resultForm.ShowDialog();
+        }
     }
 }

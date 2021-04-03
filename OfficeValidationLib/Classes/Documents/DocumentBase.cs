@@ -7,7 +7,17 @@ namespace OfficeValidationLib.Classes.Documents
 {
     public abstract class DocumentBase : IDocument
     {
-        public string Name => System.IO.Path.GetFileName(Path);
+        private string _name;
+
+        public string Name
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_name)) return _name;
+                _name = System.IO.Path.GetFileName(Path);
+                return _name;
+            }
+        }
         public string Path { get; }
         public IDocumentFactory Creator { get; }
         public bool IsInitialized { get; protected set; }
@@ -17,18 +27,15 @@ namespace OfficeValidationLib.Classes.Documents
         {
             get
             {
-                if (string.IsNullOrEmpty(_hash))
+                if (!string.IsNullOrEmpty(_hash)) return _hash;
+                using (var md5Document = MD5.Create())
                 {
-                    using (var md5Document = MD5.Create())
+                    using (var fs = File.OpenRead(Path))
                     {
-                        using (var fs = File.OpenRead(Path))
-                        {
-                            _hash = BitConverter.ToString(md5Document.ComputeHash(fs))
-                                .Replace("-", "")
-                                .ToLowerInvariant();
-                        }
+                        _hash = BitConverter.ToString(md5Document.ComputeHash(fs))
+                            .Replace("-", "")
+                            .ToLowerInvariant();
                     }
-                    
                 }
                 return _hash;
             }
@@ -66,7 +73,13 @@ namespace OfficeValidationLib.Classes.Documents
 
         public override string ToString() => Name;
 
-        public override int GetHashCode() => $"{Creator.Name}_{Path}".GetHashCode();
+        private int? _hashCode = null;
+        public override int GetHashCode()
+        {
+            if (_hashCode.HasValue) return _hashCode.Value;
+            _hashCode = $"{Creator.Name}_{Path}".GetHashCode();
+            return _hashCode.Value;
+        }
 
         public override bool Equals(object obj) => 
             obj is IDocument doc && doc.GetHashCode() == this.GetHashCode();

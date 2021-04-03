@@ -83,5 +83,28 @@ namespace OfficeValidationLib.Classes.Session
             session.Log.AddMessage(new LogMessage(LogMessageSeverity.Information, "Создание сессии завершено"));
             return session;
         }
+
+        public SessionHistory Build(IEnumerable<CheckResultHistory> checkResultHistories, DateTime startDateTime)
+        {
+            var session = new SessionHistory(startDateTime);
+            session.Log = new MultiLog(session);
+            session.Log.AddMessage(new LogMessage(LogMessageSeverity.Information, $"Начало создания сессии"));
+
+            foreach (var doc in checkResultHistories.SelectMany(x=>x.Violations.Select(y=>y.Document)))
+            {
+                session.Documents.Add(doc);
+                session.Log.AddMessage(new LogMessage(LogMessageSeverity.Information, $"Добавлен документ {doc.Name}"));
+            }
+
+            foreach (var check in checkResultHistories.Select(x=>x.Check))
+            {
+                session.Log.AddMessage(new LogMessage(LogMessageSeverity.Information,
+                    $"Загружена проверка \"{check.Name}\""));
+            }
+
+            session.Log.AddMessage(new LogMessage(LogMessageSeverity.Information, "Создание сессии завершено"));
+
+            return session;
+        }
     }
 }

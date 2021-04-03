@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using SQLite.Net;
+using SQLite.Net.Attributes;
 
 namespace OfficeValidationLib.Database.Entities
 {
-    class BaseEntity
+    public abstract class BaseEntity
     {
-        [Column("ID")]
-        [Required]
-        public int Id { get; set; }
+        [PrimaryKey, AutoIncrement, Column("Id"), Required, Unique]
+        public long Id { get; set; }
     }
 }

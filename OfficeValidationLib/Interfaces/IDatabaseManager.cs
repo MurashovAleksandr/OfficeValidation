@@ -1,6 +1,9 @@
 ﻿using OfficeValidationLib.Classes;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using OfficeValidationLib.Database.Entities;
+using SQLite.Net;
 
 namespace OfficeValidationLib.Interfaces
 {
@@ -10,6 +13,10 @@ namespace OfficeValidationLib.Interfaces
     public interface IDatabaseManager: IDisposable
     {
         /// <summary>
+        /// Подключение к БД
+        /// </summary>
+        SQLiteConnection Db { get; }
+        /// <summary>
         /// Получает из БД все настройки проверок
         /// </summary>
         /// <returns>Настройки проверок</returns>
@@ -18,7 +25,7 @@ namespace OfficeValidationLib.Interfaces
         /// Получает из БД результаты всех проверок
         /// </summary>
         /// <returns>Результаты проверок</returns>
-        IEnumerable<ICheckResult> GetResults();
+        IEnumerable<CheckResultEntity> GetResults();
         /// <summary>
         /// Получает из БД типы документов, которые поддерживаются
         /// </summary>
