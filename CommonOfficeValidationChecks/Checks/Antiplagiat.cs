@@ -1,9 +1,6 @@
 ﻿using Antiplagiat.ApiCorp;
 using Antiplagiat.ApiCorp.Model;
-using Microsoft.Office.Interop.Word;
-using Newtonsoft.Json.Linq;
 using OfficeValidationLib.Classes;
-using OfficeValidationLib.Classes.Documents;
 using OfficeValidationLib.Enums;
 using OfficeValidationLib.Interfaces;
 using System;
@@ -39,7 +36,7 @@ namespace CommonOfficeValidationChecks.Checks
         /// <summary>
         /// Key = session id, path to file. Value = antiplagiat report
         /// </summary>
-        private static Dictionary<Tuple<int, string>, ReportView> _reportCache = new Dictionary<Tuple<int, string>, ReportView>();
+        private static readonly Dictionary<Tuple<int, string>, ReportView> _reportCache = new Dictionary<Tuple<int, string>, ReportView>();
 
         public override ICheckResult Perform(ISession session)
         {
@@ -77,10 +74,7 @@ namespace CommonOfficeValidationChecks.Checks
                             document,
                             document,
                             ViolationLevel.Error,
-                            new Dictionary<string, object>()
-                                {
-                                {"Ошибка", status.FailDetails}
-                                }));
+                            new Dictionary<string, object>(){ { "Ошибка", status.FailDetails } } ));
                     }
                     else
                     {
@@ -156,12 +150,12 @@ namespace CommonOfficeValidationChecks.Checks
                                     document,
                                     ViolationLevel.Information,
                                     new Dictionary<string, object>()
-                                        {
-                                            {"Источник", source.Name},
-                                            {"Автор", source.Author},
-                                            {"Ссылка", source.Url},
-                                            {"Процент заимствования", source.ScoreBySource }
-                                        }));
+                                    {
+                                        {"Источник", source.Name},
+                                        {"Автор", source.Author},
+                                        {"Ссылка", source.Url},
+                                        {"Процент заимствования", source.ScoreBySource }
+                                    }));
                             }
                         }
                     }

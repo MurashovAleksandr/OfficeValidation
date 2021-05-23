@@ -46,16 +46,16 @@
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.Instance">
-    <Position X="25.25" Y="2.25" Width="2.25" />
+    <Position X="25.25" Y="2.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAACEAAAAACgAAAEAAAAAAQAAAAAAMAgAIAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAAAACgAAAEAAAAAAQAAAAAAMAgAIAAAAAAAAA=</HashCode>
       <FileName>Classes\Instance.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OfficeValidationLib.Classes.LogMessage">
     <Position X="21.5" Y="7.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEAAAAAAAAAAAAACAAAAAAAAAAAEAAAIAQIAAE=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAIAQIAAA=</HashCode>
       <FileName>Classes\LogMessage.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -63,7 +63,7 @@
   <Class Name="OfficeValidationLib.Classes.MultiLog" BaseTypeListCollapsed="true">
     <Position X="21.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAIAAAAAAAQAAAAAAAAAAAAAAAAAgEAAAAQAAAAA=</HashCode>
+      <HashCode>AAEAAIAAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAQAAAAA=</HashCode>
       <FileName>Classes\MultiLog.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -79,7 +79,7 @@
   <Class Name="OfficeValidationLib.Classes.Documents.DocumentBase">
     <Position X="14.25" Y="5.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACIAAwIEgAAAAAQAEAAAAIBAEAAABAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAACIAAwIEgAAAAAQAEAAAAIBAEAAgBAAAAAA=</HashCode>
       <FileName>Classes\Documents\DocumentBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -87,7 +87,7 @@
   <Class Name="OfficeValidationLib.Classes.Documents.DocumentFactoryBase">
     <Position X="8.5" Y="1.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAEgAAAAAQAAAAAAMAAAAJAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAgAAAAAAEgAAAAAQAAAAAAMAAAAIAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\DocumentFactoryBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -95,7 +95,7 @@
   <Class Name="OfficeValidationLib.Classes.Documents.ExcelDocumentFactory" Collapsed="true">
     <Position X="16.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\ExcelDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -109,7 +109,7 @@
   <Class Name="OfficeValidationLib.Classes.Documents.LaTeXDocumentFactory" Collapsed="true">
     <Position X="9.5" Y="4.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\LaTeXDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -123,7 +123,7 @@
   <Class Name="OfficeValidationLib.Classes.Documents.MarkdownDocumentFactory" Collapsed="true">
     <Position X="13.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\MarkdownDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -137,7 +137,7 @@
   <Class Name="OfficeValidationLib.Classes.Documents.PowerPointDocumentFactory" Collapsed="true">
     <Position X="14.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\PowerPointDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -151,7 +151,7 @@
   <Class Name="OfficeValidationLib.Classes.Documents.WordDocumentFactory" Collapsed="true">
     <Position X="17.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\WordDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -165,7 +165,7 @@
   <Class Name="OfficeValidationLib.Classes.Documents.WordOpenXMLDocumentFactory" Collapsed="true">
     <Position X="11.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAJAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Classes\Documents\WordOpenXMLDocument.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -210,7 +210,7 @@
   <Class Name="OfficeValidationLib.Database.DatabaseManager" BaseTypeListCollapsed="true">
     <Position X="23" Y="2.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>CAIAAAAAACAAACAAAAEAAAAIBECCAAAAAAAABAAAJAI=</HashCode>
+      <HashCode>CAAAAAAAACAAAAAAEAEAAAAIBAACAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Database\DatabaseManager.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -237,9 +237,9 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="OfficeValidationLib.Interfaces.IDatabaseManager">
-    <Position X="24.25" Y="0.5" Width="3.25" />
+    <Position X="24" Y="0.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAAAEAAAAABAACAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAAAAAAAAAAAAAEAEAAAAABAACAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IDatabaseManager.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -253,7 +253,7 @@
   <Interface Name="OfficeValidationLib.Interfaces.IDocumentFactory">
     <Position X="14.25" Y="1" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAAAAAAAQAAAAAAEAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAgAAAAAAAAAAAAAQAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IDocumentFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>

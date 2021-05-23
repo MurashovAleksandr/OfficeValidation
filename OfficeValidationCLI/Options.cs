@@ -11,7 +11,7 @@ namespace OfficeValidationCLI
             HelpText = "Document files for check")]
         public IEnumerable<string> DocumentFiles { get; set; }
 
-        [Option('p',
+        [Option('b',
             "database",
             Required = false,
             HelpText = "SQLite database path",
