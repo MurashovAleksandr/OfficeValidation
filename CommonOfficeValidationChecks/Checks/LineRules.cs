@@ -70,10 +70,10 @@ namespace CommonOfficeValidationChecks.Checks
                             ViolationLevel.Error,
                             new Dictionary<string, object>()
                                 {
-                                    {"Междустрочный интервал (пункты)", paragraph.LineSpacing},
+                                    {"Межстрочный интервал (пункты)", paragraph.LineSpacing},
                                     {"Расстояния 'ДО' (линии сетки)", paragraph.LineUnitBefore},
                                     {"Расстояния 'ПОСЛЕ' (линии сетки)", paragraph.LineUnitAfter},
-                                    {"Междустрочные интервалы (правило)", paragraph.LineSpacingRule}
+                                    {"Межстрочные интервалы (правило)", paragraph.LineSpacingRule}
                                 }));
                     }
                 }

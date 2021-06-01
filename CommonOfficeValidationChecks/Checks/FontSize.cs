@@ -43,15 +43,21 @@ namespace CommonOfficeValidationChecks.Checks
                     checkResult.CheckedObjects.Add(new CheckedObject(paragraphText, checkResult));
                     if (!_sizeList.Contains(paragraph.Range.Font.Size))
                     {
+                        var violationData = new Dictionary<string, object>();
+                        if (paragraph.Range.Font.Size == 9999999)
+                        {
+                            violationData.Add("Сообщение об ошибке", paragraph.Range.Font.Size == 9999999 ? "Разный размер шрифта в абзаце" : null);
+                        }
+                        else
+                        {
+                            violationData.Add("Размер", paragraph.Range.Font.Size);   
+                        }
                         checkResult.Violations.Add(new Violation(
                             checkResult,
                             wordDocument,
                             paragraphText,
                             ViolationLevel.Error,
-                            new Dictionary<string, object>()
-                                {
-                                    {"Размер", paragraph.Range.Font.Size}
-                                }));
+                            violationData));
                     }
                 }
             }
