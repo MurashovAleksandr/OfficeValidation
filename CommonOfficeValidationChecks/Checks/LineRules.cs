@@ -73,12 +73,22 @@ namespace CommonOfficeValidationChecks.Checks
                                     {"Межстрочный интервал (пункты)", paragraph.LineSpacing},
                                     {"Расстояния 'ДО' (линии сетки)", paragraph.LineUnitBefore},
                                     {"Расстояния 'ПОСЛЕ' (линии сетки)", paragraph.LineUnitAfter},
-                                    {"Межстрочные интервалы (правило)", paragraph.LineSpacingRule}
+                                    {"Межстрочные интервалы (правило)", _wdLineSpacingTranslate[paragraph.LineSpacingRule]}
                                 }));
                     }
                 }
             }
             return checkResult;
         }
+
+        private Dictionary<WdLineSpacing, string> _wdLineSpacingTranslate = new()
+        {
+            { WdLineSpacing.wdLineSpace1pt5, "Межстрочный интервал (пробел) и половина линии. Интервалы эквивалентны текущему размеру шрифта плюс 6 точкам" },
+            { WdLineSpacing.wdLineSpaceAtLeast, "Межстрочный интервал всегда по крайней мере на указанную величину. Значение задается отдельно" },
+            { WdLineSpacing.wdLineSpaceDouble, "Двойной интервал" },
+            { WdLineSpacing.wdLineSpaceExactly, "Межстрочный интервал — это только максимальный требуемый объем пространства. Этот параметр обычно использует меньше места, чем одинарный интервал" },
+            { WdLineSpacing.wdLineSpaceMultiple, "Межстрочный интервал определяется количеством указанных строк" },
+            { WdLineSpacing.wdLineSpaceSingle, "Одинарный интервал. По умолчанию" }
+        };
     }
 }
