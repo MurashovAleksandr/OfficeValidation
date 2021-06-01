@@ -1,4 +1,5 @@
-﻿using OfficeValidationLib.Classes;
+﻿using System.Collections.Generic;
+using OfficeValidationLib.Classes;
 using OfficeValidationLib.Classes.Documents;
 using OfficeValidationLib.Enums;
 using OfficeValidationLib.Interfaces;
@@ -26,7 +27,8 @@ namespace CommonOfficeValidationChecks.Checks
                         checkResult,
                         wordDocument,
                         wordDocument,
-                        ViolationLevel.Error));
+                        ViolationLevel.Error,
+                        new Dictionary<string, object>() { { "Сообщение об ошибке", "Документ без оглавления" } }));
                 }
             }
 
