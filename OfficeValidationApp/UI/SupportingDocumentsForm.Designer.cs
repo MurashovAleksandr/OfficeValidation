@@ -50,10 +50,10 @@
             this.objectListViewDocuments.GridLines = true;
             this.objectListViewDocuments.HideSelection = false;
             this.objectListViewDocuments.Location = new System.Drawing.Point(0, 0);
-            this.objectListViewDocuments.Margin = new System.Windows.Forms.Padding(4);
+            this.objectListViewDocuments.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.objectListViewDocuments.Name = "objectListViewDocuments";
             this.objectListViewDocuments.ShowGroups = false;
-            this.objectListViewDocuments.Size = new System.Drawing.Size(484, 461);
+            this.objectListViewDocuments.Size = new System.Drawing.Size(726, 745);
             this.objectListViewDocuments.TabIndex = 8;
             this.objectListViewDocuments.UseCompatibleStateImageBehavior = false;
             this.objectListViewDocuments.UseFiltering = true;
@@ -72,11 +72,13 @@
             // 
             // SupportingDocumentsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 461);
+            this.ClientSize = new System.Drawing.Size(726, 745);
             this.Controls.Add(this.objectListViewDocuments);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SupportingDocumentsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список поддерживаемых документов";

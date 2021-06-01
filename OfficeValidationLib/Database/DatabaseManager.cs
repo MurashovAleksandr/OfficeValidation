@@ -21,7 +21,7 @@ namespace OfficeValidationLib.Database
         {
             using (var commandGetChecks =
                 new SQLiteCommand(
-                    "SELECT Id, Name, DisplayName, Description, Active, Assembly, ClassName FROM 'Check';",
+                    "SELECT Id, Name, DisplayName, Description, Active, Assembly, ClassName FROM 'Check' where Active = 1;",
                     _connection))
             {
                 using (var readerGetChecks = commandGetChecks.ExecuteReader())

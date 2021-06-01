@@ -37,16 +37,18 @@
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar.Location = new System.Drawing.Point(12, 55);
+            this.progressBar.Location = new System.Drawing.Point(18, 89);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(376, 23);
+            this.progressBar.Size = new System.Drawing.Size(564, 37);
             this.progressBar.TabIndex = 0;
             // 
             // labelWaitText
             // 
             this.labelWaitText.AutoSize = true;
             this.labelWaitText.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelWaitText.Location = new System.Drawing.Point(27, 9);
+            this.labelWaitText.Location = new System.Drawing.Point(121, 27);
+            this.labelWaitText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWaitText.Name = "labelWaitText";
             this.labelWaitText.Size = new System.Drawing.Size(345, 31);
             this.labelWaitText.TabIndex = 1;
@@ -57,7 +59,8 @@
             // 
             this.labelMessage.AutoSize = true;
             this.labelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.labelMessage.Location = new System.Drawing.Point(10, 80);
+            this.labelMessage.Location = new System.Drawing.Point(15, 129);
+            this.labelMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Size = new System.Drawing.Size(114, 13);
             this.labelMessage.TabIndex = 2;
@@ -65,17 +68,19 @@
             // 
             // SplashForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 100);
+            this.ClientSize = new System.Drawing.Size(600, 162);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.labelWaitText);
             this.Controls.Add(this.progressBar);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(400, 100);
+            this.MaximumSize = new System.Drawing.Size(600, 162);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(400, 100);
+            this.MinimumSize = new System.Drawing.Size(600, 162);
             this.Name = "SplashForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

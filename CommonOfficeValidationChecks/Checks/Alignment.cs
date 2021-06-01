@@ -47,14 +47,27 @@ namespace CommonOfficeValidationChecks.Checks
                             wordDocument,
                             paragraph.Range.Text,
                             ViolationLevel.Error,
-                            new Dictionary<string, object>()
+                            new Dictionary<string, object>
                                 {
-                                    {"Выравнивание абзаца", paragraph.Alignment}
+                                    {"Выравнивание абзаца", _alignmentTranslate[paragraph.Alignment]}
                                 }));
                     }
                 }
             }
             return checkResult;
         }
+
+        private Dictionary<WdParagraphAlignment, string> _alignmentTranslate = new()
+            {
+                {WdParagraphAlignment.wdAlignParagraphCenter, "Выровненный по центру"},
+                {WdParagraphAlignment.wdAlignParagraphDistribute, "Символы абзаца распространяются для заполнения всей ширины абзаца"},
+                {WdParagraphAlignment.wdAlignParagraphJustify, "Полностью выравниваются"},
+                {WdParagraphAlignment.wdAlignParagraphJustifyHi, "По ширине при высоком коэффициенте сжатия символов"},
+                {WdParagraphAlignment.wdAlignParagraphJustifyLow, "По ширине с минимальным коэффициентом сжатия символов"},
+                {WdParagraphAlignment.wdAlignParagraphJustifyMed, "Выравниваются со степенью сжатия среднего символа"},
+                {WdParagraphAlignment.wdAlignParagraphLeft, "Выравнивание по левому краю"},
+                {WdParagraphAlignment.wdAlignParagraphRight, "Выравнивание по правому краю"},
+                {WdParagraphAlignment.wdAlignParagraphThaiJustify, "Выравниваются в соответствии с разметкой тайского форматирования"}
+            };
     }
 }

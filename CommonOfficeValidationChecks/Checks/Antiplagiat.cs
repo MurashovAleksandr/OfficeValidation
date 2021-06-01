@@ -1,9 +1,6 @@
 ﻿using Antiplagiat.ApiCorp;
 using Antiplagiat.ApiCorp.Model;
-using Microsoft.Office.Interop.Word;
-using Newtonsoft.Json.Linq;
 using OfficeValidationLib.Classes;
-using OfficeValidationLib.Classes.Documents;
 using OfficeValidationLib.Enums;
 using OfficeValidationLib.Interfaces;
 using System;

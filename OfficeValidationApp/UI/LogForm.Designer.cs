@@ -46,7 +46,7 @@
             this.toolStripButtonSave});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(645, 25);
+            this.toolStrip.Size = new System.Drawing.Size(726, 25);
             this.toolStrip.TabIndex = 0;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -77,10 +77,10 @@
             this.objectListViewLogs.GridLines = true;
             this.objectListViewLogs.HideSelection = false;
             this.objectListViewLogs.Location = new System.Drawing.Point(0, 25);
-            this.objectListViewLogs.Margin = new System.Windows.Forms.Padding(5);
+            this.objectListViewLogs.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.objectListViewLogs.Name = "objectListViewLogs";
             this.objectListViewLogs.ShowGroups = false;
-            this.objectListViewLogs.Size = new System.Drawing.Size(645, 296);
+            this.objectListViewLogs.Size = new System.Drawing.Size(726, 396);
             this.objectListViewLogs.TabIndex = 7;
             this.objectListViewLogs.UseCompatibleStateImageBehavior = false;
             this.objectListViewLogs.UseFiltering = true;
@@ -89,7 +89,7 @@
             // olvColumnSeverity
             // 
             this.olvColumnSeverity.Text = "Важность";
-            this.olvColumnSeverity.Width = 75;
+            this.olvColumnSeverity.Width = 118;
             // 
             // olvColumnMessage
             // 
@@ -108,14 +108,14 @@
             // 
             // LogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 321);
+            this.ClientSize = new System.Drawing.Size(726, 421);
             this.Controls.Add(this.objectListViewLogs);
             this.Controls.Add(this.toolStrip);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Журнал сообщений";
