@@ -13,7 +13,7 @@ namespace CommonOfficeValidationChecks.Checks
     public class LineRules : CheckBase
     {
         /// <summary>
-        /// Задает допустимые междустрочные интервалы (в пунктах) для абзацев
+        /// Задает допустимые межстрочные интервалы (в пунктах) для абзацев
         /// </summary>
         private float[] _lineSpacingList;
 
@@ -28,7 +28,7 @@ namespace CommonOfficeValidationChecks.Checks
         private float[] _lineUnitAfterList;
 
         /// <summary>
-        ///Задает допустимые междустрочные интервалы для абзацев
+        ///Задает допустимые межстрочные интервалы для абзацев
         /// </summary>
         private WdLineSpacing[] _lineSpacingRuleList;
 

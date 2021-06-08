@@ -14,7 +14,10 @@ namespace CommonOfficeValidationChecks.Checks
 
         public override ICheckResult Perform(ISession session)
         {
-            var wordDocuments = session.Documents.Where(x => x is WordDocument).Cast<WordDocument>().ToArray();
+            var wordDocuments = session.Documents
+                .Where(x => x is WordDocument)
+                .Cast<WordDocument>()
+                .ToArray();
             var checkResult = new CheckResult(this);
 
             foreach (var wordDocument in wordDocuments)
@@ -31,7 +34,6 @@ namespace CommonOfficeValidationChecks.Checks
                         new Dictionary<string, object>() { { "Сообщение об ошибке", "Документ без оглавления" } }));
                 }
             }
-
             return checkResult;
         }
     }
